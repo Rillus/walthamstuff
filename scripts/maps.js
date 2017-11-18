@@ -1,4 +1,4 @@
-var map, GeoMarker;
+var map, GeoMarker, geocoder;
 
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -15,8 +15,9 @@ var getJSON = function(url, callback) {
     xhr.send();
 };
 
+// Creates map and adds pins/infoWindows
 function initialize() {
-    getJSON('http://maps.walthamstuff.com/api/index.php/locations', function(err, data) {
+    getJSON('//maps.walthamstuff.com/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -61,12 +62,46 @@ function initialize() {
                 });
             });
 
-
             GeoMarker.setMap(map);
-
         }
     });
 }
+
+// Fetches addresses with no associated lat/lon data and adds it to the database
+function codeAddress() {
+    geocoder = new google.maps.Geocoder();
+
+    getJSON('//maps.walthamstuff.com/api/index.php/locations/no_latlon', function(err, data) {
+        if (err !== null) {
+            alert('Something went wrong: ' + err);
+        } else {
+            data.forEach(function(element) {
+                var address = element.address;
+                geocoder.geocode({'address': address}, function(results, status) {
+                    if (status == 'OK') {
+                        // for (var i = 0; i < results.length; i++) {
+                            var lat = results[0].geometry.location.lat(),
+                                lon = results[0].geometry.location.lng(),
+                                id = element.id;
+                                
+                            console.log(lat, lon, id);
+
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.open("POST", "//maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
+                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
+                        // }
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            });
+        }
+    });
+}
+
+// Turn this on to encode lat/lon into db
+// codeAddress();
 
 google.maps.event.addDomListener(window, 'load', initialize);
 

@@ -27,7 +27,7 @@ class Locations extends CI_Controller {
 		$location = $this->db->where('address !=', '')
 							 ->where('lat', '')
 							 ->where('lon', '')
-							 ->get('locations');
+							 ->get('locations', 2);
 
 		if ($location->num_rows() > 0) {
 			echo json_encode($location->result());
@@ -54,5 +54,17 @@ class Locations extends CI_Controller {
 		if ($location->num_rows() > 0) {
 			echo json_encode($location->result());
 		}
+	}
+
+	public function post_latlon() {
+		$id = $this->input->post('id');
+		
+		$data = array(
+			'lat' => $this->input->post('lat'), 
+			'lon' => $this->input->post('lon')
+		);
+
+		$this->db->where('id', $id)
+				 ->update('locations', $data);
 	}
 }
