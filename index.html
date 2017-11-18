@@ -10,34 +10,27 @@
     <script src="scripts/maps.js"></script>
   </head>
   <body>
-    <div class="header"> </div>
-      <nav>
-        <ul>
-          <li> Item 1
-            <ul>
-              <li> Sub Item 1 </li>
-              <li> Sub Item 2 </li>
-              <li> Sub Item 3 </li>
-              <li> Sub Item 4 </li>
-              <li> Sub Item 5 </li>
-              <li> Sub Item 6 </li>
-              <li> Sub Item 7 </li>
-              <li> Sub Item 8 </li>
-              <li> Sub Item 9 </li>
-              <li> Sub Item 10 </li>
-              <li> Sub Item 11 </li>
-              <li> Sub Item 12 </li>
-              <li> Sub Item 13 </li>
-              <li> Sub Item 14 </li>
-              <li> Sub Item 15 </li>
-              <li> Sub Item 16 </li>
-              <li> Sub Item 17 </li>
-            </ul>
-          </li>
+    <header class="Header">
+      <div class="Header-icon">
+        <img class="Header-iconImage" src="images/w.jpg" alt="">
+      </div>
 
-        </ul>
-      </nav>
+      <h2 class="Header-title">Walthamstuff</h2>
+      
+      <ul class="Header-nav">
+        <li class="Header-navItem Header-navItem--active">Map</li>
+        <li class="Header-navItem">About</li>
+      </ul>
+    </header>
 
-      <div id="map_canvas"></div>
-    </body>
-  </html>
+    <nav class="Filter">
+      <ul class="Filter-container">
+        <li class="Filter-parent" tabindex="1"> What would you like to find?
+          <ul class="Filter-list" id="filter-list"></ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="map_canvas"></div>
+  </body>
+</html>

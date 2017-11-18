@@ -23,6 +23,17 @@ class Locations extends CI_Controller {
 		}
 	}
 
+	public function category($cat) {
+		$cat = urldecode($cat);
+		
+		$location = $this->db->where('category', $cat)
+							 ->get('locations');
+
+		if ($location->num_rows() > 0) {
+			echo json_encode($location->result());
+		}
+	}
+
 	public function no_latlon() {
 		$location = $this->db->where('address !=', '')
 							 ->where('lat', '')
