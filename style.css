@@ -1,0 +1,46 @@
+html, body, #map_canvas {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.header{
+  background:white;
+  border-bottom:#ccc 1px solid;
+  padding:50px;
+}
+
+body {
+  font-family: Helvectica, Arial, sans-serif;
+  line-height: .75;
+  font-size: 14px
+}
+nav ul {
+  position: relative;
+  z-index: 1000;
+}
+nav ul li  {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 5px 2px 5px;
+    margin: 20px 20px;
+    width: 100px;
+    height: 20px;
+    border: #ccc 1px solid;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+
+}
+
+nav ul li ul li {
+  display: block;
+  color: black;
+  background-color: white;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
