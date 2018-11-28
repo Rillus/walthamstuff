@@ -76,7 +76,6 @@ function initialize(cat) {
                     createCategoryIfNotExist(element.category);
                 });
                 createCategoryList();
-                console.log(data);
             }
         });
     }
