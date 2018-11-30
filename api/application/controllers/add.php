@@ -14,8 +14,10 @@ class add extends CI_Controller {
 	}
 
 	public function index() {
-		
-
 		echo 'hi';
+	}
+
+	public function location() {
+		echo 'wut?';
 	}
 }
