@@ -70,7 +70,7 @@ body {
   background-position: 230px 18px;
 }
 
-.Filter-container { 
+.Filter-container {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -94,7 +94,7 @@ body {
   border: 1px solid #C7CBD2;
   border-top: none;
   max-height: 150px;
-  overflow-y: scroll; 
+  overflow-y: scroll;
 }
 
 .Filter-parent:focus .Filter-list,
@@ -115,4 +115,3 @@ body {
   right: 0;
   bottom: 0;
 }
-
