@@ -141,7 +141,7 @@ function createCategoryList() {
 
     var getNewCategory = function(e) {
         e.preventDefault();
-        initialize(e.toElement.innerHTML);
+        initialize(e.target.innerHTML);
     };
 
     for (var i = 0; i < classname.length; i++) {
