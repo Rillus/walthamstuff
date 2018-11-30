@@ -20,13 +20,20 @@ class add extends CI_Controller {
 	public function location() {
         $submissionData = $this->input->post();
 
-        if ($user->num_rows() == 0) {
-            $response['status'] = 'success';
-            $response['code'] = '200';
-            $response['data'] = $submissionData;
+        if (! $submissionData) {
+            $response['status'] = 'error';
+            $response['code'] = '500';
+            $response['reason'] = 'No post data sent';
 
             echo json_encode($response);
             return;
         }
+
+        $response['status'] = 'success';
+        $response['code'] = '200';
+        $response['data'] = $submissionData;
+
+        echo json_encode($response);
+        return;
 	}
 }
