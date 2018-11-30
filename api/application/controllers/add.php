@@ -18,7 +18,28 @@ class add extends CI_Controller {
 	}
 
 	public function location() {
-        $submissionData = $this->input->post();
+
+	    $submissionData = $this->input->post();
+
+        $postCode = $this->input->post('postcode');
+        $name = $this->input->post('name');
+        $address = $this->input->post('address');
+        $category = $this->input->post('category');
+        $description = $this->input->post('description');
+        $website = $this->input->post('website');
+        $twitter_handle_url = $this->input->post('twitter');
+
+        $data = array(
+            'postcode' => $postCode,
+            'name' => $name,
+            'address' => $address,
+            'category' => $category,
+            'description' => $description,
+            'website' => $website,
+            'twitter' => $twitter_handle_url
+        );
+
+        $this->db->insert('locations', $data);
 
         if (! $submissionData) {
             $response['status'] = 'error';
