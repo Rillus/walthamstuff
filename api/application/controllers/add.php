@@ -30,13 +30,13 @@ class add extends CI_Controller {
         $twitter_handle_url = $this->input->post('twitter');
 
         $data = array(
-            $postCode => 'postcode',
-            $name => 'name',
-            $address => 'address',
-            $category => 'category',
-            $description => 'description',
-            $website => 'website',
-            $twitter_handle_url = 'twitter'
+            'postcode' => $postCode,
+            'name' => $name,
+            'address' => $address,
+            'category' => $category,
+            'description' => $description,
+            'website' => $website,
+            'twitter' => $twitter_handle_url
         );
 
         if (! $submissionData) {
