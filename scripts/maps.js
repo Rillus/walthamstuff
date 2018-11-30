@@ -93,7 +93,7 @@ function buildContentString(element) {
     contentString += '<p>Email: '+element.email+'</p>';
   }
   if (element.website) {
-    contentString += '<p>Website: <a href="'+element.website+'">'+element.website+'</p>';
+    contentString += '<p>Website: <a href="'+sanityCheckWebsite(element.website)+'">'+element.website+'</p>';
   }
   if (element.twitter) {
     contentString += '<p>Twitter: '+element.twitter+'</p>';
@@ -102,6 +102,13 @@ function buildContentString(element) {
     contentString += '<p>Telephone: '+element.telephone+'</p>';
   }
   return contentString;
+}
+
+function sanityCheckWebsite(website) {
+  if (!website.startsWith('http://') && !website.startsWith('https://')) {
+    website = 'http://'+website;
+  }
+  return website;
 }
 
 function createCategoryIfNotExist(cat) {
