@@ -75,7 +75,7 @@ function initialize(cat) {
                 alert('Something went wrong: ' + err);
             } else {
                 data.forEach(function(element) {
-                    createCategoryIfNotExist(element.category);
+                  createCategoryIfNotExist(element.category);
                 });
                 createCategoryList();
             }
@@ -119,12 +119,13 @@ function createCategoryIfNotExist(cat) {
 
 function createCategoryList() {
     var filterListEle = document.getElementById('filter-list');
+    var uniqueCategories = sortCategories(categories);
 
-    categories.forEach(function(cat) {
+    uniqueCategories.forEach(function(cat) {
         if (cat != ''){
             var node = document.createElement("li"),
                 anchorNode = document.createElement("a"),
-                textNode = document.createTextNode(cat);
+                textNode = document.createTextNode(toTitleCase(cat));
 
             anchorNode.appendChild(textNode);
             anchorNode.href="";
@@ -146,6 +147,29 @@ function createCategoryList() {
     for (var i = 0; i < classname.length; i++) {
         classname[i].addEventListener('click', getNewCategory, false);
     }
+}
+
+function sortCategories(categories) {
+  var categoriesLowerCase = [];
+  var uniqueCategories = [];
+
+  for (var i = 0; i < categories.length; i++) {
+    categoriesLowerCase.push(categories[i].toLowerCase());
+  }
+
+  for (var i = 0; i < categoriesLowerCase.length; i++) {
+      if(!uniqueCategories.includes(categoriesLowerCase[i])) uniqueCategories.push(categoriesLowerCase[i]);
+  }
+  return uniqueCategories.sort();
+}
+
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
 }
 
 // function onClickFilter(evt) {
