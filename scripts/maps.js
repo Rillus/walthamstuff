@@ -1,20 +1,4 @@
-var map, GeoMarker, geocoder,
-    categories = [];
-
-var getJSON = function(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-        var status = xhr.status;
-        if (status === 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status, xhr.response);
-        }
-    };
-    xhr.send();
-};
+var map, GeoMarker, geocoder;
 
 // Creates map and adds pins/infoWindows
 function initialize(cat) {
@@ -23,7 +7,7 @@ function initialize(cat) {
         center: new google.maps.LatLng(51.590420, -0.012275),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-  
+
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
     GeoMarker = new GeolocationMarker();
@@ -42,24 +26,26 @@ function initialize(cat) {
                 // google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
                 //     alert('There was an error obtaining your position. Message: ' + e.message);
                 // });
-
-                if (data !== null) {     
+                var infoWindows = [];
+                if (data !== null) {
                     data.forEach(function(element) {
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(element.lat, element.lon),
                             map: map
                         });
 
-                        var contentString = '<h2>'+element.name+'<h2><p>'+element.description+'</p>';
+                        var contentString = buildContentString(element);
 
-                        var infowindow = new google.maps.InfoWindow({
+                        var infoWindow = new google.maps.InfoWindow({
                             content: contentString
                         });
+                        infoWindows.push(infoWindow);
 
                         marker.addListener('click', function() {
-                            infowindow.open(map, marker);
-
-                            openWindow = infowindow;
+                          for (i = 0; i < infoWindows.length; i++) {
+                              infoWindows[i].close();
+                          }
+                          infoWindow.open(map, marker);
                         });
                     });
                 }
@@ -73,7 +59,7 @@ function initialize(cat) {
                 alert('Something went wrong: ' + err);
             } else {
                 data.forEach(function(element) {
-                    createCategoryIfNotExist(element.category);
+                  createUniqueCategoryList(element.category);
                 });
                 createCategoryList();
             }
@@ -81,27 +67,50 @@ function initialize(cat) {
     }
 }
 
-function createCategoryIfNotExist(cat) {
-    if (!categories.includes(cat.toLowerCase())) {
-        categories.push(cat.toLowerCase());
-    }
+function buildContentString(element) {
+  var contentString = '<h2>'+element.name+'</h2>'+
+  '<p>'+element.address+'</p>';
+  if (element.description) {
+    contentString += '<p>'+element.description+'</p>';
+  }
+  if (element.email) {
+    contentString += '<p>Email: '+element.email+'</p>';
+  }
+  if (element.website) {
+    contentString += '<p>Website: <a href="'+sanityCheckWebsite(element.website)+'">'+element.website+'</p>';
+  }
+  if (element.twitter) {
+    contentString += '<p>Twitter: '+element.twitter+'</p>';
+  }
+  if (element.telephone) {
+    contentString += '<p>Telephone: '+element.telephone+'</p>';
+  }
+  return contentString;
+}
+
+function sanityCheckWebsite(website) {
+  if (!website.startsWith('http://') && !website.startsWith('https://')) {
+    website = 'http://'+website;
+  }
+  return website;
 }
 
 function createCategoryList() {
     var filterListEle = document.getElementById('filter-list');
+    var uniqueCategories = categories.sort();
 
-    categories.forEach(function(cat) {
+    uniqueCategories.forEach(function(cat) {
         if (cat !== ''){
             var node = document.createElement("li"),
                 anchorNode = document.createElement("a"),
-                textNode = document.createTextNode(cat);
+                textNode = document.createTextNode(toTitleCase(cat));
 
             anchorNode.appendChild(textNode);
             anchorNode.href="";
             anchorNode.className += "Filter-listItemAnchor";
             node.appendChild(anchorNode);
             node.className += "Filter-listItem";
-            
+
             filterListEle.appendChild(node);
         }
     });
@@ -110,8 +119,7 @@ function createCategoryList() {
 
     var getNewCategory = function(e) {
         e.preventDefault();
-        console.log(e.toElement.innerHTML);
-        initialize(e.toElement.innerHTML);
+        initialize(e.target.innerHTML);
     };
 
     for (var i = 0; i < classname.length; i++) {
@@ -119,9 +127,9 @@ function createCategoryList() {
     }
 }
 
-function onClickFilter(evt) {
-    console.log('hi', evt);
-}
+// function onClickFilter(evt) {
+//     console.log('hi', evt);
+// }
 
 var placeInCount = 0;
 
