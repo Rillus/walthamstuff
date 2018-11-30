@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="scripts/add.js"></script>
-        <script src="scripts/common.js"></script>
-    </head>
-    <body>
-        <form>
+  <head>
+    <title>Add a new location to Walthamstuff Map</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="scripts/add.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <header class="Header">
+      <div class="Header-icon">
+        <img class="Header-iconImage" src="images/w.jpg" alt="">
+      </div>
+
+      <h2 class="Header-title">Walthamstuff</h2>
+
+      <ul class="Header-nav">
+        <li class="Header-navItem">Map</li>
+        <li class="Header-navItem">About</li>
+        <li class="Header-navItem Header-navItem--active"><a href="/add.html">Add location</a></li>
+      </ul>
+    </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form class ="form-containter">
             <fieldset>
-                <div>
+                <div class="form-group">
                     <label for="postcode">Postcode</label>
-                    <input type="text" id="postcode" name="postcode">
+                    <input type="text" id="postcode" name="postcode" class="form-control">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="name">Name of Place</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" class="form-control">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" id="address" name="address">
+                    <input type="text" id="address" name="address" class="form-control">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="category">Categories</label>
-                    <select name="category" id="category">
-                            <option value=""></option>
+                    <select name="category" id="category" class="form-control">
+
                     </select>
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="description">Description</label>
-                    <input type="text" id="description" name="description">
+                    <input type="text" id="description" name="description" class="form-control">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="website">Website</label>
-                    <input type="text" id="website" name="website">
+                    <input type="text" id="website" name="website" class="form-control">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="twitter">Twitter</label>
-                    <input type="text" id="twitter" name="twitter">
+                    <input type="text" id="twitter" name="twitter" class="form-control">
                 </div>
 
-                <input value="Submit" type="submit">
+                <button value="Submit" type="submit" class="btn btn-primary">Submit</button>
 
         </fieldset>
         </form>
+      </div>
+    </div>
+  </div>
     </body>
 </html>
