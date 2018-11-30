@@ -78,4 +78,13 @@ class Locations extends CI_Controller {
 		$this->db->where('id', $id)
 				 ->update('locations', $data);
 	}
+
+	public function id($id) {
+		$entry = $this->db->where('id', $id)
+				 		  ->get('locations');
+
+		if ($entry->num_rows() > 0) {
+			echo json_encode($entry->result());
+		}
+	}
 }
