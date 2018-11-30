@@ -24,7 +24,7 @@ class add extends CI_Controller {
             $response['status'] = 'error';
             $response['code'] = '500';
             $response['reason'] = 'No post data sent';
-
+            
             echo json_encode($response);
             return;
         }
