@@ -5,7 +5,7 @@ class install extends CI_Controller {
 	public function __construct() {
         parent::__construct();
 
-        $this->load->database();
+        // $this->load->database();
 
         header("Access-Control-Allow-Origin: *");
         header('Content-type: application/json');
@@ -28,13 +28,20 @@ class install extends CI_Controller {
 		// Connect to MySQL server
 		mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
 		// Select database
-		mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
 
-		// Temporary variable, used to store current query
+		// Create db
+		$sql = "CREATE DATABASE walthams_maps";
+		mysql_query($sql) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+
+		mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
+		// echo 'wut'
+
+		//Temporary variable, used to store current query
 		$templine = '';
 		// Read in entire file
 		$lines = file($filename);
 		// Loop through each line
+
 		
 		foreach ($lines as $line) {
 			// Skip it if it's a comment
