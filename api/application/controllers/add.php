@@ -14,10 +14,19 @@ class add extends CI_Controller {
 	}
 
 	public function index() {
-		echo 'hi';
+		echo 'Welcome';
 	}
 
 	public function location() {
-		echo 'wut?';
+        $submissionData = $this->input->post();
+
+        if ($user->num_rows() == 0) {
+            $response['status'] = 'success';
+            $response['code'] = '200';
+            $response['data'] = $submissionData;
+
+            echo json_encode($response);
+            return;
+        }
 	}
 }
