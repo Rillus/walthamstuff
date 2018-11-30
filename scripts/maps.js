@@ -23,7 +23,7 @@ function initialize(cat) {
         center: new google.maps.LatLng(51.590420, -0.012275),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-  
+
     map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
     GeoMarker = new GeolocationMarker();
@@ -42,24 +42,26 @@ function initialize(cat) {
                 // google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
                 //     alert('There was an error obtaining your position. Message: ' + e.message);
                 // });
-
-                if (data !== null) {     
+                var infoWindows = [];
+                if (data !== null) {
                     data.forEach(function(element) {
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(element.lat, element.lon),
                             map: map
                         });
 
-                        var contentString = '<h2>'+element.name+'<h2><p>'+element.description+'</p>';
+                        var contentString = buildContentString(element);
 
-                        var infowindow = new google.maps.InfoWindow({
+                        var infoWindow = new google.maps.InfoWindow({
                             content: contentString
                         });
+                        infoWindows.push(infoWindow);
 
                         marker.addListener('click', function() {
-                            infowindow.open(map, marker);
-
-                            openWindow = infowindow;
+                          for (i = 0; i < infoWindows.length; i++) {
+                              infoWindows[i].close();
+                          }
+                          infoWindow.open(map, marker);
                         });
                     });
                 }
@@ -79,6 +81,27 @@ function initialize(cat) {
             }
         });
     }
+}
+
+function buildContentString(element) {
+  var contentString = '<h2>'+element.name+'</h2>'+
+  '<p>'+element.address+'</p>';
+  if (element.description) {
+    contentString += '<p>'+element.description+'</p>';
+  }
+  if (element.email) {
+    contentString += '<p>Email: '+element.email+'</p>';
+  }
+  if (element.website) {
+    contentString += '<p>Website: <a href="'+element.website+'">'+element.website+'</p>';
+  }
+  if (element.twitter) {
+    contentString += '<p>Twitter: '+element.twitter+'</p>';
+  }
+  if (element.telephone) {
+    contentString += '<p>Telephone: '+element.telephone+'</p>';
+  }
+  return contentString;
 }
 
 function createCategoryIfNotExist(cat) {
@@ -101,7 +124,7 @@ function createCategoryList() {
             anchorNode.className += "Filter-listItemAnchor";
             node.appendChild(anchorNode);
             node.className += "Filter-listItem";
-            
+
             filterListEle.appendChild(node);
         }
     });
@@ -110,7 +133,6 @@ function createCategoryList() {
 
     var getNewCategory = function(e) {
         e.preventDefault();
-        console.log(e.toElement.innerHTML);
         initialize(e.toElement.innerHTML);
     };
 
@@ -119,9 +141,9 @@ function createCategoryList() {
     }
 }
 
-function onClickFilter(evt) {
-    console.log('hi', evt);
-}
+// function onClickFilter(evt) {
+//     console.log('hi', evt);
+// }
 
 
 // Fetches addresses with no associated lat/lon data and adds it to the database
@@ -140,8 +162,6 @@ function codeAddress() {
                             var lat = results[0].geometry.location.lat(),
                                 lon = results[0].geometry.location.lng(),
                                 id = element.id;
-                                
-                            console.log(lat, lon, id);
 
                             var xhttp = new XMLHttpRequest();
                             xhttp.open("POST", "//maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
