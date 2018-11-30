@@ -1,20 +1,4 @@
-var map, GeoMarker, geocoder,
-    categories = [];
-
-var getJSON = function(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-        var status = xhr.status;
-        if (status === 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status, xhr.response);
-        }
-    };
-    xhr.send();
-};
+var map, GeoMarker, geocoder;
 
 // Creates map and adds pins/infoWindows
 function initialize(cat) {
@@ -75,7 +59,7 @@ function initialize(cat) {
                 alert('Something went wrong: ' + err);
             } else {
                 data.forEach(function(element) {
-                  createCategoryIfNotExist(element.category);
+                  createUniqueCategoryList(element.category);
                 });
                 createCategoryList();
             }
@@ -111,15 +95,9 @@ function sanityCheckWebsite(website) {
   return website;
 }
 
-function createCategoryIfNotExist(cat) {
-    if (!categories.includes(cat)) {
-        categories.push(cat);
-    }
-}
-
 function createCategoryList() {
     var filterListEle = document.getElementById('filter-list');
-    var uniqueCategories = sortCategories(categories);
+    var uniqueCategories = categories.sort();
 
     uniqueCategories.forEach(function(cat) {
         if (cat != ''){
@@ -147,29 +125,6 @@ function createCategoryList() {
     for (var i = 0; i < classname.length; i++) {
         classname[i].addEventListener('click', getNewCategory, false);
     }
-}
-
-function sortCategories(categories) {
-  var categoriesLowerCase = [];
-  var uniqueCategories = [];
-
-  for (var i = 0; i < categories.length; i++) {
-    categoriesLowerCase.push(categories[i].toLowerCase());
-  }
-
-  for (var i = 0; i < categoriesLowerCase.length; i++) {
-      if(!uniqueCategories.includes(categoriesLowerCase[i])) uniqueCategories.push(categoriesLowerCase[i]);
-  }
-  return uniqueCategories.sort();
-}
-
-function toTitleCase(str) {
-  return str.replace(
-    /\w\S*/g,
-    function(txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    }
-  );
 }
 
 // function onClickFilter(evt) {
