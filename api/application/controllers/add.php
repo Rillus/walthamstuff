@@ -39,6 +39,8 @@ class add extends CI_Controller {
             'twitter' => $twitter_handle_url
         );
 
+        $this->db->insert('locations', $data);
+
         if (! $submissionData) {
             $response['status'] = 'error';
             $response['code'] = '500';
