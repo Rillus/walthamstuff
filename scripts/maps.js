@@ -100,7 +100,7 @@ function createCategoryList() {
     var uniqueCategories = categories.sort();
 
     uniqueCategories.forEach(function(cat) {
-        if (cat != ''){
+        if (cat !== ''){
             var node = document.createElement("li"),
                 anchorNode = document.createElement("a"),
                 textNode = document.createTextNode(toTitleCase(cat));
@@ -131,6 +131,38 @@ function createCategoryList() {
 //     console.log('hi', evt);
 // }
 
+var placeInCount = 0;
+
+function geocodeIteration(data) {
+    var element = data[placeInCount];
+    if(element && element.address) {
+        var address = element.address;
+        geocoder.geocode({'address': address}, function(results, status) {
+            if (status == 'OK') {
+                // for (var i = 0; i < results.length; i++) {
+                    var lat = results[0].geometry.location.lat(),
+                        lon = results[0].geometry.location.lng(),
+                        id = element.id;
+                        
+                    console.log(lat, lon, id);
+
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.open("POST", "//maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
+                // }
+            } else {
+                console.log('Geocode was not successful for the following reason: ' + status, element);
+            }
+        });
+    }
+    
+    if (placeInCount <= data.length) {
+        placeInCount ++;
+
+        window.setTimeout(function(){geocodeIteration(data);},600);
+    }
+}
 
 // Fetches addresses with no associated lat/lon data and adds it to the database
 function codeAddress() {
@@ -140,25 +172,7 @@ function codeAddress() {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
-            data.forEach(function(element) {
-                var address = element.address;
-                geocoder.geocode({'address': address}, function(results, status) {
-                    if (status == 'OK') {
-                        // for (var i = 0; i < results.length; i++) {
-                            var lat = results[0].geometry.location.lat(),
-                                lon = results[0].geometry.location.lng(),
-                                id = element.id;
-
-                            var xhttp = new XMLHttpRequest();
-                            xhttp.open("POST", "//maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
-                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                            xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
-                        // }
-                    } else {
-                        alert('Geocode was not successful for the following reason: ' + status);
-                    }
-                });
-            });
+            geocodeIteration(data);
         }
     });
 }

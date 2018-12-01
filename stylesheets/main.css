@@ -36,6 +36,11 @@ body {
   vertical-align: middle;
 }
 
+.Header-title a {
+  color: #4B5361;
+  text-decoration: none;
+}
+
 .Header-nav {
   display: inline-block;
   list-style: none;
@@ -48,12 +53,18 @@ body {
   font-size: 14px;
   color: #4B5361;
   padding: 30px 0;
-  width: 90px;
+  width: 120px;
   text-align: center;
 }
 
 .Header-navItem--active {
-  border-bottom: 2px solid #EE6468
+  border-bottom: 2px solid #EE6468;
+  width: 90px;
+}
+
+.Header-navItem a {
+  color: #4B5361;
+  text-decoration: none;
 }
 
 .Filter {
@@ -94,6 +105,8 @@ body {
   border-top: none;
   max-height: 150px;
   overflow-y: scroll;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .Filter-parent:focus .Filter-list,
@@ -125,4 +138,14 @@ body {
 .form-container fieldset:not(:first-child) {
   border-top: 1px solid #ddd;
   padding-top: 20px;
+}
+
+.btn-primary {
+  background-color: #c83b3f;
+  border-color: #c83b3f;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:focus-within, .btn-primary:visited {
+  background-color: #aa383b;
+  border-color: #aa383b;
 }

@@ -11,15 +11,25 @@
     <script src="scripts/maps.js"></script>
     <script src="scripts/common.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85517052-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-85517052-1');
+    </script>
   </head>
   <body>
     <header class="Header">
       <div class="Header-icon">
-        <img class="Header-iconImage" src="images/w.jpg" alt="">
+        <a href="http://walthamstuff.com"><img class="Header-iconImage" src="images/w.jpg" alt=""></a>
       </div>
 
-      <h2 class="Header-title">Walthamstuff</h2>
-
+      <h2 class="Header-title"><a href="http://walthamstuff.com">Walthamstuff</a></h2>
+      
       <ul class="Header-nav">
         <li class="Header-navItem Header-navItem--active">Map</li>
         <li class="Header-navItem">About</li>
