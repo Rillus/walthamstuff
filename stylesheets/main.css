@@ -127,3 +127,20 @@ body {
   right: 0;
   bottom: 0;
 }
+
+.form-containter {
+  margin-top:40px;
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  padding:20px;
+}
+
+.btn-primary {
+  background-color: #c83b3f;
+  border-color: #c83b3f;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:focus-within, .btn-primary:visited {
+  background-color: #aa383b;
+  border-color: #aa383b;
+}
