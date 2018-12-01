@@ -30,13 +30,13 @@ class add extends CI_Controller {
         $twitter_handle_url = $this->input->post('twitter');
 
         $data = array(
-            'postcode' => $postCode,
             'name' => $name,
-            'address' => $address,
+            'address' => $address.', '.$postCode,
             'category' => $category,
             'description' => $description,
             'website' => $website,
-            'twitter' => $twitter_handle_url
+            'twitter' => $twitter_handle_url,
+            'status' => '1'
         );
 
         $this->db->insert('locations', $data);
