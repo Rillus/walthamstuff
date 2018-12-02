@@ -82,8 +82,9 @@ class add extends CI_Controller {
 				echo json_encode($response);
 				return;
 			}
+		} else {
+			$this->db->insert('locations', $data);
 		}
-		$this->db->insert('locations', $data);
 
 		$response['status'] = 'success';
 		$response['code'] = '200';
