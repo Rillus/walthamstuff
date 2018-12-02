@@ -1,30 +1,34 @@
 window.onload = function () {
-
     getJSON('//maps.walthamstuff.com/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
             data.forEach(function(element) {
                 createUniqueCategoryList(element.category);
-                });
-                createCategoryList();
-                getLocation();
+            });
+            createCategoryList();
+            getLocation();
+            updateFormAction();
         }
     });
+};
 
-    
+function getLocationIdFromUrl() {
+    var url = new URL(window.location),
+        id = url.searchParams.get("id");
+
+    return id;
 }
 
 function getLocation () {
-    var url = new URL(window.location);
-    var id = url.searchParams.get("id");
+    var id = getLocationIdFromUrl();
     getJSON('//maps.walthamstuff.com/api/index.php/locations/id/' + id, function(err, data) {
-            if (err !== null) {
-                alert('Something went wrong: ' + err);
-            } else {
-                populateForm(data[0]);
-            }
-        });
+        if (err !== null) {
+            alert('Something went wrong: ' + err);
+        } else {
+            populateForm(data[0]);
+        }
+    });
 }
 
 function createCategoryList() {
@@ -33,13 +37,13 @@ function createCategoryList() {
     var select = document.getElementById("category");
 
     uniqueCategories.forEach(function(cat, index) {
-      if (cat != ''){
-        var option = document.createElement("option");
-        option.text = toTitleCase(cat);
-        option.setAttribute('value', cat);
-        
-        select.add(option);
-      }
+        if (cat !== ''){
+            var option = document.createElement("option");
+            option.text = toTitleCase(cat);
+            option.setAttribute('value', cat);
+            
+            select.add(option);
+        }
     });
 
     var classname = document.getElementsByClassName("Filter-listItemAnchor");
@@ -66,4 +70,15 @@ function populateForm (data) {
             select.options[i].setAttribute('selected', 'selected');
         }
     }
+}
+
+function updateFormAction() {
+    var id = getLocationIdFromUrl(),
+        thisForm = document.getElementById('editForm'),
+        formAction = thisForm.getAttribute("action");
+
+    formAction += '/'+id;
+
+    thisForm.action = formAction;
+
 }

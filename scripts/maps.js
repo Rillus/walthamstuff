@@ -68,24 +68,27 @@ function initialize(cat) {
 }
 
 function buildContentString(element) {
-  var contentString = '<h2>'+element.name+'</h2>'+
-  '<p>'+element.address+'</p>';
-  if (element.description) {
-    contentString += '<p>'+element.description+'</p>';
-  }
-  if (element.email) {
-    contentString += '<p>Email: '+element.email+'</p>';
-  }
-  if (element.website) {
-    contentString += '<p>Website: <a href="'+sanityCheckWebsite(element.website)+'">'+element.website+'</p>';
-  }
-  if (element.twitter) {
-    contentString += '<p>Twitter: '+element.twitter+'</p>';
-  }
-  if (element.telephone) {
-    contentString += '<p>Telephone: '+element.telephone+'</p>';
-  }
-  return contentString;
+    var contentString = '<h2>'+element.name+'</h2>'+
+    '<p>'+element.address+'</p>';
+    if (element.description) {
+        contentString += '<p>'+element.description+'</p>';
+    }
+    if (element.email) {
+        contentString += '<p>Email: '+element.email+'</p>';
+    }
+    if (element.website) {
+        contentString += '<p>Website: <a href="'+sanityCheckWebsite(element.website)+'">'+element.website+'</p>';
+    }
+    if (element.twitter) {
+        contentString += '<p>Twitter: '+element.twitter+'</p>';
+    }
+    if (element.telephone) {
+        contentString += '<p>Telephone: '+element.telephone+'</p>';
+    }
+    
+    contentString += '<a href="edit.html?id='+element.id+'">Edit</a>';
+
+    return contentString;
 }
 
 function sanityCheckWebsite(website) {
@@ -126,10 +129,6 @@ function createCategoryList() {
         classname[i].addEventListener('click', getNewCategory, false);
     }
 }
-
-// function onClickFilter(evt) {
-//     console.log('hi', evt);
-// }
 
 var placeInCount = 0;
 
