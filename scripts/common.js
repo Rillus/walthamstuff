@@ -64,7 +64,7 @@ function sendData(e) {
 
     // Define what happens on successful data submission
     XHR.addEventListener('load', function(event) {
-        alert('Yeah! Data sent and response loaded.');
+        window.location.assign('index.html');
     });
 
     // Define what happens in case of error

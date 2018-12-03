@@ -77,7 +77,7 @@ body {
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #C7CBD2;
-  background: url(images/down.png) #fff no-repeat;
+  background: url(../images/down.png) #fff no-repeat;
   background-position: 230px 18px;
 }
 

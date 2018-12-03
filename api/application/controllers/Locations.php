@@ -37,7 +37,9 @@ class Locations extends CI_Controller {
 	public function no_latlon() {
 		$location = $this->db->where('address !=', '')
 							 ->where('lat', '')
+							 ->or_where('lat', NULL)
 							 ->where('lon', '')
+							 ->or_where('lon', NULL)
 							 ->get('locations', 600);
 
 		if ($location->num_rows() > 0) {
