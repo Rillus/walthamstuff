@@ -58,10 +58,12 @@ function initialize(cat) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
-                data.forEach(function(element) {
-                  createUniqueCategoryList(element.category);
-                });
-                createCategoryList();
+                if (data !== null) {
+                    data.forEach(function(element) {
+                      createUniqueCategoryList(element.category);
+                    });
+                    createCategoryList();
+                }
             }
         });
     }
@@ -171,13 +173,15 @@ function codeAddress() {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
-            geocodeIteration(data);
+            if (data !== null) {
+                geocodeIteration(data);
+            }
         }
     });
 }
 
-// Turn this on to encode lat/lon into db
-// codeAddress();
+// Turn this off if every address has lat/lon (now you can add locations, we'll let this add the correct data upon page load if necessary)
+codeAddress();
 
 google.maps.event.addDomListener(window, 'load', initialize);
 

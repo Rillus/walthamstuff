@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class add extends CI_Controller {
+class Add extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
@@ -58,7 +58,7 @@ class add extends CI_Controller {
 		
 		$data = array(
 			'name' => $name,
-			'address' => $address.', '.$postCode,
+			'address' => $address,
 			'category' => $category,
 			'description' => $description,
 			'website' => $website,
@@ -72,8 +72,10 @@ class add extends CI_Controller {
 								  ->get('locations', 1);
 
 			if ($thisEntry->num_rows() > 0) {
-				$this->db->where('id', $id)
-						 ->update('locations', $data);
+				$data['location_id'] = $id;
+				$data['status'] = '0';
+
+				$this->db->insert('revisions', $data);
 			} else {
 				$response['status'] = 'error';
 				$response['code'] = '500';
@@ -83,6 +85,8 @@ class add extends CI_Controller {
 				return;
 			}
 		} else {
+			$data['address'] = $address.', '.$postCode;
+
 			$this->db->insert('locations', $data);
 		}
 
