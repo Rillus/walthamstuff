@@ -16,6 +16,7 @@ class Locations extends CI_Controller {
 	public function index() {
 		$location = $this->db->where('lat !=', '')
 							 ->where('lon !=', '')
+							 ->where('status', 0)
 							 ->get('locations');
 
 		if ($location->num_rows() > 0) {
@@ -27,6 +28,7 @@ class Locations extends CI_Controller {
 		$cat = strtolower(urldecode($cat));
 
 		$location = $this->db->where('category', $cat)
+							 ->where('status', 0)
 							 ->get('locations');
 
 		if ($location->num_rows() > 0) {
