@@ -1,15 +1,17 @@
-.Filter {
-    position: absolute;
-    top: 80px;
-    left: 10px;
+.Category {
     z-index: 100;
-    width: 250px;
+    // width: 250px;
+    margin: 10px;
     height: 40px;
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #C7CBD2;
     background: url(../images/down.png) #fff no-repeat;
     background-position: 230px 18px;
+
+    @media(max-width: 600px){
+        display: none;
+    }
     
     &-container {
         list-style: none;
@@ -41,7 +43,7 @@
 
     &-parent:focus,
     &-parent:hover {
-        .Filter-list {
+        .Category-list {
             display: block;
             background-color: #fff;
         }

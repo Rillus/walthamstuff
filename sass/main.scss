@@ -12,8 +12,12 @@ body {
 }
 
 @import 'components/Header';
-@import 'components/Filter';
+@import 'components/Filters';
+@import 'components/Datepicker';
+@import 'components/Capacity';
+@import 'components/Category';
 @import 'components/Venues';
+@import 'components/VenueDetails';
 @import 'btn';
 @import 'form';
 @import 'map';

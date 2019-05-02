@@ -1,0 +1,52 @@
+.VenueDetails {
+    max-width: 900px;
+    
+    &-hero {
+        background-image: url('../images/venues/william-morris-gallery.jpg');
+        background-size: cover;
+        background-position: center center;
+        min-height: 300px;
+        width: 100%;
+        max-width: 900px;
+        position: relative;
+    }
+    
+    &-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        padding: 20px;
+        margin: 0;
+    }
+
+    &-address {
+
+    }
+
+    &-contact_name {
+
+    }
+
+    &-description {
+
+    }
+
+    &-email {
+
+    }
+
+    &-telephone {
+
+    }
+
+    &-twitter {
+
+    }
+
+    &-website {
+
+    }
+}

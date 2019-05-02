@@ -4,10 +4,8 @@
         <title>Walthamstuff Map</title>
         <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
         <link rel="stylesheet" href="stylesheets/main.css">
-        <link rel="stylesheet" href="scripts/jquery.datetimepicker.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <script src="scripts/moment.min.js"></script>
         <script
           src="https://code.jquery.com/jquery-3.4.0.min.js"
           integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
@@ -15,9 +13,8 @@
         <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAuS_MJIVCEDCGeA0uWQXZL7Ybht6bnjg8"></script>
         <script src="scripts/geolocation-marker.js"></script>
         <script src="scripts/common.js"></script>
-        <script src="scripts/maps.js"></script>
+        <script src="scripts/venue.js"></script>
         <script src="scripts/bootstrap.min.js"></script>
-        <script src="scripts/jquery.datetimepicker.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85517052-1"></script>
@@ -32,29 +29,19 @@
     <body>
         <header class="Header">
             <div class="Header-icon">
-                <a href="http://walthamstuff.com"><img class="Header-iconImage" src="images/w.jpg" alt=""></a>
+                <a href="index.html" class="Header-iconImage Header-iconImage--back"></a>
             </div>
 
 
-            <h2 class="Header-title"><a href="/">WF Venue Finder</a></h2>
+            <h2 class="Header-title"><a href="/" class="Header-titleText">WF Venue Finder</a></h2>
         </header>
 
-        <nav class="Filters">
-            <input id="datetimepicker" class="Datepicker" type="text" placeholder="From">
-            <input id="datetimepicker2" class="Datepicker" type="text" placeholder="Until">
-            <input id="min-capacity" class="Capacity" type="text" placeholder="Min. Capacity">
-            <input id="max-capacity" class="Capacity" type="text" placeholder="Max. Capacity">
-            <div class="Category">
-                <ul class="Category-container">
-                    <li class="Category-parent" tabindex="1"> What would you like to find?
-                        <ul class="Category-list" id="filter-list"></ul>
-                    </li>
-                </ul>
+        <section class="VenueDetails">
+            <div class="VenueDetails-hero">
+                <h1 class="VenueDetails-title"></h1>
             </div>
-        </nav>
 
-        <section class="Venues">
-            <ul class="Venues-list" id="venue-list"></ul>
+            <p class="VenueDetails-description"></p>
         </section>
 
         <div id="map_canvas"></div>

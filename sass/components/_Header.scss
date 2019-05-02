@@ -1,6 +1,6 @@
 .Header {
     background: #111;
-    border-bottom:#ccc 1px solid;
+    border-bottom:#222 1px solid;
     padding: 0;
 
     &-icon {
@@ -9,12 +9,20 @@
         overflow: hidden;
         display: inline-block;
         vertical-align: middle;
+
+        &Image {
+            width: 20px;
+            height: 20px;
+            display: block;
+
+            &--back {
+                background-image: url(../images/back.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        }
     }
 
-    &-iconImage {
-        width: 40px;
-        height: 40px;
-    }
 
     &-title {
         display: inline-block;
@@ -22,10 +30,13 @@
         margin: 0;
         vertical-align: middle;
         font-size: 26px;
+        max-width: calc(100% - 110px);
+        overflow: hidden;
+        height: 30px;
     }
 
     &-title a {
-        color: #4B5361;
+        color: #ddd;
         text-decoration: none;
     }
 
