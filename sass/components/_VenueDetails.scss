@@ -37,7 +37,7 @@
         color: #ddd;
         font-size: 16px;
         line-height: 18px;
-        margin: 20px 20px 40px;        
+        margin: 20px 20px 30px;        
     }
 
     &-images {
@@ -80,5 +80,18 @@
         @media(max-width: 600px) {
             display: block;
         }
+    }
+
+    h3 {
+        color: white;
+        font-size: 18px;
+        padding: 20px 20px 0;
+    }
+
+    &-list {
+        color: white;
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 40px;
     }
 }

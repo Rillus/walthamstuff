@@ -297,7 +297,7 @@ body {
   color: #ddd;
   font-size: 16px;
   line-height: 18px;
-  margin: 20px 20px 40px;
+  margin: 20px 20px 30px;
 }
 /* line 43, ../sass/components/_VenueDetails.scss */
 .VenueDetails-images {
@@ -341,6 +341,19 @@ body {
   .VenueDetails-greyed {
     display: block;
   }
+}
+/* line 85, ../sass/components/_VenueDetails.scss */
+.VenueDetails h3 {
+  color: white;
+  font-size: 18px;
+  padding: 20px 20px 0;
+}
+/* line 91, ../sass/components/_VenueDetails.scss */
+.VenueDetails-list {
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 40px;
 }
 
 /* line 1, ../sass/components/_Map.scss */
