@@ -8,4 +8,10 @@
     @media(max-width: 600px) {
         display: none;
     }
+
+    &--venue {
+        @media(max-width: 600px) {
+            display: block;
+        }        
+    }
 }
