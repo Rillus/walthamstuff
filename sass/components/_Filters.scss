@@ -2,9 +2,11 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    z-index: 99;
 
     input {
-        display: block;
+        display: inline-block;
     }
 }

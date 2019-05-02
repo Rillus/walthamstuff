@@ -97,10 +97,10 @@ function displayVenue(venue) {
         'website',
     ];
 
-    values.forEach(function(value) {
-        console.log('.VenueDetails-'+value, venue[value]);
-        $('.VenueDetails-'+value).html(venue[value]);
-    });
+    // values.forEach(function(value) {
+    //     console.log('.VenueDetails-'+value, venue[value]);
+    //     $('.VenueDetails-'+value).html(venue[value]);
+    // });
 }
 
 function getLocationIdFromUrl() {

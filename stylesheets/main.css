@@ -87,11 +87,49 @@ body {
   width: 100%;
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 99;
 }
-/* line 7, ../sass/components/_Filters.scss */
+/* line 9, ../sass/components/_Filters.scss */
 .Filters input {
-  display: block;
+  display: inline-block;
+}
+
+/* line 1, ../sass/components/_Button.scss */
+.Button {
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 3px;
+  float: right;
+  margin: 10px 10px 10px 0;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  font-size: 16px;
+}
+/* line 14, ../sass/components/_Button.scss */
+.Button--primary {
+  background-color: #009688;
+}
+/* line 17, ../sass/components/_Button.scss */
+.Button--primary:hover {
+  background-color: #00c9b6;
+  color: white;
+}
+/* line 23, ../sass/components/_Button.scss */
+.Button--secondary {
+  background-color: #00635a;
+  color: #ddd;
+}
+/* line 27, ../sass/components/_Button.scss */
+.Button--secondary:hover {
+  background-color: #009688;
+  color: #333;
+}
+/* line 33, ../sass/components/_Button.scss */
+.Button:hover {
+  text-decoration: none;
 }
 
 /* line 1, ../sass/components/_Datepicker.scss */
@@ -100,6 +138,7 @@ body {
   padding: 10px;
   border-radius: 3px;
   border: 1px solid #ccc;
+  width: 125px;
 }
 
 /* line 1, ../sass/components/_Capacity.scss */
@@ -108,14 +147,16 @@ body {
   padding: 10px;
   border-radius: 3px;
   border: 1px solid #ccc;
-  width: 120px;
+  width: 110px;
 }
 
 /* line 1, ../sass/components/_Category.scss */
 .Category {
+  position: absolute;
   z-index: 100;
+  top: 53px;
+  right: 0;
   margin: 10px;
-  height: 40px;
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #C7CBD2;
@@ -128,18 +169,18 @@ body {
     display: none;
   }
 }
-/* line 16, ../sass/components/_Category.scss */
+/* line 17, ../sass/components/_Category.scss */
 .Category-container {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 22, ../sass/components/_Category.scss */
+/* line 23, ../sass/components/_Category.scss */
 .Category-parent {
   padding: 14px 8px 10px;
   position: relative;
 }
-/* line 27, ../sass/components/_Category.scss */
+/* line 28, ../sass/components/_Category.scss */
 .Category-list {
   display: none;
   list-style: none;
@@ -156,12 +197,12 @@ body {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-/* line 46, ../sass/components/_Category.scss */
+/* line 47, ../sass/components/_Category.scss */
 .Category-parent:focus .Category-list, .Category-parent:hover .Category-list {
   display: block;
   background-color: #fff;
 }
-/* line 52, ../sass/components/_Category.scss */
+/* line 53, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
@@ -235,8 +276,52 @@ body {
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 20px;
+  padding: 20px 20px 60px;
   margin: 0;
+}
+/* line 25, ../sass/components/_VenueDetails.scss */
+.VenueDetails-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* line 32, ../sass/components/_VenueDetails.scss */
+.VenueDetails-description {
+  color: #ddd;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 20px 20px 40px;
+}
+/* line 39, ../sass/components/_VenueDetails.scss */
+.VenueDetails-images {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/* line 47, ../sass/components/_VenueDetails.scss */
+.VenueDetails-image {
+  display: inline-block;
+  width: 33%;
+  height: 200px;
+  background-size: cover;
+}
+
+/* line 1, ../sass/components/_Map.scss */
+.Map {
+  position: absolute;
+  top: 113px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@media (max-width: 600px) {
+  /* line 1, ../sass/components/_Map.scss */
+  .Map {
+    display: none;
+  }
 }
 
 /* line 1, ../sass/_btn.scss */
@@ -265,19 +350,4 @@ body {
 /* line 12, ../sass/_form.scss */
 .form-container label {
   color: white;
-}
-
-/* line 1, ../sass/_map.scss */
-#map_canvas {
-  position: absolute;
-  top: 113px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-@media (max-width: 600px) {
-  /* line 1, ../sass/_map.scss */
-  #map_canvas {
-    display: none;
-  }
 }
