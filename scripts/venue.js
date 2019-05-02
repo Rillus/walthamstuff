@@ -1,4 +1,37 @@
-var venue;
+var venue,
+    map = null,
+    markers = [];
+
+function buildContentString(element) {
+    var contentString = '<h2>'+element.name+'</h2>'+
+    '<p>'+element.address+'</p>';
+    if (element.description) {
+        contentString += '<p>'+element.description+'</p>';
+    }
+    if (element.email) {
+        contentString += '<p>Email: '+element.email+'</p>';
+    }
+    if (element.website) {
+        contentString += '<p>Website: <a href="'+sanityCheckWebsite(element.website)+'">'+element.website+'</p>';
+    }
+    if (element.twitter) {
+        contentString += '<p>Twitter: '+element.twitter+'</p>';
+    }
+    if (element.telephone) {
+        contentString += '<p>Telephone: '+element.telephone+'</p>';
+    }
+    
+    contentString += '<a href="edit.html?id='+element.id+'">Edit</a>';
+
+    return contentString;
+}
+
+function sanityCheckWebsite(website) {
+  if (!website.startsWith('http://') && !website.startsWith('https://')) {
+    website = 'http://'+website;
+  }
+  return website;
+}
 
 function setUpMap() {
     if (map === null) {
@@ -21,11 +54,6 @@ function setMarkers(map) {
 }
 
 function createMap(cat) {
-    console.log(isDesktop);
-    if (!isDesktop) {
-        return;
-    }
-
     map = setUpMap();
 
     console.log('createMap', cat);
@@ -40,41 +68,22 @@ function createMap(cat) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
-                // google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
-                //     map.setCenter(this.getPosition());
-                //     map.fitBounds(this.getBounds());
-                // });
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(venue.lat, venue.lon),
+                    map: map
+                });
 
-                // google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
-                //     alert('There was an error obtaining your position. Message: ' + e.message);
-                // });
-                var infoWindows = [];
-                if (data !== null) {
-                    data.forEach(function(element) {
-                        var marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(element.lat, element.lon),
-                            map: map
-                        });
+                markers.push(marker);
 
-                        markers.push(marker);
+                var contentString = buildContentString(venue);
 
-                        var contentString = buildContentString(element);
+                var infoWindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
 
-                        var infoWindow = new google.maps.InfoWindow({
-                            content: contentString
-                        });
-                        infoWindows.push(infoWindow);
+                infoWindow.open(map, marker);
 
-                        marker.addListener('click', function() {
-                          for (i = 0; i < infoWindows.length; i++) {
-                              infoWindows[i].close();
-                          }
-                          infoWindow.open(map, marker);
-                        });
-
-                        setMarkers(map);
-                    });
-                }
+                setMarkers(map);
 
                 GeoMarker.setMap(map);
             }
@@ -82,7 +91,7 @@ function createMap(cat) {
     }
 }
 
-function displayVenue(venue) {
+function displayVenue() {
     console.log(venue);
     $('.VenueDetails-title').html(venue.name);
     $('.Header-titleText').html(venue.name);
@@ -116,6 +125,7 @@ function getLocation() {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
+            venue = data[0];
             displayVenue(data[0]);
         }
     });
@@ -124,6 +134,7 @@ function getLocation() {
 // Creates map and adds pins/infoWindows
 function initialize() {
     getLocation();
+    createMap();
 }
 
 function sanityCheckWebsite(website) {

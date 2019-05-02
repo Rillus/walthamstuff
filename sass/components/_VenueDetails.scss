@@ -18,8 +18,12 @@
         right: 0;
         background-color: rgba(0,0,0,0.5);
         color: white;
-        padding: 20px 20px 60px;
+        padding: 20px 20px 80px;
         margin: 0;
+
+        @media(max-width: 600px) {
+            padding-bottom: 120px;
+        }
     }
 
     &-actions {
@@ -49,5 +53,32 @@
         width: 33%;
         height: 200px;
         background-size: cover;
+    }
+
+    &-dateprice {
+        position: absolute;
+        bottom: 0;
+        color: white;
+        font-weight: bold;
+        padding: 20px 0 0 20px;
+
+    }
+
+    &-price {
+        font-size: 22px;
+    }
+
+    &-date {
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 18px;
+    }
+
+    &-greyed {
+        opacity: 0.6;
+
+        @media(max-width: 600px) {
+            display: block;
+        }
     }
 }

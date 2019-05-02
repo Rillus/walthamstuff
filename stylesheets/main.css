@@ -276,24 +276,30 @@ body {
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 20px 20px 60px;
+  padding: 20px 20px 80px;
   margin: 0;
 }
-/* line 25, ../sass/components/_VenueDetails.scss */
+@media (max-width: 600px) {
+  /* line 14, ../sass/components/_VenueDetails.scss */
+  .VenueDetails-title {
+    padding-bottom: 120px;
+  }
+}
+/* line 29, ../sass/components/_VenueDetails.scss */
 .VenueDetails-actions {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
-/* line 32, ../sass/components/_VenueDetails.scss */
+/* line 36, ../sass/components/_VenueDetails.scss */
 .VenueDetails-description {
   color: #ddd;
   font-size: 16px;
   line-height: 18px;
   margin: 20px 20px 40px;
 }
-/* line 39, ../sass/components/_VenueDetails.scss */
+/* line 43, ../sass/components/_VenueDetails.scss */
 .VenueDetails-images {
   max-width: 100%;
   display: flex;
@@ -301,12 +307,40 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* line 47, ../sass/components/_VenueDetails.scss */
+/* line 51, ../sass/components/_VenueDetails.scss */
 .VenueDetails-image {
   display: inline-block;
   width: 33%;
   height: 200px;
   background-size: cover;
+}
+/* line 58, ../sass/components/_VenueDetails.scss */
+.VenueDetails-dateprice {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  font-weight: bold;
+  padding: 20px 0 0 20px;
+}
+/* line 67, ../sass/components/_VenueDetails.scss */
+.VenueDetails-price {
+  font-size: 22px;
+}
+/* line 71, ../sass/components/_VenueDetails.scss */
+.VenueDetails-date {
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 18px;
+}
+/* line 77, ../sass/components/_VenueDetails.scss */
+.VenueDetails-greyed {
+  opacity: 0.6;
+}
+@media (max-width: 600px) {
+  /* line 77, ../sass/components/_VenueDetails.scss */
+  .VenueDetails-greyed {
+    display: block;
+  }
 }
 
 /* line 1, ../sass/components/_Map.scss */
@@ -321,6 +355,26 @@ body {
   /* line 1, ../sass/components/_Map.scss */
   .Map {
     display: none;
+  }
+}
+/* line 12, ../sass/components/_Map.scss */
+.Map--venue {
+  position: static;
+  margin-top: 20px;
+  width: 900px;
+  height: 350px;
+  display: block !important;
+}
+@media (min-width: 900px) {
+  /* line 12, ../sass/components/_Map.scss */
+  .Map--venue {
+    position: absolute;
+    top: 33px;
+    bottom: 0;
+    height: calc(100% - 53px);
+    right: 0;
+    left: auto;
+    width: calc(100% - 900px);
   }
 }
 
