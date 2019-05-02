@@ -1,17 +1,42 @@
-var map, GeoMarker, geocoder;
+var map = null,
+    GeoMarker,
+    geocoder,
+    markers = [],
+    isDesktop;
 
-// Creates map and adds pins/infoWindows
-function initialize(cat) {
-    var mapOptions = {
-        zoom: 12,
-        center: new google.maps.LatLng(51.590420, -0.012275),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+function setUpMap() {
+    if (map === null) {
+        var mapOptions = {
+            zoom: 12,
+            center: new google.maps.LatLng(51.590420, -0.012275),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
 
-    map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+    }
+    return map;
+}
+
+function setMarkers(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+function createMap(cat) {
+    console.log(isDesktop);
+    if (!isDesktop) {
+        return;
+    }
+
+    map = setUpMap();
+
+    console.log('createMap', cat);
 
     GeoMarker = new GeolocationMarker();
     GeoMarker.setCircleOptions({fillColor: '#808080'});
+
+    setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
         getJSON('//maps.walthamstuff.com/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
@@ -34,6 +59,8 @@ function initialize(cat) {
                             map: map
                         });
 
+                        markers.push(marker);
+
                         var contentString = buildContentString(element);
 
                         var infoWindow = new google.maps.InfoWindow({
@@ -47,26 +74,33 @@ function initialize(cat) {
                           }
                           infoWindow.open(map, marker);
                         });
+
+                        setMarkers(map);
                     });
                 }
 
                 GeoMarker.setMap(map);
             }
         });
-    } else {
-        getJSON('//maps.walthamstuff.com/api/index.php/locations', function(err, data) {
-            if (err !== null) {
-                alert('Something went wrong: ' + err);
-            } else {
-                if (data !== null) {
-                    data.forEach(function(element) {
-                      createUniqueCategoryList(element.category);
-                    });
-                    createCategoryList();
-                }
-            }
-        });
     }
+}
+
+// Creates map and adds pins/infoWindows
+function initialize() {
+    console.log('init');
+
+    getJSON('//maps.walthamstuff.com/api/index.php/locations', function(err, data) {
+        if (err !== null) {
+            alert('Something went wrong: ' + err);
+        } else {
+            if (data !== null) {
+                data.forEach(function(element) {
+                    createUniqueCategoryList(element.category);
+                });
+                createCategoryList();
+            }
+        }
+    });
 }
 
 function buildContentString(element) {
@@ -124,7 +158,8 @@ function createCategoryList() {
 
     var getNewCategory = function(e) {
         e.preventDefault();
-        initialize(e.target.innerHTML);
+
+        createMap(e.target.innerHTML);
     };
 
     for (var i = 0; i < classname.length; i++) {
@@ -181,9 +216,45 @@ function codeAddress() {
 }
 
 // Turn this off if every address has lat/lon (now you can add locations, we'll let this add the correct data upon page load if necessary)
-codeAddress();
+// codeAddress();
 
-google.maps.event.addDomListener(window, 'load', initialize);
+
+$(document).ready(function() {
+    initialize();
+    isDesktop = $(window).width() > 600;
+    
+    if (isDesktop) {
+        google.maps.event.addDomListener(window, 'load', createMap);
+    }
+    
+    /* listen out for end of window resize and fire createMap function if on Desktop */
+    var resizeTime;
+    var resizeTimeout = false;
+    var delta = 200;
+
+    $(window).resize(function() {
+        resizeTime = new Date();
+        if (resizeTimeout === false) {
+            resizeTimeout = true;
+            setTimeout(resizeEnd, delta);
+        }
+    });
+
+    function resizeEnd() {
+        if (new Date() - resizeTime < delta) {
+            setTimeout(resizeEnd, delta);
+        } else {
+            resizeTimeout = false;
+            var isDesktopNow = $(window).width() > 600;
+
+            if (isDesktopNow && !isDesktop) {
+                createMap();
+            }
+        }
+    }
+    /* -- end resize stuff */
+});
+
 
 if(!navigator.geolocation) {
     alert('Your browser does not support geolocation');
