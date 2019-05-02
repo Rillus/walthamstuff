@@ -156,3 +156,9 @@ body {
   right: 0;
   bottom: 0;
 }
+@media (max-width: 600px) {
+  /* line 1, ../sass/_map.scss */
+  #map_canvas {
+    display: none;
+  }
+}
