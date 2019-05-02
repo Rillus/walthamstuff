@@ -95,6 +95,8 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 if (ENV === 'live') {
-	$db['default']['username'] = 'wfvf_user';
-	$db['default']['password'] = 'wfvf_db_now';
+	$db['default']['hostname'] = RDS_HOSTNAME;
+	$db['default']['database'] = RDS_DB_NAME;
+	$db['default']['username'] = RDS_USERNAME;
+	$db['default']['password'] = RDS_PASSWORD;
 }
