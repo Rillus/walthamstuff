@@ -1,5 +1,5 @@
 window.onload = function () {
-    getJSON('//maps.walthamstuff.com/api/index.php/locations', function(err, data) {
+    getJSON('api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -22,7 +22,7 @@ function getLocationIdFromUrl() {
 
 function getLocation () {
     var id = getLocationIdFromUrl();
-    getJSON('//maps.walthamstuff.com/api/index.php/locations/id/' + id, function(err, data) {
+    getJSON('api/index.php/locations/id/' + id, function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {

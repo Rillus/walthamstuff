@@ -40,7 +40,7 @@ function createMap(cat) {
     setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
-        getJSON('//maps.walthamstuff.com/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON('api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -90,7 +90,7 @@ function createMap(cat) {
 function initialize() {
     console.log('init');
 
-    getJSON('//maps.walthamstuff.com/api/index.php/locations', function(err, data) {
+    getJSON('api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -204,7 +204,7 @@ function createVenueList(venues) {
             textNode = document.createTextNode(toTitleCase(venue.name));
 
         anchorNode.appendChild(descriptionNode);
-        anchorNode.href="venue.html?q="+venue.id;
+        anchorNode.href="venue.html?id="+venue.id;
         anchorNode.id="venue-"+venue.id;
         anchorNode.setAttribute('data-venueid', venue.id);
         anchorNode.className += "Venues-listItemAnchor";
@@ -238,7 +238,7 @@ function geocodeIteration(data) {
                     console.log(lat, lon, id);
 
                     var xhttp = new XMLHttpRequest();
-                    xhttp.open("POST", "//maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
+                    xhttp.open("POST", "api/index.php/locations/post_latlon", true);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
                 // }
@@ -259,7 +259,7 @@ function geocodeIteration(data) {
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
 
-    getJSON('//maps.walthamstuff.com/api/index.php/locations/no_latlon', function(err, data) {
+    getJSON('api/index.php/locations/no_latlon', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -303,6 +303,7 @@ $(document).ready(function() {
             var isDesktopNow = $(window).width() > 600;
 
             if (isDesktopNow && !isDesktop) {
+                isDesktop = isDesktopNow;
                 createMap();
             }
         }
