@@ -1,6 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+switch($_SERVER['HTTP_HOST']) { 
+    case 'localhost':
+        define('ENV', 'local');
+    break;
+    
+    default:
+        define('ENV', 'live');
+    break;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

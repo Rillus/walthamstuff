@@ -2,7 +2,8 @@ var map = null,
     GeoMarker,
     geocoder,
     markers = [],
-    isDesktop;
+    isDesktop,
+    venues;
 
 function setUpMap() {
     if (map === null) {
@@ -94,10 +95,13 @@ function initialize() {
             alert('Something went wrong: ' + err);
         } else {
             if (data !== null) {
+                venues = data;
+
                 data.forEach(function(element) {
                     createUniqueCategoryList(element.category);
                 });
                 createCategoryList();
+                createVenueList(data);
             }
         }
     });
@@ -165,6 +169,57 @@ function createCategoryList() {
     for (var i = 0; i < classname.length; i++) {
         classname[i].addEventListener('click', getNewCategory, false);
     }
+}
+
+function highlightVenue(e) {
+    setMarkers(null);
+
+    var thisVenueId = e.target.attributes['data-venueid'].value;
+    var thisVenue = $.grep(venues, function(e){ return e.id == thisVenueId; });
+
+    thisVenue = thisVenue[0];
+
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(thisVenue.lat, thisVenue.lon),
+        map: map
+    });
+
+    markers = [];
+    markers.push(marker);
+
+    setMarkers(map);
+}
+
+function rollOffVenue() {
+    setMarkers(null);
+}
+
+function createVenueList(venues) {
+    var venueListEle = document.getElementById('venue-list');
+
+    venues.forEach(function(venue) {
+        var node = document.createElement("li"),
+            anchorNode = document.createElement("a"),
+            descriptionNode = document.createElement("div"),
+            textNode = document.createTextNode(toTitleCase(venue.name));
+
+        anchorNode.appendChild(descriptionNode);
+        anchorNode.href="venue.html?q="+venue.id;
+        anchorNode.id="venue-"+venue.id;
+        anchorNode.setAttribute('data-venueid', venue.id);
+        anchorNode.className += "Venues-listItemAnchor";
+        descriptionNode.appendChild(textNode);
+        descriptionNode.className += "Venues-listItemDescription";
+        node.appendChild(anchorNode);
+        node.className += "Venues-listItem";
+
+
+        venueListEle.appendChild(node);
+        
+        var thisEle = document.getElementById("venue-"+venue.id);
+        thisEle.addEventListener('mouseover', highlightVenue, false);
+        thisEle.addEventListener('mouseout', rollOffVenue, false);
+    });
 }
 
 var placeInCount = 0;

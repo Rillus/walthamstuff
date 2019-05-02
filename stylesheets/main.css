@@ -10,11 +10,12 @@ body {
   font-family: Helvectica, Arial, sans-serif;
   line-height: .75;
   font-size: 14px;
+  background-color: #303030;
 }
 
 /* line 1, ../sass/components/_Header.scss */
 .Header {
-  background: white;
+  background: #111;
   border-bottom: #ccc 1px solid;
   padding: 0;
 }
@@ -122,6 +123,52 @@ body {
 .Filter-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
+}
+
+/* line 1, ../sass/components/_Venues.scss */
+.Venues {
+  position: absolute;
+  top: 150px;
+  bottom: 0;
+  z-index: 100;
+  overflow-y: scroll;
+  width: 350px;
+}
+@media (max-width: 600px) {
+  /* line 1, ../sass/components/_Venues.scss */
+  .Venues {
+    width: 100%;
+  }
+}
+/* line 13, ../sass/components/_Venues.scss */
+.Venues-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+/* line 19, ../sass/components/_Venues.scss */
+.Venues-listItemAnchor {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: #bdbdbd;
+  height: 300px;
+  margin-bottom: 10px;
+  background-image: url("../images/venues/william-morris-gallery.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+/* line 31, ../sass/components/_Venues.scss */
+.Venues-listItemDescription {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 20px 40px;
+  color: white;
+  font-size: 20px;
+  line-height: 22px;
 }
 
 /* line 1, ../sass/_btn.scss */

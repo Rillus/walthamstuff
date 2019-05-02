@@ -94,3 +94,7 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+if (ENV === 'live') {
+	$db['default']['username'] = 'wfvf_user';
+	$db['default']['password'] = 'wfvf_db_now';
+}
