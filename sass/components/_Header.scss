@@ -1,0 +1,57 @@
+.Header {
+    background:white;
+    border-bottom:#ccc 1px solid;
+    padding: 0;
+
+    &-icon {
+        margin: 16px 32px;
+        border-radius: 20px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &-iconImage {
+        width: 40px;
+        height: 40px;
+    }
+
+    &-title {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
+        font-size: 26px;
+    }
+
+    &-title a {
+        color: #4B5361;
+        text-decoration: none;
+    }
+
+    &-nav {
+        display: inline-block;
+        list-style: none;
+        margin: 0 0 0 40px;
+        padding: 0;
+    }
+
+    &-navItem {
+        display: inline-block;
+        font-size: 14px;
+        color: #4B5361;
+        padding: 30px 0;
+        width: 120px;
+        text-align: center;
+    }
+
+    &-navItem--active {
+        border-bottom: 2px solid #EE6468;
+        width: 90px;
+    }
+
+    &-navItem a {
+        color: #4B5361;
+        text-decoration: none;
+    }
+}
