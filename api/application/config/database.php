@@ -95,8 +95,8 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 if (ENV === 'live') {
-	$db['default']['hostname'] = RDS_HOSTNAME;
-	$db['default']['database'] = RDS_DB_NAME;
-	$db['default']['username'] = RDS_USERNAME;
-	$db['default']['password'] = RDS_PASSWORD;
+	$db['default']['hostname'] = $_ENV["RDS_HOSTNAME"];
+	$db['default']['database'] = $_ENV["RDS_DB_NAME"];
+	$db['default']['username'] = $_ENV["RDS_USERNAME"];
+	$db['default']['password'] = $_ENV["RDS_PASSWORD"];
 }
