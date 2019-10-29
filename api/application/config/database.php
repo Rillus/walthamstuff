@@ -95,6 +95,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 if (ENV === 'live') {
+	// TODO for walthamstuff.com setup
 	$db['default']['hostname'] = $_ENV["RDS_HOSTNAME"];
 	$db['default']['database'] = $_ENV["RDS_DB_NAME"];
 	$db['default']['username'] = $_ENV["RDS_USERNAME"];
