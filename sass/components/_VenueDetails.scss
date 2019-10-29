@@ -1,0 +1,97 @@
+.VenueDetails {
+    max-width: 900px;
+    
+    &-hero {
+        background-image: url('../images/venues/william-morris-gallery.jpg');
+        background-size: cover;
+        background-position: center center;
+        min-height: 300px;
+        width: 100%;
+        max-width: 900px;
+        position: relative;
+    }
+    
+    &-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        padding: 20px 20px 80px;
+        margin: 0;
+
+        @media(max-width: 600px) {
+            padding-bottom: 120px;
+        }
+    }
+
+    &-actions {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &-description {
+        color: #ddd;
+        font-size: 16px;
+        line-height: 18px;
+        margin: 20px 20px 30px;        
+    }
+
+    &-images {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &-image {
+        display: inline-block;
+        width: 33%;
+        height: 200px;
+        background-size: cover;
+    }
+
+    &-dateprice {
+        position: absolute;
+        bottom: 0;
+        color: white;
+        font-weight: bold;
+        padding: 20px 0 0 20px;
+
+    }
+
+    &-price {
+        font-size: 22px;
+    }
+
+    &-date {
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 18px;
+    }
+
+    &-greyed {
+        opacity: 0.6;
+
+        @media(max-width: 600px) {
+            display: block;
+        }
+    }
+
+    h3 {
+        color: white;
+        font-size: 18px;
+        padding: 20px 20px 0;
+    }
+
+    &-list {
+        color: white;
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 40px;
+    }
+}

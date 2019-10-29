@@ -1,0 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Helvectica, Arial, sans-serif;
+  line-height: .75;
+  font-size: 14px;
+  background-color: #303030;
+}
+
+@import 'components/Header';
+@import 'components/Filters';
+@import 'components/Button';
+@import 'components/Datepicker';
+@import 'components/Capacity';
+@import 'components/Category';
+@import 'components/Venues';
+@import 'components/VenueDetails';
+@import 'components/Map';
+@import 'btn';
+@import 'form';

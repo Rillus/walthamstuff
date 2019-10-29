@@ -1,0 +1,44 @@
+.Venues {
+    position: absolute;
+    top: 113px;
+    bottom: 0;
+    z-index: 100;
+    overflow-y: scroll;
+    width: 350px;
+
+    @media(max-width: 600px) {
+        width: 100%;
+    }
+
+    &-list {
+        list-style: none;
+        padding: 0;
+        margin: 10px;
+
+        &Item {
+            &Anchor {
+                display: block;
+                position: relative;
+                width: 100%;
+                background-color: #bdbdbd;
+                height: 300px;
+                margin-bottom: 10px;
+                background-image: url('../images/venues/william-morris-gallery.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+            &Description {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(0,0,0, 0.5);
+                padding: 20px 20px 40px;
+                color: white;
+                font-size: 20px;
+                line-height: 22px;
+            }
+        }
+    }
+}

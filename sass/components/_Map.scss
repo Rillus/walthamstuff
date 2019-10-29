@@ -1,0 +1,29 @@
+.Map {
+    position: absolute;
+    top: 113px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @media(max-width: 600px) {
+        display: none;
+    }
+
+    &--venue {
+        position: static;
+        margin-top: 20px;
+        width: 900px;
+        height: 350px;
+        display: block !important;
+        
+        @media(min-width: 900px) {
+            position: absolute;
+            top: 33px;
+            bottom: 0;
+            height: calc(100% - 53px);
+            right: 0;
+            left: auto;
+            width: calc(100% - 900px);
+        }        
+    }
+}

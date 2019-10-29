@@ -1,0 +1,12 @@
+.Filters {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    z-index: 99;
+
+    input {
+        display: inline-block;
+    }
+}
