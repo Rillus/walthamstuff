@@ -20,7 +20,7 @@ function buildContentString(element) {
     if (element.telephone) {
         contentString += '<p>Telephone: '+element.telephone+'</p>';
     }
-    
+
     contentString += '<a href="edit.html?id='+element.id+'">Edit</a>';
 
     return contentString;
@@ -64,8 +64,9 @@ function createMap(cat) {
     setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
-        // getJSON('api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
-        getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+
+        getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -122,8 +123,9 @@ function getLocationIdFromUrl() {
 
 function getLocation() {
     var id = getLocationIdFromUrl();
-    // getJSON('api/index.php/locations/id/' + id, function(err, data) {
-    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations/id/' + id, function(err, data) {
+
+    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/id/' + id, function(err, data) {
+
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {

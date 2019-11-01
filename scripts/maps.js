@@ -40,7 +40,7 @@ function createMap(cat) {
     setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
-        getJSON('api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON('http://maps.walthamstuff.com/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -90,7 +90,7 @@ function createMap(cat) {
 function initialize() {
     console.log('init');
 
-    getJSON('api/index.php/locations', function(err, data) {
+    getJSON('http://maps.walthamstuff.com/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -125,7 +125,7 @@ function buildContentString(element) {
     if (element.telephone) {
         contentString += '<p>Telephone: '+element.telephone+'</p>';
     }
-    
+
     contentString += '<a href="edit.html?id='+element.id+'">Edit</a>';
 
     return contentString;
@@ -215,7 +215,7 @@ function createVenueList(venues) {
 
 
         venueListEle.appendChild(node);
-        
+
         var thisEle = document.getElementById("venue-"+venue.id);
         thisEle.addEventListener('mouseover', highlightVenue, false);
         thisEle.addEventListener('mouseout', rollOffVenue, false);
@@ -234,11 +234,11 @@ function geocodeIteration(data) {
                     var lat = results[0].geometry.location.lat(),
                         lon = results[0].geometry.location.lng(),
                         id = element.id;
-                        
+
                     console.log(lat, lon, id);
 
                     var xhttp = new XMLHttpRequest();
-                    xhttp.open("POST", "api/index.php/locations/post_latlon", true);
+                    xhttp.open("POST", "http://maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
                 // }
@@ -247,7 +247,7 @@ function geocodeIteration(data) {
             }
         });
     }
-    
+
     if (placeInCount <= data.length) {
         placeInCount ++;
 
@@ -259,7 +259,7 @@ function geocodeIteration(data) {
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
 
-    getJSON('api/index.php/locations/no_latlon', function(err, data) {
+    getJSON('http://maps.walthamstuff.com/api/index.php/locations/no_latlon', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -277,11 +277,11 @@ function codeAddress() {
 $(document).ready(function() {
     initialize();
     isDesktop = $(window).width() > 600;
-    
+
     if (isDesktop) {
         google.maps.event.addDomListener(window, 'load', createMap);
     }
-    
+
     /* listen out for end of window resize and fire createMap function if on Desktop */
     var resizeTime;
     var resizeTimeout = false;
