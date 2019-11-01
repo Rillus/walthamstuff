@@ -40,7 +40,7 @@ function createMap(cat) {
     setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
-        getJSON('api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON('https://maps.walthamstuff.com/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -90,7 +90,7 @@ function createMap(cat) {
 function initialize() {
     console.log('init');
 
-    getJSON('api/index.php/locations', function(err, data) {
+    getJSON('https://maps.walthamstuff.com/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -198,23 +198,35 @@ function createVenueList(venues) {
     var venueListEle = document.getElementById('venue-list');
 
     venues.forEach(function(venue) {
-        var node = document.createElement("li"),
+
+        console.log('venue', venue)
+
+        var listNode = document.createElement("li"),
             anchorNode = document.createElement("a"),
             descriptionNode = document.createElement("div"),
-            textNode = document.createTextNode(toTitleCase(venue.name));
+            nameNode = document.createElement("h3"),
+            nameDetailsNode = document.createTextNode(toTitleCase(venue.name)),   
+            addressNode = document.createElement("p"),
+            addressDetailsNode = document.createTextNode(toTitleCase(venue.address));
 
         anchorNode.appendChild(descriptionNode);
         anchorNode.href="venue.html?id="+venue.id;
         anchorNode.id="venue-"+venue.id;
         anchorNode.setAttribute('data-venueid', venue.id);
         anchorNode.className += "Venues-listItemAnchor";
-        descriptionNode.appendChild(textNode);
+
+        nameNode.appendChild(nameDetailsNode);
+        addressNode.appendChild(addressDetailsNode);
+
+        descriptionNode.appendChild(nameNode);
+        descriptionNode.appendChild(addressNode);
         descriptionNode.className += "Venues-listItemDescription";
-        node.appendChild(anchorNode);
-        node.className += "Venues-listItem";
+
+        listNode.appendChild(anchorNode);
+        listNode.className += "Venues-listItem";
 
 
-        venueListEle.appendChild(node);
+        venueListEle.appendChild(listNode);
         
         var thisEle = document.getElementById("venue-"+venue.id);
         thisEle.addEventListener('mouseover', highlightVenue, false);
@@ -238,7 +250,7 @@ function geocodeIteration(data) {
                     console.log(lat, lon, id);
 
                     var xhttp = new XMLHttpRequest();
-                    xhttp.open("POST", "api/index.php/locations/post_latlon", true);
+                    xhttp.open("POST", "https://maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
                 // }
@@ -259,7 +271,7 @@ function geocodeIteration(data) {
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
 
-    getJSON('api/index.php/locations/no_latlon', function(err, data) {
+    getJSON('https://maps.walthamstuff.com/api/index.php/locations/no_latlon', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
