@@ -228,8 +228,9 @@ body {
   list-style: none;
   padding: 0;
   margin: 10px;
+  border-radius: 10px;
 }
-/* line 19, ../sass/components/_Venues.scss */
+/* line 20, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor {
   display: block;
   position: relative;
@@ -240,8 +241,9 @@ body {
   background-image: url("../images/venues/william-morris-gallery.jpg");
   background-size: cover;
   background-position: center center;
+  border-radius: 10px;
 }
-/* line 31, ../sass/components/_Venues.scss */
+/* line 33, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
   position: absolute;
   bottom: 0;
@@ -252,6 +254,7 @@ body {
   color: white;
   font-size: 20px;
   line-height: 22px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 /* line 1, ../sass/components/_VenueDetails.scss */

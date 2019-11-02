@@ -64,7 +64,8 @@ function createMap(cat) {
     setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
-        getJSON('api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        // getJSON('api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -121,12 +122,15 @@ function getLocationIdFromUrl() {
 
 function getLocation() {
     var id = getLocationIdFromUrl();
-    getJSON('api/index.php/locations/id/' + id, function(err, data) {
+    // getJSON('api/index.php/locations/id/' + id, function(err, data) {
+    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations/id/' + id, function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
             venue = data[0];
             displayVenue(data[0]);
+            //Moved createMap() from line 142 to stop asynch bug
+            createMap();
         }
     });
 }
@@ -134,7 +138,6 @@ function getLocation() {
 // Creates map and adds pins/infoWindows
 function initialize() {
     getLocation();
-    createMap();
 }
 
 function sanityCheckWebsite(website) {
