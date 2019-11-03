@@ -18,7 +18,9 @@
         <script src="scripts/dragdrop.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85517052-1"></script>
+-->
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -28,6 +30,7 @@
         </script>
     </head>
     <body>
+      <input type="hidden" id="MAX_FILE_SIZE" value="4194304" />
         <header class="Header">
             <div class="Header-icon">
                 <a href="index.html" class="Header-iconImage Header-iconImage--back"></a>
@@ -74,13 +77,18 @@
         </section>
 
         <div id="dragdrop">
-          <form id="upload" action="http://maps.walthamstuff.com/dev/api/index.php/upload">
+
+          <form id="upload" action="https://maps.walthamstuff.com/dev/api/index.php/upload">
             <input type="file"  name="userfile" id="fileselect" class="btn btn-primary">
             <button value="Submit" type="submit" id="submitbutton" class="btn btn-primary">submit</button>
             <div id="dropbox">
-              <span id="droplabel">drag and drop</span>
+              <span id="droplabel" style="color:white; font-size:14pt">drag and drop here</span>
             </div>
+
           </form>
+          <div id="droplabel"></div>
+          <img width="150" height="150" id="preview"></img>
+          <div id="progress"></div>
         </div>
 
         <div id="map_canvas" class="Map--venue"></div>

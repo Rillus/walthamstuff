@@ -2,38 +2,41 @@
 function $id(id) {
     return document.getElementById(id);
 }
-
-var dropbox = $id("dropbox"),
-    fileselect = $id("fileselect"),
-    submitbutton = $id("submitbutton"),
-    img = $id("preview"),
-    files = "",
+var dropbox, fileselect, submitbutton, img, files, count;
+$(document).ready(function() {
+    console.log("ready!");
+    dropbox = $id("dropbox");
+    fileselect = $id("fileselect");
+    submitbutton = $id("submitbutton");
+    img = $id("preview");
+    files = "";
     count = "";
 
-// file select
-console.log(fileselect);
-fileselect.addEventListener("change", FileSelectHandler, false);
+    // file select
+    fileselect.addEventListener("change", FileSelectHandler, false);
 
-// is XHR2 available?
-var xhr = new XMLHttpRequest();
-if (xhr.upload) {
-    // init event handlers
-    dropbox.addEventListener("dragenter", dragEnter, false);
-    dropbox.addEventListener("dragexit", dragExit, false);
-    dropbox.addEventListener("dragleave", dragExit, false);
-    dropbox.addEventListener("dragover", dragOver, false);
-    dropbox.addEventListener("drop", drop, false);
-    img.style.display = "none";
-    dropbox.style.display = "block";
-} else {
-    dropbox.style.display = "none";
-}
+    // is XHR2 available?
+    var xhr = new XMLHttpRequest();
+    if (xhr.upload) {
+        // init event handlers
+        dropbox.addEventListener("dragenter", dragEnter, false);
+        dropbox.addEventListener("dragexit", dragExit, false);
+        dropbox.addEventListener("dragleave", dragExit, false);
+        dropbox.addEventListener("dragover", dragOver, false);
+        dropbox.addEventListener("drop", drop, false);
+        img.style.display = "none";
+        dropbox.style.display = "block";
+    } else {
+        dropbox.style.display = "none";
+    }
 
-$("#submitbutton").click(function(evt) {
-    evt.preventDefault();
-    handleOrUploadFiles(files, "upload");
-    console.log('upload handled by js');
+    $("#submitbutton").click(function(evt) {
+        evt.preventDefault();
+        handleOrUploadFiles(files, "upload");
+        console.log('upload handled by js');
+    });
 });
+
 
 function dragEnter(evt) {
     evt.stopPropagation();
@@ -65,6 +68,7 @@ function drop(evt) {
 
 function FileSelectHandler(evt){
     files = evt.target.files;
+    console.log("***files[0]***" + files[1]);
     handleOrUploadFiles(files, "handle");
 }
 
