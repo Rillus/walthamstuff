@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react';
+import Map from './components/Map'
 
 class App extends Component{
    
    render(){
       return(
          <Fragment>
-            <div>
-               <h1>Hello World!!!</h1>
-            </div>
+            <Map />
          </Fragment>
       );
    }

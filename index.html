@@ -15,7 +15,7 @@
         <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAuS_MJIVCEDCGeA0uWQXZL7Ybht6bnjg8"></script>
         <script src="scripts/geolocation-marker.js"></script>
         <script src="scripts/common.js"></script>
-        <script src="scripts/maps.js"></script>
+        <!-- <script src="scripts/maps.js"></script> -->
         <script src="scripts/bootstrap.min.js"></script>
         <script src="scripts/jquery.datetimepicker.js"></script>
 
@@ -34,18 +34,11 @@
             <div class="Header-icon">
                 <a href="http://walthamstuff.com"><img class="Header-iconImage" src="images/w.jpg" alt=""></a>
             </div>
-
             <h2 class="Header-title"><a href="/">WF Venue Finder</a></h2>
         </header>
 
-        <div id = "app"></div>
+        <div id = "app"><!-- This is where the React app loads --></div>
 
-        <nav class="Filters">
-            <input id="datetimepicker" class="Datepicker" type="text" placeholder="From">
-            <input id="datetimepicker2" class="Datepicker" type="text" placeholder="Until">
-            <input id="min-capacity" class="Capacity" type="text" placeholder="Min. Capacity">
-            <input id="max-capacity" class="Capacity" type="text" placeholder="Max. Capacity">
-        </nav>
         <div class="Category">
             <ul class="Category-container">
                 <li class="Category-parent" tabindex="1"> What would you like to find?
@@ -53,12 +46,5 @@
                 </li>
             </ul>
         </div>
-
-        <section class="Venues">
-            <ul class="Venues-list" id="venue-list"></ul>
-        </section>
-
-        <div id="map_canvas" class="Map"></div>
-
     </body>
 </html>
