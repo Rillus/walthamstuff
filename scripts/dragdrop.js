@@ -68,7 +68,7 @@ function drop(evt) {
 
 function FileSelectHandler(evt){
     files = evt.target.files;
-    console.log("***files[0]***" + files[1]);
+    //console.log("***files[0]***" + files[0]);
     handleOrUploadFiles(files, "handle");
 }
 
@@ -105,7 +105,7 @@ function handleFiles(file) {
 function handleReaderLoad(evt) {
     img.style.display = "block";
     img.src = evt.target.result;
-    $id("droplabel").innerHTML = "Preview below. Press upload to save, or drop a new file here.";
+    $id("droplabel").innerHTML = "Preview below. Press upload or drop a new image here.";
 }
 
 function uploadFiles(file){
@@ -137,7 +137,7 @@ function uploadFiles(file){
                 }
                 progress.className = (xhr.status == 200 ? "success" : "failure");
             }
-            console.log(xhr);
+            //console.log(xhr);
         };
 
         // start upload
