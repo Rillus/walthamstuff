@@ -65,7 +65,6 @@ function sendData(e) {
     // Define what happens on successful data submission
     XHR.addEventListener('load', function(event) {
         //alert(body);
-        //alert(object.data.venueId);
         id = JSON.parse(XHR.responseText).data.venueId;
         window.location.assign('venue.html?id=' + id);
     });
