@@ -58,13 +58,14 @@ function sendData(e) {
     urlEncodedDataPairs = urlEncodedDataPairs.concat(extractFormInputKeyValue(textareas));
     urlEncodedDataPairs = urlEncodedDataPairs.concat(extractFormInputKeyValue(selects));
 
-    // Combine the pairs into a single string and replace all %-encoded spaces to 
+    // Combine the pairs into a single string and replace all %-encoded spaces to
     // the '+' character; matches the behaviour of browser form submissions.
     urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
 
     // Define what happens on successful data submission
     XHR.addEventListener('load', function(event) {
-        window.location.assign('index.html');
+        id = JSON.parse(XHR.responseText).data.venueId;
+        window.location.assign('venue.html?id=' + id);
     });
 
     // Define what happens in case of error

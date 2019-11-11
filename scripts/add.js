@@ -28,7 +28,7 @@ function createCategoryList() {
 }
 
 window.onload = function () {
-    getJSON('api/index.php/locations', function(err, data) {
+    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
