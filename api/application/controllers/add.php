@@ -90,6 +90,9 @@ class Add extends CI_Controller {
 			$this->db->insert('locations', $data);
 		}
 
+		$submissionData['venueId'] = $this->db->insert_id();
+		$submissionData['contributorId'] = $contributorId;
+
 		$response['status'] = 'success';
 		$response['code'] = '200';
 		$response['data'] = $submissionData;
