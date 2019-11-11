@@ -1,5 +1,5 @@
 window.onload = function () {
-    getJSON('api/index.php/locations', function(err, data) {
+    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -22,7 +22,7 @@ function getLocationIdFromUrl() {
 
 function getLocation () {
     var id = getLocationIdFromUrl();
-    getJSON('api/index.php/locations/id/' + id, function(err, data) {
+    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/id/' + id, function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -41,7 +41,7 @@ function createCategoryList() {
             var option = document.createElement("option");
             option.text = toTitleCase(cat);
             option.setAttribute('value', cat);
-            
+
             select.add(option);
         }
     });

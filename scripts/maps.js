@@ -38,7 +38,7 @@ function createMap(cat) {
     setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
-        getJSON('https://maps.walthamstuff.com/dev/api//index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -123,7 +123,7 @@ function buildContentString(element) {
     if (element.telephone) {
         contentString += '<p>Telephone: '+element.telephone+'</p>';
     }
-    
+
     contentString += '<a href="edit.html?id='+element.id+'">Edit</a>';
 
     return contentString;
@@ -221,9 +221,7 @@ function createVenueList(venues) {
         listNode.appendChild(anchorNode);
         listNode.className += "Venues-listItem";
 
-
         venueListEle.appendChild(listNode);
-        
         var thisEle = document.getElementById("venue-"+venue.id);
         thisEle.addEventListener('mouseover', highlightVenue, false);
         thisEle.addEventListener('mouseout', rollOffVenue, false);
@@ -242,10 +240,11 @@ function geocodeIteration(data) {
                     var lat = results[0].geometry.location.lat(),
                         lon = results[0].geometry.location.lng(),
                         id = element.id;
-                        
+
                     console.log(lat, lon, id);
 
                     var xhttp = new XMLHttpRequest();
+
                     xhttp.open("POST", "https://maps.walthamstuff.com/dev/api/index.php/locations/post_latlon", true);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
@@ -255,7 +254,7 @@ function geocodeIteration(data) {
             }
         });
     }
-    
+
     if (placeInCount <= data.length) {
         placeInCount ++;
 
@@ -285,11 +284,11 @@ function codeAddress() {
 $(document).ready(function() {
     initialize();
     isDesktop = $(window).width() > 600;
-    
+
     if (isDesktop) {
         google.maps.event.addDomListener(window, 'load', createMap);
     }
-    
+
     /* listen out for end of window resize and fire createMap function if on Desktop */
     var resizeTime;
     var resizeTimeout = false;

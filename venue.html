@@ -15,9 +15,12 @@
         <script src="scripts/common.js"></script>
         <script src="scripts/venue.js"></script>
         <script src="scripts/bootstrap.min.js"></script>
+        <script src="scripts/dragdrop.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85517052-1"></script>
+-->
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -27,13 +30,14 @@
         </script>
     </head>
     <body>
+      <input type="hidden" id="MAX_FILE_SIZE" value="4194304" />
         <header class="Header">
             <div class="Header-icon">
                 <a href="index.html" class="Header-iconImage Header-iconImage--back"></a>
             </div>
 
             <h2 class="Header-title"><a href="/" class="Header-titleText">WF Venue Finder</a></h2>
-            
+
         </header>
 
 
@@ -61,7 +65,9 @@
                 <li>Registered for weddings</li>
                 <li>Parking for 6 cars (additional charges apply)</li>
             </ul>
-            
+
+
+
             <div class="VenueDetails-images">
                 <div class="VenueDetails-image" style="background-image:url(https://www.wmgallery.org.uk/media/w770/generic/WMG_reception.jpg);"></div>
                 <div class="VenueDetails-image" style="background-image:url(https://missgen.com/wp-content/uploads/2017/04/002-william-morris-gallery-wedding-photographer.jpg);"></div>
@@ -69,6 +75,21 @@
             </div>
 
         </section>
+
+        <div id="dragdrop">
+
+          <form id="upload" action="https://maps.walthamstuff.com/dev/api/index.php/upload">
+            <input type="file"  name="userfile" id="fileselect" class="btn btn-primary">
+            <button value="Submit" type="submit" id="submitbutton" class="btn btn-primary">submit</button>
+            <div id="dropbox">
+              <span id="droplabel" style="color:white; font-size:14pt">drag and drop here</span>
+            </div>
+
+          </form>
+          <div id="droplabel"></div>
+          <img width="150" height="150" id="preview"></img>
+          <div id="progress"></div>
+        </div>
 
         <div id="map_canvas" class="Map--venue"></div>
     </body>
