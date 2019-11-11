@@ -32,8 +32,6 @@ function createMap(cat) {
 
     map = setUpMap();
 
-    console.log('createMap', cat);
-
     GeoMarker = new GeolocationMarker();
     GeoMarker.setCircleOptions({fillColor: '#808080'});
 
@@ -198,8 +196,6 @@ function createVenueList(venues) {
     var venueListEle = document.getElementById('venue-list');
 
     venues.forEach(function(venue) {
-
-        console.log('venue', venue)
 
         var listNode = document.createElement("li"),
             anchorNode = document.createElement("a"),
