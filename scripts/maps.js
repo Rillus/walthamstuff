@@ -90,7 +90,7 @@ function createMap(cat) {
 function initialize() {
     console.log('init');
 
-    getJSON('http://maps.walthamstuff.com/api/index.php/locations', function(err, data) {
+    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
