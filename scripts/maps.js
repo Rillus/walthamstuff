@@ -38,7 +38,7 @@ function createMap(cat) {
     setMarkers(null);
 
     if (typeof cat === 'string' || cat === undefined) {
-        getJSON('https://maps.walthamstuff.com/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON('https://maps.walthamstuff.com/dev/api//index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -88,7 +88,7 @@ function createMap(cat) {
 function initialize() {
     console.log('init');
 
-    getJSON('https://maps.walthamstuff.com/api/index.php/locations', function(err, data) {
+    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -246,7 +246,7 @@ function geocodeIteration(data) {
                     console.log(lat, lon, id);
 
                     var xhttp = new XMLHttpRequest();
-                    xhttp.open("POST", "https://maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
+                    xhttp.open("POST", "https://maps.walthamstuff.com/dev/api/index.php/locations/post_latlon", true);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
                 // }
@@ -267,7 +267,7 @@ function geocodeIteration(data) {
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
 
-    getJSON('https://maps.walthamstuff.com/api/index.php/locations/no_latlon', function(err, data) {
+    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations/no_latlon', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
