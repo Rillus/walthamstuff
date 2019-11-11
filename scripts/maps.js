@@ -259,7 +259,7 @@ function geocodeIteration(data) {
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
 
-    getJSON('http://maps.walthamstuff.com/api/index.php/locations/no_latlon', function(err, data) {
+    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/no_latlon', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
