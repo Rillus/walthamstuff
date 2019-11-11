@@ -238,7 +238,7 @@ function geocodeIteration(data) {
                     console.log(lat, lon, id);
 
                     var xhttp = new XMLHttpRequest();
-                    xhttp.open("POST", "http://maps.walthamstuff.com/api/index.php/locations/post_latlon", true);
+                    xhttp.open("POST", "http://maps.walthamstuff.com/dev/api/index.php/locations/post_latlon", true);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
                 // }
