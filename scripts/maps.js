@@ -172,7 +172,16 @@ function createCategoryList() {
 function highlightVenue(e) {
     setMarkers(null);
 
-    var thisVenueId = e.target.attributes['data-venueid'].value;
+    var thisVenueId;
+
+    // if the class 'Venues-listItemDescription' is on the target element then we're on a child, so navigate up one to get the id
+    if ($(e.target).hasClass('Venues-listItemDescription')) {
+        thisVenueId = e.target.parentNode.attributes['data-venueid'].value;
+    } else {
+        // if that class isn't on here, we're already on the parent
+        thisVenueId = e.target.attributes['data-venueid'].value;
+    }
+    
     var thisVenue = $.grep(venues, function(e){ return e.id == thisVenueId; });
 
     thisVenue = thisVenue[0];
