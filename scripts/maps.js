@@ -184,22 +184,19 @@ function highlightVenue(e) {
         thisVenueId = e.target.attributes['data-venueid'].value;
     }
     
-    if (thisVenueId !== null) {
+    var thisVenue = $.grep(venues, function(e){ return e.id == thisVenueId; });
 
-        var thisVenue = $.grep(venues, function(e){ return e.id == thisVenueId; });
+    thisVenue = thisVenue[0];
 
-        thisVenue = thisVenue[0];
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(thisVenue.lat, thisVenue.lon),
+        map: map
+    });
 
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(thisVenue.lat, thisVenue.lon),
-            map: map
-        });
+    markers = [];
+    markers.push(marker);
 
-        markers = [];
-        markers.push(marker);
-
-        setMarkers(map);
-    }
+    setMarkers(map);
 }
 
 function rollOffVenue() {
