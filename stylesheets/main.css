@@ -17,52 +17,46 @@ body {
 .Header {
   background: #111;
   border-bottom: #222 1px solid;
-  padding: 0;
+  padding: 0.25em;
+  display: flex;
+  align-items: center;
 }
-/* line 6, ../sass/components/_Header.scss */
+/* line 8, ../sass/components/_Header.scss */
 .Header-icon {
-  margin: 16px 32px;
+  padding: 0 0.5em;
   border-radius: 20px;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle;
 }
-/* line 13, ../sass/components/_Header.scss */
+/* line 12, ../sass/components/_Header.scss */
 .Header-iconImage {
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   display: block;
 }
-/* line 18, ../sass/components/_Header.scss */
+/* line 17, ../sass/components/_Header.scss */
 .Header-iconImage--back {
   background-image: url(../images/back.png);
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 27, ../sass/components/_Header.scss */
+/* line 26, ../sass/components/_Header.scss */
 .Header-title {
-  display: inline-block;
-  padding: 0;
   margin: 0;
-  vertical-align: middle;
+  width: 100%;
   font-size: 26px;
-  max-width: calc(100% - 110px);
-  overflow: hidden;
-  height: 30px;
 }
-/* line 38, ../sass/components/_Header.scss */
+/* line 32, ../sass/components/_Header.scss */
 .Header-title a {
   color: #ddd;
   text-decoration: none;
 }
-/* line 43, ../sass/components/_Header.scss */
+/* line 37, ../sass/components/_Header.scss */
 .Header-nav {
   display: inline-block;
   list-style: none;
   margin: 0 0 0 40px;
   padding: 0;
 }
-/* line 50, ../sass/components/_Header.scss */
+/* line 44, ../sass/components/_Header.scss */
 .Header-navItem {
   display: inline-block;
   font-size: 14px;
@@ -71,12 +65,12 @@ body {
   width: 120px;
   text-align: center;
 }
-/* line 59, ../sass/components/_Header.scss */
+/* line 53, ../sass/components/_Header.scss */
 .Header-navItem--active {
   border-bottom: 2px solid #EE6468;
   width: 90px;
 }
-/* line 64, ../sass/components/_Header.scss */
+/* line 58, ../sass/components/_Header.scss */
 .Header-navItem a {
   color: #4B5361;
   text-decoration: none;
@@ -152,57 +146,48 @@ body {
 
 /* line 1, ../sass/components/_Category.scss */
 .Category {
-  position: absolute;
-  z-index: 100;
-  top: 53px;
-  right: 0;
-  margin: 10px;
+  display: flex;
+  justify-content: center;
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #C7CBD2;
   background: url(../images/down.png) #fff no-repeat;
   background-position: 230px 18px;
+  font-size: 22px;
 }
-@media (max-width: 600px) {
-  /* line 1, ../sass/components/_Category.scss */
-  .Category {
-    display: none;
-  }
-}
-/* line 17, ../sass/components/_Category.scss */
+/* line 13, ../sass/components/_Category.scss */
 .Category-container {
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+  z-index: 1000;
 }
-/* line 23, ../sass/components/_Category.scss */
+/* line 21, ../sass/components/_Category.scss */
 .Category-parent {
   padding: 14px 8px 10px;
   position: relative;
 }
-/* line 28, ../sass/components/_Category.scss */
+/* line 26, ../sass/components/_Category.scss */
 .Category-list {
+  background: pink;
   display: none;
   list-style: none;
   margin: 10px 0 0 0;
   line-height: 26px;
-  position: absolute;
-  width: 242px;
   padding: 0 0 0 8px;
-  left: -1px;
   border: 1px solid #C7CBD2;
   border-top: none;
-  max-height: 150px;
   overflow-y: scroll;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+  line-height: 1.5;
 }
-/* line 47, ../sass/components/_Category.scss */
+/* line 50, ../sass/components/_Category.scss */
 .Category-parent:focus .Category-list, .Category-parent:hover .Category-list {
   display: block;
   background-color: #fff;
 }
-/* line 53, ../sass/components/_Category.scss */
+/* line 56, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
@@ -228,9 +213,8 @@ body {
   list-style: none;
   padding: 0;
   margin: 10px;
-  border-radius: 10px;
 }
-/* line 20, ../sass/components/_Venues.scss */
+/* line 19, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor {
   display: block;
   position: relative;
@@ -241,9 +225,8 @@ body {
   background-image: url("../images/venues/william-morris-gallery.jpg");
   background-size: cover;
   background-position: center center;
-  border-radius: 10px;
 }
-/* line 33, ../sass/components/_Venues.scss */
+/* line 31, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
   position: absolute;
   bottom: 0;
@@ -254,7 +237,6 @@ body {
   color: white;
   font-size: 20px;
   line-height: 22px;
-  border-radius: 0px 0px 10px 10px;
 }
 
 /* line 1, ../sass/components/_VenueDetails.scss */
