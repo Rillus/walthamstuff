@@ -76,6 +76,11 @@ body {
   text-decoration: none;
 }
 
+/* line 1, ../sass/components/_FileUploader.scss */
+.FileUploader {
+  position: absolute;
+}
+
 /* line 1, ../sass/components/_Filters.scss */
 .Filters {
   width: 100%;
@@ -253,38 +258,43 @@ body {
   max-width: 900px;
   position: relative;
 }
-/* line 14, ../sass/components/_VenueDetails.scss */
-.VenueDetails-title {
+/* line 13, ../sass/components/_VenueDetails.scss */
+.VenueDetails-hero .FileUploader {
+  top: 0;
+  right: 0;
+}
+/* line 18, ../sass/components/_VenueDetails.scss */
+.VenueDetails-heroDetails {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 20px 20px 80px;
+  padding: 20px 20px;
   margin: 0;
 }
 @media (max-width: 600px) {
-  /* line 14, ../sass/components/_VenueDetails.scss */
-  .VenueDetails-title {
+  /* line 18, ../sass/components/_VenueDetails.scss */
+  .VenueDetails-heroDetails {
     padding-bottom: 120px;
   }
 }
-/* line 29, ../sass/components/_VenueDetails.scss */
+/* line 37, ../sass/components/_VenueDetails.scss */
 .VenueDetails-actions {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
-/* line 36, ../sass/components/_VenueDetails.scss */
+/* line 44, ../sass/components/_VenueDetails.scss */
 .VenueDetails-description {
   color: #ddd;
   font-size: 16px;
   line-height: 18px;
   margin: 20px 20px 30px;
 }
-/* line 43, ../sass/components/_VenueDetails.scss */
+/* line 51, ../sass/components/_VenueDetails.scss */
 .VenueDetails-images {
   max-width: 100%;
   display: flex;
@@ -292,14 +302,14 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* line 51, ../sass/components/_VenueDetails.scss */
+/* line 59, ../sass/components/_VenueDetails.scss */
 .VenueDetails-image {
   display: inline-block;
   width: 33%;
   height: 200px;
   background-size: cover;
 }
-/* line 58, ../sass/components/_VenueDetails.scss */
+/* line 66, ../sass/components/_VenueDetails.scss */
 .VenueDetails-dateprice {
   position: absolute;
   bottom: 0;
@@ -307,33 +317,33 @@ body {
   font-weight: bold;
   padding: 20px 0 0 20px;
 }
-/* line 67, ../sass/components/_VenueDetails.scss */
+/* line 75, ../sass/components/_VenueDetails.scss */
 .VenueDetails-price {
   font-size: 22px;
 }
-/* line 71, ../sass/components/_VenueDetails.scss */
+/* line 79, ../sass/components/_VenueDetails.scss */
 .VenueDetails-date {
   font-size: 18px;
   font-weight: normal;
   line-height: 18px;
 }
-/* line 77, ../sass/components/_VenueDetails.scss */
+/* line 85, ../sass/components/_VenueDetails.scss */
 .VenueDetails-greyed {
   opacity: 0.6;
 }
 @media (max-width: 600px) {
-  /* line 77, ../sass/components/_VenueDetails.scss */
+  /* line 85, ../sass/components/_VenueDetails.scss */
   .VenueDetails-greyed {
     display: block;
   }
 }
-/* line 85, ../sass/components/_VenueDetails.scss */
+/* line 93, ../sass/components/_VenueDetails.scss */
 .VenueDetails h3 {
   color: white;
   font-size: 18px;
-  padding: 20px 20px 0;
+  padding: 20px 0 0;
 }
-/* line 91, ../sass/components/_VenueDetails.scss */
+/* line 99, ../sass/components/_VenueDetails.scss */
 .VenueDetails-list {
   color: white;
   font-size: 16px;
@@ -366,7 +376,7 @@ body {
 @media (min-width: 900px) {
   /* line 12, ../sass/components/_Map.scss */
   .Map--venue {
-    position: absolute;
+    position: fixed !important;
     top: 33px;
     bottom: 0;
     height: calc(100% - 53px);
@@ -385,6 +395,11 @@ body {
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:focus-within, .btn-primary:visited {
   background-color: #aa383b;
   border-color: #aa383b;
+}
+
+/* line 2, ../sass/_utilities.scss */
+.u-hide {
+  display: none;
 }
 
 /* line 1, ../sass/_form.scss */

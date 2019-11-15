@@ -12,6 +12,7 @@ body {
 }
 
 @import 'components/Header';
+@import 'components/FileUploader';
 @import 'components/Filters';
 @import 'components/Button';
 @import 'components/Datepicker';
@@ -21,4 +22,5 @@ body {
 @import 'components/VenueDetails';
 @import 'components/Map';
 @import 'btn';
+@import 'utilities';
 @import 'form';

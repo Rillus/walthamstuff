@@ -3,8 +3,8 @@ function $id(id) {
     return document.getElementById(id);
 }
 var dropbox, fileselect, submitbutton, img, files, count;
+
 $(document).ready(function() {
-    console.log("ready!");
     dropbox = $id("dropbox");
     fileselect = $id("fileselect");
     submitbutton = $id("submitbutton");
@@ -33,7 +33,6 @@ $(document).ready(function() {
     $("#submitbutton").click(function(evt) {
         evt.preventDefault();
         handleOrUploadFiles(files, "upload");
-        console.log('upload handled by js');
     });
 });
 
@@ -68,7 +67,6 @@ function drop(evt) {
 
 function FileSelectHandler(evt){
     files = evt.target.files;
-    //console.log("***files[0]***" + files[0]);
     handleOrUploadFiles(files, "handle");
 }
 
@@ -85,6 +83,7 @@ function handleOrUploadFiles(files, type) {
         }
     } else {
         //no files selected
+        console.log('no files selected');
     }
 }
 
@@ -110,6 +109,7 @@ function handleReaderLoad(evt) {
 
 function uploadFiles(file){
     var xhr = new XMLHttpRequest();
+
     // we probably need to verify file type too : (file.type == "image/jpeg")
     if (xhr.upload && file.size <= $id("MAX_FILE_SIZE").value) {
         if (file.type != "image/jpeg" && file.type != "image/jpg" && file.type != "image/png" && file.type != "image/gif"){
@@ -124,7 +124,8 @@ function uploadFiles(file){
         // progress bar
         xhr.upload.addEventListener("progress", function(e) {
             var pc = parseInt(100 - (e.loaded / e.total * 100));
-            progress.style.backgroundPosition = pc + "% 0";         $id("droplabel").innerHTML = "Uploading...";
+            progress.style.backgroundPosition = pc + "% 0";
+            $id("droplabel").innerHTML = "Uploading...";
         }, false);
 
         // file received/failed
@@ -137,11 +138,10 @@ function uploadFiles(file){
                 }
                 progress.className = (xhr.status == 200 ? "success" : "failure");
             }
-            //console.log(xhr);
         };
 
         // start upload
-        xhr.open("POST", $id("upload").action, true);
+        xhr.open("POST", $id("upload").action + '/' + window.getLocationIdFromUrl(), true);
         xhr.setRequestHeader("X_FILENAME", file.name);
         xhr.send(file);
     } else {

@@ -5,8 +5,10 @@ class Upload extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-			
+		
+		$this->load->database();
 		$this->load->helper('form');
+		$this->load->helper('url');
 		date_default_timezone_set('Europe/London');
 
 		header("Access-Control-Allow-Origin: *");
@@ -14,13 +16,15 @@ class Upload extends CI_Controller {
 		header('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
 		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, X_FILENAME");
 	}
-	public function index()
-	{		
-		if ($this->uri->segment(2) == ""){
-			$id = $this->input->post('id');		
-		} else {
-			$id = $this->uri->segment(2);
+	public function index() {}
+
+	public function image($id = false) {
+
+		if (!$id) {
+			$response['message'] = 'no location specified';
+			echo json_encode($response);
 		}
+
 		$url = $id;
 
 		$path = "uploads/$url";
@@ -52,7 +56,7 @@ class Upload extends CI_Controller {
 				$path.'/'. $newFileName,
 				file_get_contents('php://input')
 			);
-			echo "$newFileName uploaded";
+			// echo "$newFileName uploaded";
 			
 			$path = $path.'/'.$newFileName;
 		} else {
@@ -66,7 +70,7 @@ class Upload extends CI_Controller {
 			$this->load->library('upload', $config);
 			
 			
-			if ( ! $this->upload->do_upload()){				
+			if ( ! $this->upload->do_upload()){	
 				$message['message'] = $this->upload->display_errors();
 				
 				echo json_encode($message);
@@ -78,16 +82,17 @@ class Upload extends CI_Controller {
 				$path = $path.'/'.$path['file_name'];
 			}
 		}
+
 		
 		$data = array(
 			'image' => $path,
 		);
-		
+
 		$this->db->where('id', $id);
-		$this->db->update('events', $data);
+		$this->db->update('locations', $data);
 
 		$message['header'] = "Success";
-		$message['message'] = "Image uploaded to $path";
+		$message['message'] = "Image uploaded to ".base_url().$path;
 		
 		echo json_encode($message);
 	}

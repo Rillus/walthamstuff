@@ -47,7 +47,6 @@ function setUpMap() {
 }
 
 function setMarkers(map) {
-    console.log(markers, map);
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }
@@ -55,8 +54,6 @@ function setMarkers(map) {
 
 function createMap(cat) {
     map = setUpMap();
-
-    console.log('createMap', cat);
 
     GeoMarker = new GeolocationMarker();
     GeoMarker.setCircleOptions({fillColor: '#808080'});
@@ -97,21 +94,27 @@ function displayVenue() {
     console.log(venue);
     $('.VenueDetails-title').html(venue.name);
     $('.Header-titleText').html(venue.name);
+    $('.VenueDetails-hero').attr('style', 'background-image: url("'+venue.image+'")');
 
     var values = [
         'address',
-        'contact_name',
+        // 'contact_name',
         'description',
-        'email',
-        'telephone',
-        'twitter',
-        'website',
+        // 'openingTimes',
+        // 'email',
+        // 'telephone',
+        // 'twitter',
+        // 'website',
+        // 'image'
     ];
 
-    // values.forEach(function(value) {
-    //     console.log('.VenueDetails-'+value, venue[value]);
-    //     $('.VenueDetails-'+value).html(venue[value]);
-    // });
+    values.forEach(function(value) {
+        console.log('.VenueDetails-'+value, venue[value]);
+        if (venue[value] !== undefined && venue[value] !== "") {
+            $('.VenueDetails-'+value+'Content').html(venue[value]);
+            $('.VenueDetails-'+value).show();
+        }
+    });
 }
 
 function getLocationIdFromUrl() {
@@ -129,9 +132,10 @@ function getLocation() {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
-            venue = data[0];
-            displayVenue(data[0]);
-            //Moved createMap() from line 142 to stop asynch bug
+            venue = data;
+            displayVenue(data);
+            
+            // Fire this after everything else to prevent runtime error
             createMap();
         }
     });
