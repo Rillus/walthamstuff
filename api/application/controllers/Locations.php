@@ -6,6 +6,7 @@ class Locations extends CI_Controller {
         parent::__construct();
 
         $this->load->database();
+        $this->load->helper('url');
 
         header("Access-Control-Allow-Origin: *");
         header('Content-type: application/json');
@@ -90,7 +91,10 @@ class Locations extends CI_Controller {
 				 		  ->get('locations');
 
 		if ($entry->num_rows() > 0) {
-			echo json_encode($entry->result());
+			$entry = $entry->row();
+
+			$entry->image = base_url().$entry->image;
+			echo json_encode($entry);
 		}
 	}
 }

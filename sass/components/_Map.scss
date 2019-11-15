@@ -17,7 +17,7 @@
         display: block !important;
         
         @media(min-width: 900px) {
-            position: absolute;
+            position: fixed !important;
             top: 33px;
             bottom: 0;
             height: calc(100% - 53px);

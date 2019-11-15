@@ -9,21 +9,29 @@
         width: 100%;
         max-width: 900px;
         position: relative;
+
+        .FileUploader {
+            top: 0;
+            right: 0;
+        }
+
+        &Details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 20px 20px;
+            margin: 0;
+
+            @media(max-width: 600px) {
+                padding-bottom: 120px;
+            }
+        }
     }
     
     &-title {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(0,0,0,0.5);
-        color: white;
-        padding: 20px 20px 80px;
-        margin: 0;
-
-        @media(max-width: 600px) {
-            padding-bottom: 120px;
-        }
     }
 
     &-actions {
@@ -85,7 +93,7 @@
     h3 {
         color: white;
         font-size: 18px;
-        padding: 20px 20px 0;
+        padding: 20px 0 0;
     }
 
     &-list {
