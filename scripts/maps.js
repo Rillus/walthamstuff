@@ -207,11 +207,7 @@ function rollOffVenue() {
 }
 
 function resetList(list) {     
-    var child = list.lastElementChild;  
-    while (child) { 
-        list.removeChild(child); 
-        child = list.lastElementChild; 
-    } 
+    $(list).empty();
 }
 
 function createVenueList(venues, category) {
