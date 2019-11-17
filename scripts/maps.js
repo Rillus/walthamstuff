@@ -99,8 +99,6 @@ function initialize() {
                     createUniqueCategoryList(element.category);
                 });
                 createCategoryList();
-                getVenuesByCategory();
-                createVenueList(data);
             }
         }
     });
@@ -173,6 +171,7 @@ function createCategoryList() {
             filterListEle.appendChild(node);
         }
     });  
+    getVenuesByCategory();
 }
 
 function highlightVenue(e) {
@@ -207,9 +206,18 @@ function rollOffVenue() {
     setMarkers(null);
 }
 
+function resetList(list) {     
+    var child = list.lastElementChild;  
+    while (child) { 
+        list.removeChild(child); 
+        child = list.lastElementChild; 
+    } 
+}
+
 function createVenueList(venues, category) {
     var venueListEle = document.getElementById('venue-list');
 
+    resetList(venueListEle);
     venues.forEach(function(venue) {
     if (category === venue.category) {
   
