@@ -168,17 +168,11 @@ body {
   }
 }
 /* line 16, ../sass/components/_Category.scss */
-.Category-container {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-/* line 22, ../sass/components/_Category.scss */
 .Category-parent {
   padding: 14px 8px 10px;
   position: relative;
 }
-/* line 27, ../sass/components/_Category.scss */
+/* line 21, ../sass/components/_Category.scss */
 .Category-list {
   list-style: none;
   margin: 10px 0 0 0;
@@ -194,7 +188,7 @@ body {
   border-bottom-left-radius: 5px;
   width: 100%;
 }
-/* line 43, ../sass/components/_Category.scss */
+/* line 37, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
