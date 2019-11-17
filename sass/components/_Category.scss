@@ -40,15 +40,6 @@
         width: 100%;
     }
 
-
-    &-parent:focus,
-    &-parent:hover {
-        .Category-list {
-            display: block;
-            background-color: #fff;
-        }
-    }
-
     &-listItemAnchor {
         color: #4B5361;
         text-decoration: none;

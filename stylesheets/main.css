@@ -189,12 +189,7 @@ body {
   border-bottom-left-radius: 5px;
   width: 100%;
 }
-/* line 46, ../sass/components/_Category.scss */
-.Category-parent:focus .Category-list, .Category-parent:hover .Category-list {
-  display: block;
-  background-color: #fff;
-}
-/* line 52, ../sass/components/_Category.scss */
+/* line 43, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
