@@ -151,48 +151,44 @@ body {
 
 /* line 1, ../sass/components/_Category.scss */
 .Category {
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  z-index: 100;
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #C7CBD2;
   background: url(../images/down.png) #fff no-repeat;
   background-position: 230px 18px;
-  font-size: 22px;
+  margin: 1em;
+  font-size: 18px;
 }
-/* line 13, ../sass/components/_Category.scss */
-.Category-container {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  z-index: 1000;
+@media (max-width: 600px) {
+  /* line 1, ../sass/components/_Category.scss */
+  .Category {
+    position: relative;
+  }
 }
-/* line 21, ../sass/components/_Category.scss */
+/* line 16, ../sass/components/_Category.scss */
 .Category-parent {
   padding: 14px 8px 10px;
   position: relative;
 }
-/* line 26, ../sass/components/_Category.scss */
+/* line 21, ../sass/components/_Category.scss */
 .Category-list {
-  background: pink;
-  display: none;
   list-style: none;
   margin: 10px 0 0 0;
   line-height: 26px;
+  position: absolute;
+  width: 242px;
   padding: 0 0 0 8px;
+  left: -1px;
   border: 1px solid #C7CBD2;
   border-top: none;
   overflow-y: scroll;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  line-height: 1.5;
+  width: 100%;
 }
-/* line 50, ../sass/components/_Category.scss */
-.Category-parent:focus .Category-list, .Category-parent:hover .Category-list {
-  display: block;
-  background-color: #fff;
-}
-/* line 56, ../sass/components/_Category.scss */
+/* line 37, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
@@ -203,7 +199,6 @@ body {
   position: absolute;
   top: 113px;
   bottom: 0;
-  z-index: 100;
   overflow-y: scroll;
   width: 350px;
 }
@@ -211,6 +206,7 @@ body {
   /* line 1, ../sass/components/_Venues.scss */
   .Venues {
     width: 100%;
+    z-index: -1;
   }
 }
 /* line 13, ../sass/components/_Venues.scss */
@@ -355,7 +351,7 @@ body {
 .Map {
   position: absolute;
   top: 113px;
-  left: 0;
+  left: 350px;
   right: 0;
   bottom: 0;
 }
