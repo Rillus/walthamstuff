@@ -99,6 +99,7 @@ function initialize() {
                     createUniqueCategoryList(element.category);
                 });
                 createCategoryList();
+                getVenuesByCategory();
                 createVenueList(data);
             }
         }
@@ -136,8 +137,25 @@ function sanityCheckWebsite(website) {
   return website;
 }
 
+function getVenuesByCategory(){
+    var classname = document.getElementsByClassName("Filter-listItemAnchor dropdown-item");
+
+    var getNewCategory = function(e) {
+        e.preventDefault();
+
+        createMap(e.target.innerHTML);
+        createVenueList( venues, e.target.innerHTML);
+    };
+
+    for (var i = 0; i < classname.length; i++) {
+        classname[i].addEventListener('click', getNewCategory, false);
+    }  
+}
+
 function createCategoryList() {
+
     var filterListEle = document.getElementById('filter-list');
+
     var uniqueCategories = categories.sort();
 
     uniqueCategories.forEach(function(cat) {
@@ -147,26 +165,14 @@ function createCategoryList() {
                 textNode = document.createTextNode(toTitleCase(cat));
 
             anchorNode.appendChild(textNode);
-            anchorNode.href="";
-            anchorNode.className += "Filter-listItemAnchor";
+            anchorNode.href="#";
+            anchorNode.className += "Filter-listItemAnchor dropdown-item";
             node.appendChild(anchorNode);
             node.className += "Filter-listItem";
 
             filterListEle.appendChild(node);
         }
-    });
-
-    var classname = document.getElementsByClassName("Filter-listItemAnchor");
-
-    var getNewCategory = function(e) {
-        e.preventDefault();
-
-        createMap(e.target.innerHTML);
-    };
-
-    for (var i = 0; i < classname.length; i++) {
-        classname[i].addEventListener('click', getNewCategory, false);
-    }
+    });  
 }
 
 function highlightVenue(e) {
@@ -201,11 +207,12 @@ function rollOffVenue() {
     setMarkers(null);
 }
 
-function createVenueList(venues) {
+function createVenueList(venues, category) {
     var venueListEle = document.getElementById('venue-list');
 
     venues.forEach(function(venue) {
-
+    if (category === venue.category) {
+  
         var listNode = document.createElement("li"),
             anchorNode = document.createElement("a"),
             descriptionNode = document.createElement("div"),
@@ -234,6 +241,7 @@ function createVenueList(venues) {
         var thisEle = document.getElementById("venue-"+venue.id);
         thisEle.addEventListener('mouseover', highlightVenue, false);
         thisEle.addEventListener('mouseout', rollOffVenue, false);
+        }
     });
 }
 
