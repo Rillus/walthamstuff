@@ -16,6 +16,7 @@
         <script src="scripts/geolocation-marker.js"></script>
         <script src="scripts/common.js"></script>
         <script src="scripts/maps.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="scripts/bootstrap.min.js"></script>
         <script src="scripts/jquery.datetimepicker.js"></script>
 
@@ -39,17 +40,19 @@
         </header>
 
         <div class="Category">
-            <ul class="Category-container">
-                <li class="Category-parent" tabindex="1"> Find my nearby ...
-                    <ul class="Category-list" id="filter-list"></ul>
+            <ul class="Category-container dropdown show">
+                <li class="Category-parent dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"> Find a local business or service
+                    <ul class="Category-list dropdown-menu" id="filter-list" aria-labelledby="dropdownMenuLink">
+
+                   </ul>
                 </li>
             </ul>
         </div>
-
-        <section class="Venues">
-            <ul class="Venues-list" id="venue-list"></ul>
-        </section>
-
-        <div id="map_canvas" class="Map"></div>
+        <div class="Main">
+            <section class="Venues">
+                <ul class="Venues-list" id="venue-list"></ul>
+            </section>
+            <div id="map_canvas" class="Map"></div>
+        </div>
     </body>
 </html>
