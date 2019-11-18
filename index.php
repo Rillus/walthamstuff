@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
         <title>Walthamstuff Map</title>
         <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
         <link rel="stylesheet" href="stylesheets/main.css">
@@ -32,19 +33,11 @@
         </script>
     </head>
     <body>
-        <header class="Header">
-           <div class="Header-icon">
-                <a href="/"><img class="Header-iconImage" src="images/w.jpg" alt="Walthamstuff logo"></a>
-            </div>
-            <h1 class="Header-title"><a href="/">Walthamstuff</a></h1>   
-        </header>
-        <div class="Category dropdown show">
-            <div class="Category-parent dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"> Find a local business or service
-                <ol class="Category-list dropdown-menu" id="filter-list" aria-labelledby="dropdownMenuLink">
-
-                </ol>
-            </div>
-        </div>
+      <header class="Header">
+        <?php include "./includes/header.html" ?>
+    </header>
+        <?php include "./includes/category.html" ?>
+  
         <div class="Main">
             <section class="Venues">
                 <ul class="Venues-list" id="venue-list"></ul>
