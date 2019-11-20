@@ -1,8 +1,8 @@
 .Category {
     position: absolute;
-    z-index: 100;
+    z-index: $z-mid+1;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: $border-radius;
     border: 1px solid #C7CBD2;
     background: url(../images/down.png) #fff no-repeat;
     background-position: 230px 18px;

@@ -11,16 +11,20 @@ body {
   background-color: #303030;
 }
 
-@import 'components/Header';
-@import 'components/FileUploader';
-@import 'components/Filters';
+@import 'variables';
 @import 'components/Button';
-@import 'components/Datepicker';
 @import 'components/Capacity';
 @import 'components/Category';
+@import 'components/Datepicker';
+@import 'components/FileUploader';
+@import 'components/Filters';
+@import 'components/Header';
+@import 'components/Input';
+@import 'components/Label';
+@import 'components/Login';
+@import 'components/Map';
 @import 'components/Venues';
 @import 'components/VenueDetails';
-@import 'components/Map';
 @import 'btn';
 @import 'utilities';
 @import 'form';

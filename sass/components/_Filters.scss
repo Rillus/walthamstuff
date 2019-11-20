@@ -4,7 +4,7 @@
     flex-direction: row;
     overflow: hidden;
     position: relative;
-    z-index: 99;
+    z-index: $z-mid;
 
     input {
         display: inline-block;

@@ -7,8 +7,8 @@
     &:focus, 
     &:focus-within, 
     &:visited {
-        background-color: #aa383b;
-        border-color: #aa383b;
+        background-color: $colour-red;
+        border-color: $colour-red;
     }
 }
 
