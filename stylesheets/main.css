@@ -5,18 +5,141 @@ html, body {
   height: 100%;
 }
 
-/* line 7, ../sass/main.scss */
+/** Colours
+ *  Colours named according to: http://chir.ag/projects/name-that-color/
+**/
+/** Z-indices
+ *  Use these as base z-index values and add or subtract according to what's required e.g. 
+ *  z-index: $z-mid+1;
+**/
+/* line 9, ../sass/main.scss */
 body {
-  font-family: Helvectica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   line-height: .75;
   font-size: 14px;
   background-color: #303030;
 }
 
+/* line 1, ../sass/components/_Button.scss */
+.Button {
+  color: #fff;
+  padding: 12px 24px;
+  display: inline-block;
+  border-radius: 3px;
+  float: right;
+  margin: 12px 12px 12px 0;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  font-size: 16px;
+}
+/* line 13, ../sass/components/_Button.scss */
+.Button--primary {
+  background-color: #009688;
+}
+/* line 16, ../sass/components/_Button.scss */
+.Button--primary:hover {
+  background-color: #00c9b6;
+  color: #fff;
+}
+/* line 22, ../sass/components/_Button.scss */
+.Button--secondary {
+  background-color: #00635a;
+  color: #dddddd;
+}
+/* line 26, ../sass/components/_Button.scss */
+.Button--secondary:hover {
+  background-color: #009688;
+  color: #303030;
+}
+/* line 32, ../sass/components/_Button.scss */
+.Button:hover {
+  text-decoration: none;
+}
+
+/* line 1, ../sass/components/_Capacity.scss */
+.Capacity {
+  margin: 12px 0 12px 12px;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid #c7cbd2;
+  width: 110px;
+}
+
+/* line 1, ../sass/components/_Category.scss */
+.Category {
+  position: absolute;
+  z-index: 51;
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #c7cbd2;
+  background-position: 230px 18px;
+  margin: 12px;
+  font-size: 18px;
+}
+@media (max-width: 600px) {
+  /* line 1, ../sass/components/_Category.scss */
+  .Category {
+    position: relative;
+  }
+}
+/* line 15, ../sass/components/_Category.scss */
+.Category-parent {
+  padding: 14px 8px 12px;
+  position: relative;
+}
+/* line 20, ../sass/components/_Category.scss */
+.Category-list {
+  list-style: none;
+  margin: 12px 0 0 0;
+  line-height: 26px;
+  position: absolute;
+  width: 242px;
+  padding: 0 0 0 8px;
+  left: -1px;
+  border: 1px solid #c7cbd2;
+  border-top: none;
+  overflow-y: scroll;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  width: 100%;
+}
+/* line 36, ../sass/components/_Category.scss */
+.Category-listItemAnchor {
+  color: #4B5361;
+  text-decoration: none;
+}
+
+/* line 1, ../sass/components/_Datepicker.scss */
+.Datepicker {
+  margin: 12px 0 12px 12px;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid #c7cbd2;
+  width: 125px;
+}
+
+/* line 1, ../sass/components/_FileUploader.scss */
+.FileUploader {
+  position: absolute;
+}
+
+/* line 1, ../sass/components/_Filters.scss */
+.Filters {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  z-index: 50;
+}
+/* line 9, ../sass/components/_Filters.scss */
+.Filters input {
+  display: inline-block;
+}
+
 /* line 1, ../sass/components/_Header.scss */
 .Header {
-  background: #111;
-  border-bottom: #222 1px solid;
+  background: #111111;
+  border-bottom: #303030 1px solid;
   padding: 0.25em;
   display: flex;
   align-items: center;
@@ -34,7 +157,7 @@ body {
 }
 /* line 17, ../sass/components/_Header.scss */
 .Header-iconImage--back {
-  background-image: url(../images/back.png);
+  background-image: url("../images/back.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -46,7 +169,7 @@ body {
 }
 /* line 32, ../sass/components/_Header.scss */
 .Header-title a {
-  color: #ddd;
+  color: #dddddd;
   text-decoration: none;
 }
 /* line 37, ../sass/components/_Header.scss */
@@ -76,122 +199,93 @@ body {
   text-decoration: none;
 }
 
-/* line 1, ../sass/components/_FileUploader.scss */
-.FileUploader {
+/* line 1, ../sass/components/_Input.scss */
+.Input {
+  padding: 6px;
+}
+
+/* line 1, ../sass/components/_Label.scss */
+.Label {
+  margin-bottom: 24px;
+}
+
+/* line 1, ../sass/components/_Login.scss */
+.Login {
   position: absolute;
-}
-
-/* line 1, ../sass/components/_Filters.scss */
-.Filters {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  position: relative;
-  z-index: 99;
-}
-/* line 9, ../sass/components/_Filters.scss */
-.Filters input {
-  display: inline-block;
-}
-
-/* line 1, ../sass/components/_Button.scss */
-.Button {
-  color: white;
-  font-size: 14px;
-  padding: 10px 20px;
-  display: inline-block;
-  border-radius: 3px;
-  float: right;
-  margin: 10px 10px 10px 0;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-  font-size: 16px;
-}
-/* line 14, ../sass/components/_Button.scss */
-.Button--primary {
-  background-color: #009688;
-}
-/* line 17, ../sass/components/_Button.scss */
-.Button--primary:hover {
-  background-color: #00c9b6;
-  color: white;
-}
-/* line 23, ../sass/components/_Button.scss */
-.Button--secondary {
-  background-color: #00635a;
-  color: #ddd;
-}
-/* line 27, ../sass/components/_Button.scss */
-.Button--secondary:hover {
-  background-color: #009688;
-  color: #333;
-}
-/* line 33, ../sass/components/_Button.scss */
-.Button:hover {
-  text-decoration: none;
-}
-
-/* line 1, ../sass/components/_Datepicker.scss */
-.Datepicker {
-  margin: 10px 0 10px 10px;
-  padding: 10px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  width: 125px;
-}
-
-/* line 1, ../sass/components/_Capacity.scss */
-.Capacity {
-  margin: 10px 0 10px 10px;
-  padding: 10px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  width: 110px;
-}
-
-/* line 1, ../sass/components/_Category.scss */
-.Category {
-  position: absolute;
-  z-index: 100;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  padding: 24px;
   background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #C7CBD2;
-  background: url(../images/down.png) #fff no-repeat;
-  background-position: 230px 18px;
-  margin: 1em;
-  font-size: 18px;
+  border-radius: 3px;
+}
+/* line 11, ../sass/components/_Login.scss */
+.Login-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}
+/* line 21, ../sass/components/_Login.scss */
+.Login-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 12px;
+  color: #aa383b;
+}
+/* line 28, ../sass/components/_Login.scss */
+.Login-close:hover {
+  text-decoration: none;
+  color: #c83b3f;
+}
+/* line 34, ../sass/components/_Login.scss */
+.Login .Input {
+  width: 100%;
+}
+/* line 38, ../sass/components/_Login.scss */
+.Login .btn {
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+/* line 1, ../sass/components/_Map.scss */
+.Map {
+  position: absolute;
+  top: 113px;
+  left: 350px;
+  right: 0;
+  bottom: 0;
 }
 @media (max-width: 600px) {
-  /* line 1, ../sass/components/_Category.scss */
-  .Category {
-    position: relative;
+  /* line 1, ../sass/components/_Map.scss */
+  .Map {
+    display: none;
   }
 }
-/* line 16, ../sass/components/_Category.scss */
-.Category-parent {
-  padding: 14px 8px 10px;
-  position: relative;
+/* line 12, ../sass/components/_Map.scss */
+.Map--venue {
+  position: static;
+  margin-top: 24px;
+  width: 900px;
+  height: 350px;
+  display: block !important;
 }
-/* line 21, ../sass/components/_Category.scss */
-.Category-list {
-  list-style: none;
-  margin: 10px 0 0 0;
-  line-height: 26px;
-  position: absolute;
-  width: 242px;
-  padding: 0 0 0 8px;
-  left: -1px;
-  border: 1px solid #C7CBD2;
-  border-top: none;
-  overflow-y: scroll;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  width: 100%;
-}
-/* line 37, ../sass/components/_Category.scss */
-.Category-listItemAnchor {
-  color: #4B5361;
-  text-decoration: none;
+@media (min-width: 900px) {
+  /* line 12, ../sass/components/_Map.scss */
+  .Map--venue {
+    position: fixed !important;
+    top: 33px;
+    bottom: 0;
+    height: calc(100% - 53px);
+    right: 0;
+    left: auto;
+    width: calc(100% - 900px);
+  }
 }
 
 /* line 1, ../sass/components/_Venues.scss */
@@ -213,31 +307,33 @@ body {
 .Venues-list {
   list-style: none;
   padding: 0;
-  margin: 10px;
+  margin: 12px;
 }
-/* line 19, ../sass/components/_Venues.scss */
+/* line 20, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor {
   display: block;
   position: relative;
   width: 100%;
-  background-color: #bdbdbd;
+  background-color: #c7cbd2;
   height: 300px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   background-image: url("../images/venues/william-morris-gallery.jpg");
   background-size: cover;
   background-position: center center;
+  border-radius: 3px;
 }
-/* line 31, ../sass/components/_Venues.scss */
+/* line 33, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px 20px 40px;
+  padding: 24px;
   color: white;
   font-size: 20px;
   line-height: 22px;
+  border-radius: 0 0 3px 3px;
 }
 
 /* line 1, ../sass/components/_VenueDetails.scss */
@@ -267,7 +363,7 @@ body {
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 20px 20px;
+  padding: 24px;
   margin: 0;
 }
 @media (max-width: 600px) {
@@ -285,7 +381,7 @@ body {
 }
 /* line 44, ../sass/components/_VenueDetails.scss */
 .VenueDetails-description {
-  color: #ddd;
+  color: #dddddd;
   font-size: 16px;
   line-height: 18px;
   margin: 20px 20px 30px;
@@ -345,41 +441,6 @@ body {
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 40px;
-}
-
-/* line 1, ../sass/components/_Map.scss */
-.Map {
-  position: absolute;
-  top: 113px;
-  left: 350px;
-  right: 0;
-  bottom: 0;
-}
-@media (max-width: 600px) {
-  /* line 1, ../sass/components/_Map.scss */
-  .Map {
-    display: none;
-  }
-}
-/* line 12, ../sass/components/_Map.scss */
-.Map--venue {
-  position: static;
-  margin-top: 20px;
-  width: 900px;
-  height: 350px;
-  display: block !important;
-}
-@media (min-width: 900px) {
-  /* line 12, ../sass/components/_Map.scss */
-  .Map--venue {
-    position: fixed !important;
-    top: 33px;
-    bottom: 0;
-    height: calc(100% - 53px);
-    right: 0;
-    left: auto;
-    width: calc(100% - 900px);
-  }
 }
 
 /* line 1, ../sass/_btn.scss */

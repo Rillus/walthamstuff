@@ -33,9 +33,9 @@
         </script>
     </head>
     <body>
-      <header class="Header">
-        <?php include "./includes/header.html" ?>
-    </header>
+        <header class="Header">
+            <?php include "./includes/header.html" ?>
+        </header>
         <?php include "./includes/category.html" ?>
   
         <div class="Main">
@@ -44,5 +44,6 @@
             </section>
             <div id="map_canvas" class="Map"></div>
         </div>
+
     </body>
 </html>

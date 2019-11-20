@@ -1,0 +1,41 @@
+// used for standard margin/border. Multiples can be used to maintain proportions should we choose to up[date this value.
+$gutter:        12px;
+
+// standardise border radius across app
+$border-radius: 3px;
+
+/** Colours
+ *  Colours named according to: http://chir.ag/projects/name-that-color/
+**/
+// White/black/grey
+$colour-white:              #fff;
+$colour-black:              #000;
+$colour-mineshaft:          #303030;
+$colour-cod-grey:           #111111;
+$colour-alto:               #dddddd;
+$colour-ghost:              #c7cbd2;
+$colour-trout:              #4B5361;
+
+// Reds
+$colour-medium-carmine:     #aa383b;
+$colour-flush-mahogany:     #c83b3f;
+$colour-burnt-sienna:       #EE6468;
+
+// Green?!
+$colour-persian-green:      #009688;
+
+// Misc.
+$overlay:                   rgba(0,0,0,0.8);
+
+// Font sizes
+$fontSize-base: 14px;
+
+$fontFamily-base: Helvetica, Arial, sans-serif;
+
+/** Z-indices
+ *  Use these as base z-index values and add or subtract according to what's required e.g. 
+ *  z-index: $z-mid+1;
+**/
+$z-back:    0;
+$z-mid:     50;
+$z-front:   100;
