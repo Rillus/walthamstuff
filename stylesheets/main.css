@@ -453,6 +453,41 @@ body {
   margin-bottom: 40px;
 }
 
+/* line 1, ../sass/components/_Map.scss */
+.Map {
+  position: absolute;
+  top: 113px;
+  left: 350px;
+  right: 0;
+  bottom: 0;
+}
+@media (max-width: 600px) {
+  /* line 1, ../sass/components/_Map.scss */
+  .Map {
+    display: none;
+  }
+}
+/* line 12, ../sass/components/_Map.scss */
+.Map--venue {
+  position: static;
+  margin-top: 20px;
+  width: 900px;
+  height: 350px;
+  display: block !important;
+}
+@media (min-width: 900px) {
+  /* line 12, ../sass/components/_Map.scss */
+  .Map--venue {
+    position: fixed !important;
+    top: 33px;
+    bottom: 0;
+    height: calc(100% - 53px);
+    right: 0;
+    left: auto;
+    width: calc(100% - 900px);
+  }
+}
+
 /* line 1, ../sass/_btn.scss */
 .btn-primary {
   background-color: #c83b3f;
