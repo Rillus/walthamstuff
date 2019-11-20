@@ -17,7 +17,6 @@
         <script src="scripts/geolocation-marker.js"></script>
         <script src="scripts/common.js"></script>
         <script src="scripts/maps.js"></script>
-        <script src="scripts/header.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="scripts/bootstrap.min.js"></script>
         <script src="scripts/jquery.datetimepicker.js"></script>
@@ -46,6 +45,5 @@
             <div id="map_canvas" class="Map"></div>
         </div>
 
-        <div id="loginHolder" class="Login-wrapper u-hide"></div>
     </body>
 </html>
