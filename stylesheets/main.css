@@ -266,7 +266,7 @@ body {
 /* line 1, ../sass/components/_Map.scss */
 .Map {
   position: absolute;
-  top: 113px;
+  top: 236px;
   left: 350px;
   right: 0;
   bottom: 0;
@@ -301,7 +301,7 @@ body {
 /* line 1, ../sass/components/_Venues.scss */
 .Venues {
   position: absolute;
-  top: 113px;
+  top: 236px;
   bottom: 0;
   overflow-y: scroll;
   width: 350px;
