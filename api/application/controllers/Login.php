@@ -7,7 +7,6 @@ class Login extends CI_Controller {
         parent::__construct();
         
         $this->load->database();
-        $this->load->model('Viewmodel');
         $this->load->model('Seshmodel');
         $this->load->library('session');
         $this->load->helper('form');
@@ -22,9 +21,7 @@ class Login extends CI_Controller {
     
     public function index() {}
     
-    public function login_action() {       
-        $this->load->library('encrypt');
-        
+    public function login_action() {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         
