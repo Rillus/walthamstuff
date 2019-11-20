@@ -49,5 +49,5 @@
           <input type="text" id="contributor_email" name="contributor_email" class="form-control">
       </div>
   </fieldset>
-  <button value="Submit" class="btn btn-primary" onclick="sendData(event)">Submit</button>
+  <button value="Submit" class="btn btn-primary" onclick="sendData(event, <?php echo $formType; ?>)">Submit</button>
 </form>
