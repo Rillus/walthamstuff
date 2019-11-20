@@ -138,7 +138,7 @@ body {
 
 /* line 1, ../sass/components/_Header.scss */
 .Header {
-  background: #111111;
+  background: #000;
   border-bottom: #303030 1px solid;
   padding: 0.25em;
 }
