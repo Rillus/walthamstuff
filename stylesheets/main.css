@@ -198,6 +198,10 @@ body {
   color: #4B5361;
   text-decoration: none;
 }
+/* line 63, ../sass/components/_Header.scss */
+.Header-loginButton {
+  margin-right: 12px;
+}
 
 /* line 1, ../sass/components/_Input.scss */
 .Input {

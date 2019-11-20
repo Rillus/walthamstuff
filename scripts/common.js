@@ -1,4 +1,5 @@
-var categories = [];
+var categories = [],
+    apiBaseUrl = 'http://localhost/walthamstuff-maps/api/index.php/'; //'http://maps.walthamstuff.com/dev/api/index.php';
 
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -85,12 +86,9 @@ function sendData(e) {
 
 function insertTemplate(filename, target) {
     $(target).load(filename).show();
-    // getJSON(filename, function(err, data) {
-    //     if (err !== null) {
-    //         alert('Something went wrong: ' + err);
-    //     } else {
-    //         console.log($(target), JSON.encode(data));
-    //         $(target).html(data);
-    //     }
-    // });
+    
+    $(target).on('#closeLogin','click',function() {
+        console.log('oii');
+        $('#loginHolder').hide();
+    });
 }
