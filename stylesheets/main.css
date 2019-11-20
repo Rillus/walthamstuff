@@ -15,48 +15,54 @@ body {
 
 /* line 1, ../sass/components/_Header.scss */
 .Header {
-  background: #111;
+  background: #000;
   border-bottom: #222 1px solid;
   padding: 0.25em;
-  display: flex;
-  align-items: center;
 }
-/* line 8, ../sass/components/_Header.scss */
+/* line 6, ../sass/components/_Header.scss */
 .Header-icon {
-  padding: 0 0.5em;
   border-radius: 20px;
 }
-/* line 12, ../sass/components/_Header.scss */
-.Header-iconImage {
-  width: 50px;
-  height: 50px;
-  display: block;
+/* line 8, ../sass/components/_Header.scss */
+.Header-icon a {
+  display: flex;
+  justify-content: center;
 }
-/* line 17, ../sass/components/_Header.scss */
+/* line 13, ../sass/components/_Header.scss */
+.Header-iconImage {
+  width: 85%;
+}
+@media (max-width: 600px) {
+  /* line 13, ../sass/components/_Header.scss */
+  .Header-iconImage {
+    width: 100%;
+  }
+}
+/* line 19, ../sass/components/_Header.scss */
 .Header-iconImage--back {
   background-image: url(../images/back.png);
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 26, ../sass/components/_Header.scss */
+/* line 28, ../sass/components/_Header.scss */
 .Header-title {
   margin: 0;
   width: 100%;
   font-size: 26px;
 }
-/* line 32, ../sass/components/_Header.scss */
+/* line 34, ../sass/components/_Header.scss */
 .Header-title a {
   color: #ddd;
   text-decoration: none;
 }
-/* line 37, ../sass/components/_Header.scss */
+/* line 39, ../sass/components/_Header.scss */
 .Header-nav {
   display: inline-block;
   list-style: none;
   margin: 0 0 0 40px;
   padding: 0;
 }
-/* line 44, ../sass/components/_Header.scss */
+/* line 46, ../sass/components/_Header.scss */
 .Header-navItem {
   display: inline-block;
   font-size: 14px;
@@ -65,12 +71,12 @@ body {
   width: 120px;
   text-align: center;
 }
-/* line 53, ../sass/components/_Header.scss */
+/* line 55, ../sass/components/_Header.scss */
 .Header-navItem--active {
   border-bottom: 2px solid #EE6468;
   width: 90px;
 }
-/* line 58, ../sass/components/_Header.scss */
+/* line 60, ../sass/components/_Header.scss */
 .Header-navItem a {
   color: #4B5361;
   text-decoration: none;
@@ -192,6 +198,52 @@ body {
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
+}
+
+/* line 1, ../sass/components/_Intro.scss */
+.Intro {
+  font-size: 26px;
+  background-color: transparent;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* line 1, ../sass/components/_Map.scss */
+.Map {
+  position: absolute;
+  top: 113px;
+  left: 350px;
+  right: 0;
+  bottom: 0;
+}
+@media (max-width: 600px) {
+  /* line 1, ../sass/components/_Map.scss */
+  .Map {
+    display: none;
+  }
+}
+/* line 12, ../sass/components/_Map.scss */
+.Map--venue {
+  position: static;
+  margin-top: 20px;
+  width: 900px;
+  height: 350px;
+  display: block !important;
+}
+@media (min-width: 900px) {
+  /* line 12, ../sass/components/_Map.scss */
+  .Map--venue {
+    position: fixed !important;
+    top: 33px;
+    bottom: 0;
+    height: calc(100% - 53px);
+    right: 0;
+    left: auto;
+    width: calc(100% - 900px);
+  }
 }
 
 /* line 1, ../sass/components/_Venues.scss */
@@ -345,41 +397,6 @@ body {
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 40px;
-}
-
-/* line 1, ../sass/components/_Map.scss */
-.Map {
-  position: absolute;
-  top: 113px;
-  left: 350px;
-  right: 0;
-  bottom: 0;
-}
-@media (max-width: 600px) {
-  /* line 1, ../sass/components/_Map.scss */
-  .Map {
-    display: none;
-  }
-}
-/* line 12, ../sass/components/_Map.scss */
-.Map--venue {
-  position: static;
-  margin-top: 20px;
-  width: 900px;
-  height: 350px;
-  display: block !important;
-}
-@media (min-width: 900px) {
-  /* line 12, ../sass/components/_Map.scss */
-  .Map--venue {
-    position: fixed !important;
-    top: 33px;
-    bottom: 0;
-    height: calc(100% - 53px);
-    right: 0;
-    left: auto;
-    width: calc(100% - 900px);
-  }
 }
 
 /* line 1, ../sass/_btn.scss */
