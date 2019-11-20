@@ -11,7 +11,7 @@
 
     &--venue {
         position: static;
-        margin-top: 20px;
+        margin-top: $gutter*2;
         width: 900px;
         height: 350px;
         display: block !important;

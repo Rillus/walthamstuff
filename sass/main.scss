@@ -4,14 +4,15 @@ html, body {
   height: 100%;
 }
 
+@import 'variables';
+
 body {
-  font-family: Helvectica, Arial, sans-serif;
+  font-family: $fontFamily-base;
   line-height: .75;
-  font-size: 14px;
-  background-color: #303030;
+  font-size: $fontSize-base;
+  background-color: $colour-mineshaft;
 }
 
-@import 'variables';
 @import 'components/Button';
 @import 'components/Capacity';
 @import 'components/Category';
