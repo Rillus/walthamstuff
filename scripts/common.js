@@ -86,9 +86,4 @@ function sendData(e) {
 
 function insertTemplate(filename, target) {
     $(target).load(filename).show();
-    
-    $(target).on('#closeLogin','click',function() {
-        console.log('oii');
-        $('#loginHolder').hide();
-    });
 }
