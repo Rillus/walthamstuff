@@ -54,11 +54,13 @@ class Login extends CI_Controller {
                 $this->session->set_userdata($newData);
                 
                 echo json_encode($newData);
+                return;
             } else {
                 $data['header'] = "An error with your login.";
                 $data['message'] = 'It seems your registration has not quite been completed. Please check for the activation email we sent you in your inbox, or get it re-sent. Do be sure to check your spam or junk folder.';
 
                 echo json_encode($data);
+                return;
             }
         } else {
             $newData = array(
@@ -68,6 +70,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata($newData);
 
             echo json_encode($newData);
+            return;
         }
     }
 
