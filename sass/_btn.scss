@@ -1,14 +1,14 @@
 .btn-primary {
-    background-color: #c83b3f;
-    border-color: #c83b3f;
+    background-color: $colour-flush-mahogany;
+    border-color: $colour-flush-mahogany;
     
     &:hover, 
     &:active, 
     &:focus, 
     &:focus-within, 
     &:visited {
-        background-color: #aa383b;
-        border-color: #aa383b;
+        background-color: $colour-medium-carmine;
+        border-color: $colour-medium-carmine;
     }
 }
 

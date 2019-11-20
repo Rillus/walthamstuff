@@ -1,6 +1,6 @@
 .Header {
-    background: #000;
-    border-bottom:#222 1px solid;
+    background: $colour-cod-grey;
+    border-bottom: $colour-mineshaft 1px solid;
     padding: 0.25em;
 
     &-icon {
@@ -17,7 +17,7 @@
             width: 85%;
  
             &--back {
-                background-image: url(../images/back.png);
+                background-image: url('../images/back.png');
                 background-repeat: no-repeat;
                 background-position: center center;
             }
@@ -32,7 +32,7 @@
     }
 
     &-title a {
-        color: #ddd;
+        color: $colour-alto;
         text-decoration: none;
     }
 
@@ -46,19 +46,23 @@
     &-navItem {
         display: inline-block;
         font-size: 14px;
-        color: #4B5361;
+        color: $colour-trout;
         padding: 30px 0;
         width: 120px;
         text-align: center;
     }
 
     &-navItem--active {
-        border-bottom: 2px solid #EE6468;
+        border-bottom: 2px solid $colour-burnt-sienna;
         width: 90px;
     }
 
     &-navItem a {
-        color: #4B5361;
+        color: $colour-trout;
         text-decoration: none;
+    }
+
+    &-loginButton {
+        margin-right: $gutter;
     }
 }

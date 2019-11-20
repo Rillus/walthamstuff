@@ -1,0 +1,42 @@
+.Login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    padding: $gutter*2;
+    background-color: $colour-white;
+    border-radius: $border-radius;
+
+    &-wrapper {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $overlay;
+        z-index: $z-front;
+    }
+
+    &-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $gutter;
+        color: $colour-medium-carmine;
+
+        &:hover {
+            text-decoration: none;
+            color: $colour-flush-mahogany;
+        }
+    }
+
+    .Input {
+        width: 100%;
+    }
+
+    .btn {
+        margin-bottom: $gutter;
+        width: 100%;
+    }
+}

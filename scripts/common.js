@@ -1,4 +1,5 @@
-var categories = [];
+var categories = [],
+    apiBaseUrl = 'http://localhost/walthamstuff-maps/api/index.php/'; //'http://maps.walthamstuff.com/dev/api/index.php';
 
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -81,4 +82,8 @@ function sendData(e) {
 
     // Finally, send our data.
     XHR.send(urlEncodedData);
+}
+
+function insertTemplate(filename, target) {
+    $(target).load(filename).show();
 }

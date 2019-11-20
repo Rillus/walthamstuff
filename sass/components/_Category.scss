@@ -1,12 +1,11 @@
 .Category {
     position: absolute;
-    z-index: 100;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #C7CBD2;
-    background: url(../images/down.png) #fff no-repeat;
+    z-index: $z-mid+1;
+    background-color: $colour-white;
+    border-radius: $border-radius;
+    border: 1px solid $colour-ghost;
     background-position: 230px 18px;
-    margin: 1em;
+    margin: $gutter;
     font-size: 18px;
 
     @media(max-width: 600px){
@@ -14,28 +13,28 @@
     }
     
     &-parent {
-        padding: 14px 8px 10px;
+        padding: 14px 8px $gutter;
         position: relative;
     }
 
     &-list {
         list-style: none;
-        margin: 10px 0 0 0;
+        margin: $gutter 0 0 0;
         line-height: 26px;
         position: absolute;
         width: 242px;
         padding: 0 0 0 8px;
         left: -1px;
-        border: 1px solid #C7CBD2;
+        border: 1px solid $colour-ghost;
         border-top: none;
         overflow-y: scroll;
-        border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
         width: 100%;
     }
 
     &-listItemAnchor {
-        color: #4B5361;
+        color: $colour-trout;
         text-decoration: none;
     }
 }

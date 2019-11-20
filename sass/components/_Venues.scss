@@ -13,19 +13,21 @@
     &-list {
         list-style: none;
         padding: 0;
-        margin: 10px;
+        margin: $gutter;
 
         &Item {
+            
             &Anchor {
                 display: block;
                 position: relative;
                 width: 100%;
-                background-color: #bdbdbd;
+                background-color: $colour-ghost;
                 height: 300px;
-                margin-bottom: 10px;
+                margin-bottom: $gutter;
                 background-image: url('../images/venues/william-morris-gallery.jpg');
                 background-size: cover;
                 background-position: center center;
+                border-radius: $border-radius;
             }
 
             &Description {
@@ -34,10 +36,11 @@
                 left: 0;
                 right: 0;
                 background-color: rgba(0,0,0, 0.5);
-                padding: 20px 20px 40px;
+                padding: $gutter*2;
                 color: white;
                 font-size: 20px;
                 line-height: 22px;
+                border-radius: 0 0 $border-radius $border-radius;
             }
         }
     }
