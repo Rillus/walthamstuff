@@ -82,15 +82,3 @@ function sendData(e) {
     // Finally, send our data.
     XHR.send(urlEncodedData);
 }
-
-function insertTemplate(filename, target) {
-    $(target).load(filename).show();
-    // getJSON(filename, function(err, data) {
-    //     if (err !== null) {
-    //         alert('Something went wrong: ' + err);
-    //     } else {
-    //         console.log($(target), JSON.encode(data));
-    //         $(target).html(data);
-    //     }
-    // });
-}
