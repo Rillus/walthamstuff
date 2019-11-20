@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-md-8 offset-md-2">
       <?php include "./includes/form.php" ?>
-      <?php include "./includes/form.php" ?>
+      
       </div>
     </div>
   </div>
