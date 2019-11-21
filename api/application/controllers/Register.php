@@ -10,6 +10,8 @@ class Register extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('form');
         $this->load->helper('url');
+        $this->load->model('Responsemodel');
+
         date_default_timezone_set('Europe/London');
 
         header("Access-Control-Allow-Origin: *");

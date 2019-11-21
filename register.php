@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Edit location to Walthamstuff Map</title>
+        <title>Register an account | Walthamstuff Map</title>
         <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
         <link rel="stylesheet" href="stylesheets/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
