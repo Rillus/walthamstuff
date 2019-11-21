@@ -15,7 +15,7 @@ html, body {
 /* line 9, ../sass/main.scss */
 body {
   font-family: Helvetica, Arial, sans-serif;
-  line-height: .75;
+  line-height: 18px;
   font-size: 14px;
   background-color: #303030;
 }

@@ -1,16 +1,16 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 @import 'variables';
 
 body {
-  font-family: $fontFamily-base;
-  line-height: .75;
-  font-size: $fontSize-base;
-  background-color: $colour-mineshaft;
+    font-family: $fontFamily-base;
+    line-height: $fontSize-base+4;
+    font-size: $fontSize-base;
+    background-color: $colour-mineshaft;
 }
 
 @import 'components/Button';
