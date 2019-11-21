@@ -43,12 +43,10 @@
         </div>
         <?php include "./includes/category.html" ?> 
       </section>
-
-      <div class="Main">
-        <section class="Venues">
-            <ul class="Venues-list" id="venue-list"></ul>
-        </section>
-        <div id="map_canvas" class="Map"></div>
+      <section class="Venues">
+          <ul class="Venues-list" id="venue-list"></ul>
+      </section>
+      <div id="map_canvas" class="Map"></div>
       <div id="loginHolder" class="Login-wrapper u-hide"></div>
     </body>
 </html>
