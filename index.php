@@ -34,19 +34,21 @@
         </script>
     </head>
     <body>
-        <header class="Header">
-            <?php include "./includes/header.html" ?>
-        </header>
+      <header class="Header">
+         <?php include "./includes/header.html" ?>
+      </header>
+      <section class=Search-section>
         <div class="Intro" id="Intro-text">
-            <h1> Find what you need, locally</h1>
-          </div>
-          <?php include "./includes/category.html" ?> 
-          <div class="Main">
-            <section class="Venues">
-                <ul class="Venues-list" id="venue-list"></ul>
-            </section>
-            <div id="map_canvas" class="Map"></div>
+          <h2> Find what you need, locally</h2>
         </div>
-        <div id="loginHolder" class="Login-wrapper u-hide"></div>
+        <?php include "./includes/category.html" ?> 
+      </section>
+
+      <div class="Main">
+        <section class="Venues">
+            <ul class="Venues-list" id="venue-list"></ul>
+        </section>
+        <div id="map_canvas" class="Map"></div>
+      <div id="loginHolder" class="Login-wrapper u-hide"></div>
     </body>
 </html>
