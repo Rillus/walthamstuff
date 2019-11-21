@@ -1,0 +1,14 @@
+var registerFormCallback = function(responseData) {
+    if (responseData.status == 'success') {
+        window.location.assign('./index.php');
+    }
+};
+
+function showPassword(){
+    var passwordField = document.getElementById("password");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
+    }
+}

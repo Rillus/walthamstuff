@@ -42,7 +42,7 @@ function extractFormInputKeyValue(inputs) {
     return urlEncodedDataPairs;
 }
 
-function sendData(e) {
+function sendData(e, url, callback) {
     e.preventDefault();
 
     var XHR = new XMLHttpRequest(),
@@ -65,8 +65,12 @@ function sendData(e) {
 
     // Define what happens on successful data submission
     XHR.addEventListener('load', function(event) {
-        id = JSON.parse(XHR.responseText).data.venueId;
-        window.location.assign('venue.html?id=' + id);
+        if (url == 'add' || url == 'edit') {
+            id = JSON.parse(XHR.responseText).data.venueId;
+            window.location.assign('venue.html?id=' + id);
+        } else {
+            callback(JSON.parse(XHR.responseText));
+        }
     });
 
     // Define what happens in case of error
@@ -75,7 +79,7 @@ function sendData(e) {
     });
 
     // Set up our request
-    XHR.open('POST', thisForm.action);
+    XHR.open('POST', apiBaseUrl+url);
 
     // Add the required HTTP header for form data POST requests
     XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

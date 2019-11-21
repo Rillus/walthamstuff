@@ -4,9 +4,9 @@
     $formType = ($url_part[2] == 'add.php')? 'add': 'edit'; 
     ?>
 
-<form class="form-container" method="post" id="<?php echo $formType ?>Form" action="http://maps.walthamstuff.com/dev/api/index.php/add/location">
+<form class="form-container" method="post" id="<?php echo $formType ?>Form">
   <fieldset>
-      <h2><?php echo ($formType == 'add') ? "Add Details" : "Edit Details" ?></h2>
+      <h2><?php echo ($formType == 'add') ? "Add Location" : "Edit Location" ?></h2>
       <div class="form-group">
           <label for="postcode">Postcode</label>
           <input type="text" id="postcode" name="postcode" class="form-control">
@@ -49,5 +49,5 @@
           <input type="text" id="contributor_email" name="contributor_email" class="form-control">
       </div>
   </fieldset>
-  <button value="Submit" class="btn btn-primary" onclick="sendData(event)">Submit</button>
+  <button value="Submit" class="btn btn-primary" onclick="sendData(event, 'add/location')">Submit</button>
 </form>
