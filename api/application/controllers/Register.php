@@ -41,7 +41,7 @@ class Register extends CI_Controller {
                                 ->get('users');
 
         if ($emailExists->num_rows() > 0) {            
-            $this->Responsemodel->error('Invalid login details');
+            $this->Responsemodel->error('That email address is already registered, please try logging in.');
             return;
         }
 
