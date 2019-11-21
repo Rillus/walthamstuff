@@ -7,7 +7,6 @@ class Login extends CI_Controller {
         parent::__construct();
         
         $this->load->database();
-        $this->load->model('Seshmodel');
         $this->load->library('session');
         $this->load->helper('form');
         $this->load->helper('url');

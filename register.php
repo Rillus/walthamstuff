@@ -22,57 +22,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <?php 
-                        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-                        $url_part =  (explode("/", $path));
-                        $formType = ($url_part[2] == 'add.php')? 'add': 'edit'; 
-                    ?>
-
-                    <form class="form-container" method="post" id="<?php echo $formType ?>Form" action="http://maps.walthamstuff.com/dev/api/index.php/add/location">
-                      <fieldset>
-                          <h2><?php echo ($formType == 'add') ? "Add Details" : "Edit Details" ?></h2>
-                          <div class="form-group">
-                              <label for="postcode">Postcode</label>
-                              <input type="text" id="postcode" name="postcode" class="form-control">
-                          </div>
-                          <div class="form-group">
-                              <label for="name">Name of Place</label>
-                              <input type="text" id="name" name="name" class="form-control">
-                          </div>
-                          <div class="form-group">
-                              <label for="address">Address</label>
-                              <input type="text" id="address" name="address" class="form-control">
-                          </div>
-                          <div class="form-group">
-                              <label for="category">Categories</label>
-                              <select name="category" id="category" class="form-control">
-
-                              </select>
-                          </div>
-                          <div class="form-group">
-                              <label for="description">Description</label>
-                              <textarea type="text" id="description" name="description" class="form-control"></textarea>
-                          </div>
-                          <div class="form-group">
-                              <label for="website">Website</label>
-                              <input type="text" id="website" name="website" class="form-control">
-                          </div>
-                          <div class="form-group">
-                              <label for="twitter">Twitter</label>
-                              <input type="text" id="twitter" name="twitter" class="form-control">
-                          </div>
-                      </fieldset>
-                      <fieldset>
-                          <div class="form-group">
-                              <label for="contributor_name">Your name</label>
-                              <input type="text" id="contributor_name" name="contributor_name" class="form-control">
-                          </div>
-                          <div class="form-group">
-                              <label for="contributor_email">Your email <small>(so we can keep you updated about your submission)</small></label>
-                              <input type="text" id="contributor_email" name="contributor_email" class="form-control">
-                          </div>
-                      </fieldset>
-                      <button value="Submit" class="btn btn-primary" onclick="sendData(event, 'add')">Submit</button>
+                    <form class="Form form-container" method="post" id="registerForm" action="register">
+                        <fieldset>
+                            <h2>Create an account</h2>
+                            <p>Once you're registered you'll be able to add and edit entries on Walthamstuff's business directory.</p>
+                            <p>We'll send you an email to verify your address. Simply click the link and you can create your business entry.</p>
+                            <label class="Label form-group">
+                                Email<br>
+                                <input type="text" id="email" name="email" class="Input form-control">
+                            </label>
+                            <label class="Label form-group">
+                                Password<br>
+                                <input type="password" id="password" name="password" class="Input form-control">
+                            </label>
+                            <label class="Label form-group">
+                                <input type="checkbox" onclick="showPassword()"> Show Password
+                            </label>
+                        </fieldset>
+                        <button value="Submit" class="btn btn-primary" onclick="sendData(event, 'register')">Create my acccount</button>
                     </form>
                 </div>
             </div>

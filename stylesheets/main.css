@@ -136,6 +136,11 @@ body {
   display: inline-block;
 }
 
+/* line 1, ../sass/components/_Form.scss */
+.Form {
+  background: #fff;
+}
+
 /* line 1, ../sass/components/_Header.scss */
 .Header {
   background: #111111;
@@ -210,7 +215,13 @@ body {
 
 /* line 1, ../sass/components/_Label.scss */
 .Label {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+}
+/* line 4, ../sass/components/_Label.scss */
+.Label.form-group {
+  color: #4B5361;
+  display: block;
+  line-height: 18px;
 }
 
 /* line 1, ../sass/components/_Login.scss */

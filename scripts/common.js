@@ -68,6 +68,14 @@ function sendData(e, type) {
         if (type == 'add' || type == 'edit') {
             id = JSON.parse(XHR.responseText).data.venueId;
             window.location.assign('venue.html?id=' + id);
+        } else if (type == 'login/login_action') {
+            if (JSON.parse(XHR.responseText).logged_in == 'yes') {
+                $('#loginHolder').hide();
+            }
+        } else if (type == 'register') {
+            if (JSON.parse(XHR.responseText).status == 'success') {
+                window.location.assign('./index.php');
+            }
         }
     });
 
@@ -77,7 +85,7 @@ function sendData(e, type) {
     });
 
     // Set up our request
-    XHR.open('POST', thisForm.action);
+    XHR.open('POST', apiBaseUrl+type);
 
     // Add the required HTTP header for form data POST requests
     XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
