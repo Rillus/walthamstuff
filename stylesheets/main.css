@@ -214,6 +214,17 @@ body {
   padding: 6px;
 }
 
+/* line 1, ../sass/components/_Intro.scss */
+.Intro {
+  font-size: 26px;
+  background-color: transparent;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
 /* line 1, ../sass/components/_Label.scss */
 .Label {
   margin-bottom: 24px;
@@ -298,11 +309,13 @@ body {
   }
 }
 
+/* line 1, ../sass/components/_Main.scss */
+.Main {
+  display: flex;
+}
+
 /* line 1, ../sass/components/_Venues.scss */
 .Venues {
-  position: absolute;
-  top: 236px;
-  bottom: 0;
   overflow-y: scroll;
   width: 350px;
 }
@@ -451,41 +464,6 @@ body {
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 40px;
-}
-
-/* line 1, ../sass/components/_Map.scss */
-.Map {
-  position: absolute;
-  top: 113px;
-  left: 350px;
-  right: 0;
-  bottom: 0;
-}
-@media (max-width: 600px) {
-  /* line 1, ../sass/components/_Map.scss */
-  .Map {
-    display: none;
-  }
-}
-/* line 12, ../sass/components/_Map.scss */
-.Map--venue {
-  position: static;
-  margin-top: 20px;
-  width: 900px;
-  height: 350px;
-  display: block !important;
-}
-@media (min-width: 900px) {
-  /* line 12, ../sass/components/_Map.scss */
-  .Map--venue {
-    position: fixed !important;
-    top: 33px;
-    bottom: 0;
-    height: calc(100% - 53px);
-    right: 0;
-    left: auto;
-    width: calc(100% - 900px);
-  }
 }
 
 /* line 1, ../sass/_btn.scss */

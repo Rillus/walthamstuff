@@ -36,15 +36,16 @@
         <header class="Header">
             <?php include "./includes/header.html" ?>
         </header>
-        <?php include "./includes/category.html" ?>
-  
-        <div class="Main">
+        <div class="Intro" id="Intro-text">
+            <h1> Find what you need, locally</h1>
+          </div>
+          <?php include "./includes/category.html" ?> 
+          <div class="Main">
             <section class="Venues">
                 <ul class="Venues-list" id="venue-list"></ul>
             </section>
             <div id="map_canvas" class="Map"></div>
         </div>
-
         <div id="loginHolder" class="Login-wrapper u-hide"></div>
     </body>
 </html>
