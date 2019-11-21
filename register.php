@@ -29,17 +29,17 @@
                             <p>We'll send you an email to verify your address. Simply click the link and you can create your business entry.</p>
                             <label class="Label form-group">
                                 Email<br>
-                                <input type="text" id="email" name="email" class="Input form-control">
+                                <input type="text" id="email" name="email" class="Input form-control" required>
                             </label>
                             <label class="Label form-group">
                                 Password<br>
-                                <input type="password" id="password" name="password" class="Input form-control">
+                                <input type="password" id="password" name="password" class="Input form-control" required>
                             </label>
                             <label class="Label form-group">
                                 <input type="checkbox" onclick="showPassword()"> Show Password
                             </label>
                         </fieldset>
-                        <button value="Submit" class="btn btn-primary" onclick="sendData(event, 'register')">Create my acccount</button>
+                        <button value="Submit" class="btn btn-primary" onclick="sendData(event, 'register', registerFormCallback)">Create my acccount</button>
                     </form>
                 </div>
             </div>

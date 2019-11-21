@@ -23,14 +23,14 @@ class Register extends CI_Controller {
         $password = $this->input->post('password');
 
         // check email format
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $response = array(
-                'status' => 'error',
-                'code' => '400',
-                'reason' => 'Incorrect email format',
-            );
-            
-            echo json_encode($response);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {           
+            $this->Responsemodel->error('Incorrect email format');
+            return;
+        }
+
+        // ensure password not blank
+        if ($password == '') {
+            $this->Responsemodel->error('You must enter a password');
             return;
         }
 
@@ -38,14 +38,8 @@ class Register extends CI_Controller {
         $emailExists = $this->db->where('email', $email)
                                 ->get('users');
 
-        if ($emailExists->num_rows() > 0) {
-            $response = array(
-                'status' => 'error',
-                'code' => '400',
-                'reason' => 'That email is already registered. Try logging in instead.',
-            );
-            
-            echo json_encode($response);
+        if ($emailExists->num_rows() > 0) {            
+            $this->Responsemodel->error('Invalid login details');
             return;
         }
 
@@ -59,13 +53,10 @@ class Register extends CI_Controller {
 
         // return new user id
         $returnValues = array(
-            'status' => 'success',
-            'code' => '200',
-            'data' => array(
-                'userId' => $this->db->insert_id()
-            )
+            'userId' => $this->db->insert_id()
         );
 
-        echo json_encode($returnValues);
+        $this->Responsemodel->success($returnValues);
+        return;
     }
 }

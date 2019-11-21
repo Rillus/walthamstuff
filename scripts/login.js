@@ -1,3 +1,9 @@
+var loginFormCallback = function(responseData) {
+    if (responseData.status == 'success') {
+        window.location.assign('./index.php');
+    }
+};
+
 $(document).ready(function() {
     $('#loginButton').click(function() {
         insertTemplate('./login.html', '#loginHolder');

@@ -42,7 +42,7 @@ function extractFormInputKeyValue(inputs) {
     return urlEncodedDataPairs;
 }
 
-function sendData(e, type) {
+function sendData(e, url, callback) {
     e.preventDefault();
 
     var XHR = new XMLHttpRequest(),
@@ -65,17 +65,11 @@ function sendData(e, type) {
 
     // Define what happens on successful data submission
     XHR.addEventListener('load', function(event) {
-        if (type == 'add' || type == 'edit') {
+        if (url == 'add' || url == 'edit') {
             id = JSON.parse(XHR.responseText).data.venueId;
             window.location.assign('venue.html?id=' + id);
-        } else if (type == 'login/login_action') {
-            if (JSON.parse(XHR.responseText).logged_in == 'yes') {
-                $('#loginHolder').hide();
-            }
-        } else if (type == 'register') {
-            if (JSON.parse(XHR.responseText).status == 'success') {
-                window.location.assign('./index.php');
-            }
+        } else {
+            callback(JSON.parse(XHR.responseText));
         }
     });
 
@@ -85,7 +79,7 @@ function sendData(e, type) {
     });
 
     // Set up our request
-    XHR.open('POST', apiBaseUrl+type);
+    XHR.open('POST', apiBaseUrl+url);
 
     // Add the required HTTP header for form data POST requests
     XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
