@@ -43,7 +43,7 @@
     &-section {
         border-radius: $border-radius;
         position: fixed;
-        top: 220px;
+        top: 230px;
         left: calc(100% - 70%);
         padding: $gutter*3;
         background: $colour-mineshaft-opaque;
@@ -54,5 +54,14 @@
         justify-content: center;
         z-index: $z-front;
         width: 40%;
+
+        @media(max-width: 600px){
+            position: relative;
+            left: 0;
+            top: 130px;
+            width: 100%;
+        }
     }
+
+
 }
