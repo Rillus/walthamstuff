@@ -140,7 +140,7 @@ function getVenuesByCategory(){
 
     var getNewCategory = function(e) {
         e.preventDefault();
-
+        hideIntro();
         createMap(e.target.innerHTML);
         createVenueList( venues, e.target.innerHTML);
     };
