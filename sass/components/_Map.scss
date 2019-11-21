@@ -1,9 +1,10 @@
 .Map {
-    position: absolute;
-    top: 236px;
-    left: 350px;
+    position: fixed !important;
     right: 0;
     bottom: 0;
+    top: 240px;
+
+    width: 100%;
 
     @media(max-width: 600px) {
         display: none;
@@ -26,4 +27,8 @@
             width: calc(100% - 900px);
         }        
     }
+}
+.container-fluid {
+    display: flex;
+    flex-direction: column;
 }
