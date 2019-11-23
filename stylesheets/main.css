@@ -66,7 +66,6 @@ body {
 
 /* line 1, ../sass/components/_Category.scss */
 .Category {
-  position: absolute;
   z-index: 51;
   background-color: #fff;
   border-radius: 3px;
@@ -74,19 +73,21 @@ body {
   background-position: 230px 18px;
   margin: 12px;
   font-size: 18px;
+  width: 330px;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Category.scss */
   .Category {
     position: relative;
+    width: 100%;
   }
 }
-/* line 15, ../sass/components/_Category.scss */
+/* line 16, ../sass/components/_Category.scss */
 .Category-parent {
   padding: 14px 8px 12px;
   position: relative;
 }
-/* line 20, ../sass/components/_Category.scss */
+/* line 21, ../sass/components/_Category.scss */
 .Category-list {
   list-style: none;
   margin: 12px 0 0 0;
@@ -102,10 +103,36 @@ body {
   border-bottom-left-radius: 3px;
   width: 100%;
 }
-/* line 36, ../sass/components/_Category.scss */
+/* line 37, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
+}
+
+/* line 43, ../sass/components/_Category.scss */
+.Search-section {
+  border-radius: 3px;
+  position: fixed;
+  top: 230px;
+  left: calc(100% - 70%);
+  padding: 36px;
+  background: rgba(48, 48, 48, 0.7);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  width: 40%;
+}
+@media (max-width: 600px) {
+  /* line 43, ../sass/components/_Category.scss */
+  .Search-section {
+    position: relative;
+    left: 0;
+    top: 130px;
+    width: 100%;
+  }
 }
 
 /* line 1, ../sass/components/_Datepicker.scss */
@@ -143,48 +170,55 @@ body {
 
 /* line 1, ../sass/components/_Header.scss */
 .Header {
-  background: #111111;
+  background: #000;
   border-bottom: #303030 1px solid;
   padding: 0.25em;
-  display: flex;
-  align-items: center;
+  position: fixed;
 }
-/* line 8, ../sass/components/_Header.scss */
+/* line 7, ../sass/components/_Header.scss */
 .Header-icon {
-  padding: 0 0.5em;
   border-radius: 20px;
 }
-/* line 12, ../sass/components/_Header.scss */
-.Header-iconImage {
-  width: 50px;
-  height: 50px;
-  display: block;
+/* line 9, ../sass/components/_Header.scss */
+.Header-icon a {
+  display: flex;
+  justify-content: center;
 }
-/* line 17, ../sass/components/_Header.scss */
+/* line 14, ../sass/components/_Header.scss */
+.Header-iconImage {
+  width: 85%;
+}
+@media (max-width: 600px) {
+  /* line 14, ../sass/components/_Header.scss */
+  .Header-iconImage {
+    width: 100%;
+  }
+}
+/* line 20, ../sass/components/_Header.scss */
 .Header-iconImage--back {
   background-image: url("../images/back.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 26, ../sass/components/_Header.scss */
+/* line 29, ../sass/components/_Header.scss */
 .Header-title {
   margin: 0;
   width: 100%;
   font-size: 26px;
 }
-/* line 32, ../sass/components/_Header.scss */
+/* line 35, ../sass/components/_Header.scss */
 .Header-title a {
   color: #dddddd;
   text-decoration: none;
 }
-/* line 37, ../sass/components/_Header.scss */
+/* line 40, ../sass/components/_Header.scss */
 .Header-nav {
   display: inline-block;
   list-style: none;
   margin: 0 0 0 40px;
   padding: 0;
 }
-/* line 44, ../sass/components/_Header.scss */
+/* line 47, ../sass/components/_Header.scss */
 .Header-navItem {
   display: inline-block;
   font-size: 14px;
@@ -193,17 +227,17 @@ body {
   width: 120px;
   text-align: center;
 }
-/* line 53, ../sass/components/_Header.scss */
+/* line 56, ../sass/components/_Header.scss */
 .Header-navItem--active {
   border-bottom: 2px solid #EE6468;
   width: 90px;
 }
-/* line 58, ../sass/components/_Header.scss */
+/* line 61, ../sass/components/_Header.scss */
 .Header-navItem a {
   color: #4B5361;
   text-decoration: none;
 }
-/* line 63, ../sass/components/_Header.scss */
+/* line 66, ../sass/components/_Header.scss */
 .Header-loginButton {
   margin-right: 12px;
 }
@@ -211,6 +245,16 @@ body {
 /* line 1, ../sass/components/_Input.scss */
 .Input {
   padding: 6px;
+}
+
+/* line 1, ../sass/components/_Intro.scss */
+.Intro {
+  background-color: transparent;
+  color: #fff;
+  padding: 24px;
+  margin: 12px;
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* line 1, ../sass/components/_Label.scss */
@@ -270,11 +314,11 @@ body {
 
 /* line 1, ../sass/components/_Map.scss */
 .Map {
-  position: absolute;
-  top: 113px;
-  left: 350px;
+  position: fixed !important;
   right: 0;
   bottom: 0;
+  top: 240px;
+  width: 100%;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Map.scss */
@@ -282,7 +326,7 @@ body {
     display: none;
   }
 }
-/* line 12, ../sass/components/_Map.scss */
+/* line 13, ../sass/components/_Map.scss */
 .Map--venue {
   position: static;
   margin-top: 24px;
@@ -291,7 +335,7 @@ body {
   display: block !important;
 }
 @media (min-width: 900px) {
-  /* line 12, ../sass/components/_Map.scss */
+  /* line 13, ../sass/components/_Map.scss */
   .Map--venue {
     position: fixed !important;
     top: 33px;
@@ -303,13 +347,19 @@ body {
   }
 }
 
+/* line 31, ../sass/components/_Map.scss */
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+}
+
 /* line 1, ../sass/components/_Venues.scss */
 .Venues {
   position: absolute;
-  top: 113px;
-  bottom: 0;
+  top: 290px;
   overflow-y: scroll;
   width: 350px;
+  z-index: 100;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Venues.scss */

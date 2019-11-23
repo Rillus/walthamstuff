@@ -1,19 +1,22 @@
 .Header {
-    background: $colour-cod-grey;
+    background: $colour-black;
     border-bottom: $colour-mineshaft 1px solid;
     padding: 0.25em;
-    display: flex;
-    align-items: center;
+    position: fixed;
 
     &-icon {
-        padding: 0 0.5em;
         border-radius: 20px;
+        a {
+            display: flex;
+            justify-content: center;
+        }
 
         &Image {
-            width: 50px;
-            height: 50px;
-            display: block;
-
+            @media(max-width: 600px){
+                width: 100%;
+            }
+            width: 85%;
+ 
             &--back {
                 background-image: url('../images/back.png');
                 background-repeat: no-repeat;

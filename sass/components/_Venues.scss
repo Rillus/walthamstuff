@@ -1,9 +1,9 @@
 .Venues {
     position: absolute;
-    top: 113px;
-    bottom: 0;
+    top: 290px;
     overflow-y: scroll;
     width: 350px;
+    z-index: $z-front;
 
     @media(max-width: 600px) {
         width: 100%;

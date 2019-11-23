@@ -135,12 +135,17 @@ function sanityCheckWebsite(website) {
   return website;
 }
 
+function hideIntro() {
+    let intro = document.getElementById("Intro-text");
+    intro.style.display = "none";
+}
+
 function getVenuesByCategory(){
     var classname = document.getElementsByClassName("Filter-listItemAnchor dropdown-item");
 
     var getNewCategory = function(e) {
         e.preventDefault();
-
+        hideIntro();
         createMap(e.target.innerHTML);
         createVenueList( venues, e.target.innerHTML);
     };

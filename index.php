@@ -15,6 +15,7 @@
         <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAuS_MJIVCEDCGeA0uWQXZL7Ybht6bnjg8"></script>
         <script src="scripts/geolocation-marker.js"></script>
         <script src="scripts/common.js"></script>
+        <script src="scripts/category.js"></script>
         <script src="scripts/maps.js"></script>
         <script src="scripts/login.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -33,18 +34,19 @@
         </script>
     </head>
     <body>
-        <header class="Header">
-            <?php include "./includes/header.html" ?>
-        </header>
-        <?php include "./includes/category.html" ?>
-  
-        <div class="Main">
-            <section class="Venues">
-                <ul class="Venues-list" id="venue-list"></ul>
-            </section>
-            <div id="map_canvas" class="Map"></div>
+      <header class="Header">
+         <?php include "./includes/header.html" ?>
+      </header>
+      <section class=Search-section>
+        <div class="Intro" id="Intro-text">
+          <h2> Find what you need, locally</h2>
         </div>
-
-        <div id="loginHolder" class="Login-wrapper u-hide"></div>
+        <?php include "./includes/category.html" ?> 
+      </section>
+      <section class="Venues">
+          <ul class="Venues-list" id="venue-list"></ul>
+      </section>
+      <div id="map_canvas" class="Map"></div>
+      <div id="loginHolder" class="Login-wrapper u-hide"></div>
     </body>
 </html>
