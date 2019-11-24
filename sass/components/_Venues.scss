@@ -1,19 +1,19 @@
 .Venues {
-    position: absolute;
-    top: 290px;
     overflow-y: scroll;
     width: 350px;
-    z-index: $z-front;
 
     @media(max-width: 600px) {
         width: 100%;
-        z-index: -1;
     }
 
     &-list {
         list-style: none;
         padding: 0;
         margin: $gutter;
+
+        @media(max-width: 600px) {
+            margin: 0;
+        }
 
         &Item {
             
