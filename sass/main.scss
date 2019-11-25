@@ -12,7 +12,16 @@ body {
     font-size: $fontSize-base;
     background-color: $colour-mineshaft;
 }
-
+.jumbotron, .container {
+    background-color: $colour-white;
+    color: $colour-mineshaft;
+}
+.footer {
+    background-color: $colour-mineshaft;
+    color: $colour-white;
+    text-align: center;
+    padding: $gutter;
+}
 @import 'components/Button';
 @import 'components/Capacity';
 @import 'components/Category';

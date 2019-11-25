@@ -1,21 +1,18 @@
 .Category {
-    z-index: $z-mid+1;
     background-color: $colour-white;
     border-radius: $border-radius;
     border: 1px solid $colour-ghost;
     background-position: 230px 18px;
     margin: $gutter;
     font-size: 18px;
-    width: 330px;
 
     @media(max-width: 600px){
         position: relative;
-        width: 100%;
     }
     
     &-parent {
         padding: 14px 8px $gutter;
-        position: relative;
+        color: $colour-mineshaft;
     }
 
     &-list {
@@ -52,7 +49,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        z-index: $z-front;
         width: 40%;
 
         @media(max-width: 600px){

@@ -20,6 +20,20 @@ body {
   background-color: #303030;
 }
 
+/* line 15, ../sass/main.scss */
+.jumbotron, .container {
+  background-color: #fff;
+  color: #303030;
+}
+
+/* line 19, ../sass/main.scss */
+.footer {
+  background-color: #303030;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+}
+
 /* line 1, ../sass/components/_Button.scss */
 .Button {
   color: #fff;
@@ -66,28 +80,25 @@ body {
 
 /* line 1, ../sass/components/_Category.scss */
 .Category {
-  z-index: 51;
   background-color: #fff;
   border-radius: 3px;
   border: 1px solid #c7cbd2;
   background-position: 230px 18px;
   margin: 12px;
   font-size: 18px;
-  width: 330px;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Category.scss */
   .Category {
     position: relative;
-    width: 100%;
   }
 }
-/* line 16, ../sass/components/_Category.scss */
+/* line 13, ../sass/components/_Category.scss */
 .Category-parent {
   padding: 14px 8px 12px;
-  position: relative;
+  color: #303030;
 }
-/* line 21, ../sass/components/_Category.scss */
+/* line 18, ../sass/components/_Category.scss */
 .Category-list {
   list-style: none;
   margin: 12px 0 0 0;
@@ -103,13 +114,13 @@ body {
   border-bottom-left-radius: 3px;
   width: 100%;
 }
-/* line 37, ../sass/components/_Category.scss */
+/* line 34, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
 }
 
-/* line 43, ../sass/components/_Category.scss */
+/* line 40, ../sass/components/_Category.scss */
 .Search-section {
   border-radius: 3px;
   position: fixed;
@@ -122,11 +133,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 100;
   width: 40%;
 }
 @media (max-width: 600px) {
-  /* line 43, ../sass/components/_Category.scss */
+  /* line 40, ../sass/components/_Category.scss */
   .Search-section {
     position: relative;
     left: 0;
@@ -173,52 +183,51 @@ body {
   background: #000;
   border-bottom: #303030 1px solid;
   padding: 0.25em;
-  position: fixed;
 }
-/* line 7, ../sass/components/_Header.scss */
+/* line 6, ../sass/components/_Header.scss */
 .Header-icon {
   border-radius: 20px;
 }
-/* line 9, ../sass/components/_Header.scss */
+/* line 8, ../sass/components/_Header.scss */
 .Header-icon a {
   display: flex;
   justify-content: center;
 }
-/* line 14, ../sass/components/_Header.scss */
+/* line 13, ../sass/components/_Header.scss */
 .Header-iconImage {
   width: 85%;
 }
 @media (max-width: 600px) {
-  /* line 14, ../sass/components/_Header.scss */
+  /* line 13, ../sass/components/_Header.scss */
   .Header-iconImage {
     width: 100%;
   }
 }
-/* line 20, ../sass/components/_Header.scss */
+/* line 19, ../sass/components/_Header.scss */
 .Header-iconImage--back {
   background-image: url("../images/back.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 29, ../sass/components/_Header.scss */
+/* line 28, ../sass/components/_Header.scss */
 .Header-title {
   margin: 0;
   width: 100%;
   font-size: 26px;
 }
-/* line 35, ../sass/components/_Header.scss */
+/* line 34, ../sass/components/_Header.scss */
 .Header-title a {
   color: #dddddd;
   text-decoration: none;
 }
-/* line 40, ../sass/components/_Header.scss */
+/* line 39, ../sass/components/_Header.scss */
 .Header-nav {
   display: inline-block;
   list-style: none;
   margin: 0 0 0 40px;
   padding: 0;
 }
-/* line 47, ../sass/components/_Header.scss */
+/* line 46, ../sass/components/_Header.scss */
 .Header-navItem {
   display: inline-block;
   font-size: 14px;
@@ -227,17 +236,17 @@ body {
   width: 120px;
   text-align: center;
 }
-/* line 56, ../sass/components/_Header.scss */
+/* line 55, ../sass/components/_Header.scss */
 .Header-navItem--active {
   border-bottom: 2px solid #EE6468;
   width: 90px;
 }
-/* line 61, ../sass/components/_Header.scss */
+/* line 60, ../sass/components/_Header.scss */
 .Header-navItem a {
   color: #4B5361;
   text-decoration: none;
 }
-/* line 66, ../sass/components/_Header.scss */
+/* line 65, ../sass/components/_Header.scss */
 .Header-loginButton {
   margin-right: 12px;
 }
@@ -314,11 +323,9 @@ body {
 
 /* line 1, ../sass/components/_Map.scss */
 .Map {
-  position: fixed !important;
-  right: 0;
-  bottom: 0;
-  top: 240px;
+  position: relative;
   width: 100%;
+  height: 500px;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Map.scss */
@@ -326,7 +333,7 @@ body {
     display: none;
   }
 }
-/* line 13, ../sass/components/_Map.scss */
+/* line 10, ../sass/components/_Map.scss */
 .Map--venue {
   position: static;
   margin-top: 24px;
@@ -335,7 +342,7 @@ body {
   display: block !important;
 }
 @media (min-width: 900px) {
-  /* line 13, ../sass/components/_Map.scss */
+  /* line 10, ../sass/components/_Map.scss */
   .Map--venue {
     position: fixed !important;
     top: 33px;
@@ -347,7 +354,7 @@ body {
   }
 }
 
-/* line 31, ../sass/components/_Map.scss */
+/* line 28, ../sass/components/_Map.scss */
 .container-fluid {
   display: flex;
   flex-direction: column;
@@ -355,26 +362,27 @@ body {
 
 /* line 1, ../sass/components/_Venues.scss */
 .Venues {
-  position: absolute;
-  top: 290px;
   overflow-y: scroll;
-  width: 350px;
-  z-index: 100;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Venues.scss */
   .Venues {
     width: 100%;
-    z-index: -1;
   }
 }
-/* line 13, ../sass/components/_Venues.scss */
+/* line 8, ../sass/components/_Venues.scss */
 .Venues-list {
   list-style: none;
   padding: 0;
   margin: 12px;
 }
-/* line 20, ../sass/components/_Venues.scss */
+@media (max-width: 600px) {
+  /* line 8, ../sass/components/_Venues.scss */
+  .Venues-list {
+    margin: 0;
+  }
+}
+/* line 19, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor {
   display: block;
   position: relative;
@@ -387,7 +395,7 @@ body {
   background-position: center center;
   border-radius: 3px;
 }
-/* line 33, ../sass/components/_Venues.scss */
+/* line 32, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
   position: absolute;
   bottom: 0;

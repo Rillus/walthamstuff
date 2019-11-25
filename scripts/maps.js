@@ -8,7 +8,7 @@ var map = null,
 function setUpMap() {
     if (map === null) {
         var mapOptions = {
-            zoom: 12,
+            zoom: 13,
             center: new google.maps.LatLng(51.590420, -0.012275),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -135,17 +135,11 @@ function sanityCheckWebsite(website) {
   return website;
 }
 
-function hideIntro() {
-    let intro = document.getElementById("Intro-text");
-    intro.style.display = "none";
-}
-
 function getVenuesByCategory(){
     var classname = document.getElementsByClassName("Filter-listItemAnchor dropdown-item");
 
     var getNewCategory = function(e) {
         e.preventDefault();
-        hideIntro();
         createMap(e.target.innerHTML);
         createVenueList( venues, e.target.innerHTML);
     };
