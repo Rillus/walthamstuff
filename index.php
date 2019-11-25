@@ -34,19 +34,42 @@
         </script>
     </head>
     <body>
-      <header class="Header">
-         <?php include "./includes/header.html" ?>
-      </header>
-      <section class=Search-section>
-        <div class="Intro" id="Intro-text">
-          <h2> Find what you need, locally</h2>
+      <div class="container">
+        <div class="row">
+          <header class="Header">
+            <?php include "./includes/header.html" ?>
+          </header>
         </div>
-        <?php include "./includes/category.html" ?> 
-      </section>
-      <section class="Venues">
-          <ul class="Venues-list" id="venue-list"></ul>
-      </section>
-      <div id="map_canvas" class="Map"></div>
-      <div id="loginHolder" class="Login-wrapper u-hide"></div>
-    </body>
+   
+      <div class="row px-4 pt-4 px-md-5 pt-md-5 ">
+        <div class="col-md-12 px-0">
+          <h1>Find what you need, locally</h1>
+          <p class="lead my-3">Find local businesses or services</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 no-gutters">
+          <div class="col d-flex flex-column no-gutters">
+          <?php include "./includes/category.html" ?> 
+            <section class="Venues">
+              <ul class="Venues-list" id="venue-list"></ul>
+            </section>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row no-gutters overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col d-flex flex-column position-static">
+              <div id="map_canvas" class="Map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="loginHolder" class="Login-wrapper u-hide"></div>
+    <footer class="footer">
+      <div>Developed in conjunction with Waltham Forest Digital Month</div>
+      </div>
+    </footer>
+  </body>
 </html>
