@@ -15,7 +15,6 @@
         <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAuS_MJIVCEDCGeA0uWQXZL7Ybht6bnjg8"></script>
         <script src="scripts/geolocation-marker.js"></script>
         <script src="scripts/common.js"></script>
-        <script src="scripts/category.js"></script>
         <script src="scripts/maps.js"></script>
         <script src="scripts/login.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
