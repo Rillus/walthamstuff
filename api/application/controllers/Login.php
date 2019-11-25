@@ -48,7 +48,7 @@ class Login extends CI_Controller {
                     'email'  => $email,
                     'id' => $userr->id,
                     'status' => $userr->status,
-                    'logged_in' => 'yes',
+                    'logged_in' => true,
                 );
 
                 $this->session->set_userdata($newData);
@@ -72,6 +72,17 @@ class Login extends CI_Controller {
             $this->Responsemodel->error('Invalid login details');
             return;
         }
+    }
+
+    public function check_login() {
+        $userData = array(
+            'userId' => $this->session->userdata('id'), 
+            'status' => $this->session->userdata('status'), 
+            'logged_in' => $this->session->userdata('logged_in'), 
+        );
+
+        $this->Responsemodel->success($userData);
+        return;
     }
 
     function logout()
