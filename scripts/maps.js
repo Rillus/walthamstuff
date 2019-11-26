@@ -235,6 +235,7 @@ function createVenueList(venues, category) {
             addressDetailsNode = document.createTextNode(toTitleCase(venue.address)),
             categoryNode = document.createElement("span"),
             categoryDetailsNode = document.createTextNode(toTitleCase(venue.category));
+            logoNode = document.createElement("img"),
             telephoneNode = document.createElement("span"),
             telephoneDetailsNode = document.createTextNode(toTitleCase(venue.telephone));
 
@@ -246,6 +247,8 @@ function createVenueList(venues, category) {
 
         categoryNode.className += "small-text";
 
+        logoNode.src="./images/venues/william-morris-gallery.jpg"
+
         nameNode.appendChild(nameDetailsNode);
         addressNode.appendChild(addressDetailsNode);
         categoryNode.appendChild(categoryDetailsNode);
@@ -253,6 +256,7 @@ function createVenueList(venues, category) {
 
         descriptionNode.appendChild(nameNode);
         descriptionNode.appendChild(categoryNode);
+        descriptionNode.appendChild(logoNode);
         descriptionNode.appendChild(addressNode);
         descriptionNode.appendChild(telephoneNode);
         descriptionNode.className += "Venues-listItemDescription";
