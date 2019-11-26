@@ -325,7 +325,7 @@ body {
 .Map {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Map.scss */
@@ -360,53 +360,69 @@ body {
   flex-direction: column;
 }
 
-/* line 1, ../sass/components/_Venues.scss */
-.Venues {
-  overflow-y: scroll;
-}
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Venues.scss */
   .Venues {
     width: 100%;
   }
 }
-/* line 8, ../sass/components/_Venues.scss */
+/* line 7, ../sass/components/_Venues.scss */
 .Venues-list {
+  display: inline-flex;
+  flex-wrap: wrap;
   list-style: none;
-  padding: 0;
+  justify-content: center;
   margin: 12px;
+  padding: 0;
 }
-@media (max-width: 600px) {
-  /* line 8, ../sass/components/_Venues.scss */
-  .Venues-list {
-    margin: 0;
-  }
-}
-/* line 19, ../sass/components/_Venues.scss */
-.Venues-listItemAnchor {
-  display: block;
-  position: relative;
-  width: 100%;
-  background-color: #c7cbd2;
-  height: 300px;
-  margin-bottom: 12px;
-  background-image: url("../images/venues/william-morris-gallery.jpg");
-  background-size: cover;
-  background-position: center center;
+/* line 15, ../sass/components/_Venues.scss */
+.Venues-listItem {
+  margin: 12px;
+  width: 20%;
+  border: #c7cbd2 solid 1px;
   border-radius: 3px;
 }
-/* line 32, ../sass/components/_Venues.scss */
+@media (max-width: 600px) {
+  /* line 15, ../sass/components/_Venues.scss */
+  .Venues-listItem {
+    margin: 6px;
+    width: 100%;
+  }
+}
+/* line 26, ../sass/components/_Venues.scss */
+.Venues-listItemAnchor {
+  display: block;
+  padding: 12px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 12px;
+}
+/* line 33, ../sass/components/_Venues.scss */
+.Venues-listItemAnchor:hover, .Venues-listItemAnchor:focus {
+  background: #c7cbd2;
+  text-decoration: none;
+}
+/* line 39, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 24px;
-  color: white;
-  font-size: 20px;
-  line-height: 22px;
-  border-radius: 0 0 3px 3px;
+  color: #303030;
+}
+/* line 41, ../sass/components/_Venues.scss */
+.Venues-listItemDescription h4 {
+  color: #aa383b;
+}
+/* line 44, ../sass/components/_Venues.scss */
+.Venues-listItemDescription img {
+  width: 60px;
+  float: right;
+}
+/* line 48, ../sass/components/_Venues.scss */
+.Venues-listItemDescription p {
+  margin: 12px 0;
+}
+/* line 53, ../sass/components/_Venues.scss */
+.Venues-listItem .small-text {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 /* line 1, ../sass/components/_VenueDetails.scss */
