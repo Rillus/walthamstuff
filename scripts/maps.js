@@ -256,9 +256,9 @@ function createVenueList(venues, category) {
 
         descriptionNode.appendChild(nameNode);
         descriptionNode.appendChild(categoryNode);
-        descriptionNode.appendChild(logoNode);
         descriptionNode.appendChild(addressNode);
         descriptionNode.appendChild(telephoneNode);
+        descriptionNode.appendChild(logoNode);
         descriptionNode.className += "Venues-listItemDescription";
 
         listNode.appendChild(anchorNode);

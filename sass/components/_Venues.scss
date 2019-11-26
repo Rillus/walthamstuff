@@ -42,10 +42,12 @@
                     color: $colour-medium-carmine;
                 }
                 img {
-                    width: 60px;
                     float: right;
+                    margin: $gutter;
+                    width: 60px;
                 }
                 p {
+                    clear: both;
                     margin: $gutter 0;
                 }
              }
