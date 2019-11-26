@@ -28,13 +28,24 @@ function createCategoryList() {
 }
 
 var init = function() {
-    if (userData.loggedIn) {
-        console.log('user is logged in');
-    }
-};
+        if (userData.loggedIn) {
+            console.log('user is logged in');
+            $('.j-isLoggedIn').show();
+            $('.j-isNotLoggedIn').hide();
+        } else {
+            $('.j-isLoggedIn').hide();
+            $('.j-isNotLoggedIn').show();
+        }
+    },
+    addFormCallback = function(responseData) {
+        if (responseData.status == 'success') {
+            var id = responseData.data.venueId;
+            window.location.assign('venue.html?id=' + id);
+        }
+    };
 
 window.onload = function () {
-    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
+    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {

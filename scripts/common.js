@@ -1,5 +1,5 @@
 var categories = [],
-    apiBaseUrl = 'http://localhost/walthamstuff-maps/api/index.php/', //'http://maps.walthamstuff.com/dev/api/index.php';
+    apiBaseUrl = 'https://maps.walthamstuff.com/dev/api/index.php/', //'http://localhost/walthamstuff-maps/api/index.php/', //
     userData = {
         loggedInInternal: false,
         loggedInListener: function(val) {},
@@ -79,12 +79,7 @@ function sendData(e, url, callback) {
 
     // Define what happens on successful data submission
     XHR.addEventListener('load', function(event) {
-        if (url == 'add' || url == 'edit') {
-            id = JSON.parse(XHR.responseText).data.venueId;
-            window.location.assign('venue.html?id=' + id);
-        } else {
-            callback(JSON.parse(XHR.responseText));
-        }
+        callback(JSON.parse(XHR.responseText));
     });
 
     // Define what happens in case of error

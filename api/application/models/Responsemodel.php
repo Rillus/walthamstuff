@@ -33,5 +33,16 @@ class Responsemodel extends CI_Model {
         echo json_encode($response);
         return;
     }
+
+    function required($required) {
+        foreach ($required as $thisField) {
+            if ($this->input->post($thisField) && $this->input->post($thisField) !== '') {
+
+            } else {
+                $this->error('No value given for '.$thisField);
+                exit(1);
+            }
+        }
+    }
 }
 ?>

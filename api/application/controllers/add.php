@@ -6,6 +6,8 @@ class Add extends CI_Controller {
 		parent::__construct();
 
 		$this->load->database();
+        $this->load->library('session');
+        $this->load->model('Responsemodel');
 
 		header("Access-Control-Allow-Origin: *");
 		header('Content-type: application/json');
@@ -20,15 +22,24 @@ class Add extends CI_Controller {
 	public function location($id = null) {
 		$submissionData = $this->input->post();
 
-		if (! $submissionData) {
-			$response['status'] = 'error';
-			$response['code'] = '500';
-			$response['reason'] = 'No post data sent';
-			
-			echo json_encode($response);
+		if (! $submissionData) {			
+			$this->Responsemodel->error('No post data sent');
 			return;
 		}
 
+		if(!$this->session->userdata('logged_in')) {
+			$this->Responsemodel->error('You must be logged in to add a location');
+            return;
+		}
+
+	 	$required = array(
+	 		'name',
+	 		'address',
+	 		'postcode',
+	 		'category'
+ 		);
+
+ 		$this->Responsemodel->required($required);
 
 		$postCode = $this->input->post('postcode');
 		$name = $this->input->post('name');
@@ -38,23 +49,7 @@ class Add extends CI_Controller {
 		$website = $this->input->post('website');
 		$twitter_handle_url = $this->input->post('twitter');
 
-		$contributorEmail = $this->input->post('contributor_email');
-
-		$existingContributors = $this->db->where('email', $contributorEmail)
-										 ->get('contributors', 1);
-
-		if ($existingContributors->num_rows() > 0) {
-			$contributorId = $existingContributors->row()->id;
-		} else {       
-			$contributor = array(
-				'name' => $this->input->post('contributor_name'),
-				'email' => $contributorEmail
-			);
-
-			$this->db->insert('contributors', $contributor);
-
-			$contributorId = $this->db->insert_id();
-		}
+		$contributorId = $this->session->userdata('id');
 		
 		$data = array(
 			'name' => $name,
