@@ -27,6 +27,12 @@ function createCategoryList() {
     }
 }
 
+var init = function() {
+    if (userData.loggedIn) {
+        console.log('user is logged in');
+    }
+};
+
 window.onload = function () {
     getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
         if (err !== null) {
@@ -38,4 +44,17 @@ window.onload = function () {
             createCategoryList();
         }
     });
+
+    // Ensure we know if the user is logged in - run this whenever we need to fetch and check user state from the server
+    checkLogin();
+
+    // kick things off
+    init();
+    
+    // If we're not logged in, things can't start.
+    // This is custom listener function on userdata.loggedIn allows us to watch for changes
+    userData.addListener(function(val) {
+        init();
+    });
 };
+

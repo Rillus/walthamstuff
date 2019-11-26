@@ -1,13 +1,27 @@
 var categories = [],
-    apiBaseUrl = 'http://localhost/walthamstuff-maps/api/index.php/'; //'http://maps.walthamstuff.com/dev/api/index.php';
+    apiBaseUrl = 'http://localhost/walthamstuff-maps/api/index.php/', //'http://maps.walthamstuff.com/dev/api/index.php';
+    userData = {
+        loggedInInternal: false,
+        loggedInListener: function(val) {},
+        set loggedIn(val) {
+            this.loggedInInternal = val;
+            this.loggedInListener(val);
+        },
+        get loggedIn() {
+            return this.loggedInInternal;
+        },
+        addListener: function(listener) {
+            this.loggedInListener = listener;
+        }
+    };
 
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
     xhr.onload = function() {
-        var status = xhr.status;
-        if (status === 200) {
+        var code = xhr.status;
+        if (code === 200) {
             callback(null, xhr.response);
         } else {
             callback(status, xhr.response);
@@ -90,4 +104,17 @@ function sendData(e, url, callback) {
 
 function insertTemplate(filename, target) {
     $(target).load(filename).show();
+}
+
+function checkLogin() {
+    var url = apiBaseUrl + 'login/check_login',
+        callbackFunction = function(status, response) {
+            if (response.data !== undefined && response.data.logged_in !== undefined) {
+                userData.loggedIn = response.data.logged_in;
+                userData.userId = response.data.userId;
+                userData.userStatus = response.data.status;
+            }
+        };
+
+    getJSON(url, callbackFunction);
 }
