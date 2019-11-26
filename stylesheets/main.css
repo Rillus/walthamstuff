@@ -412,14 +412,16 @@ body {
 }
 /* line 44, ../sass/components/_Venues.scss */
 .Venues-listItemDescription img {
-  width: 60px;
   float: right;
+  margin: 12px;
+  width: 60px;
 }
-/* line 48, ../sass/components/_Venues.scss */
+/* line 49, ../sass/components/_Venues.scss */
 .Venues-listItemDescription p {
+  clear: both;
   margin: 12px 0;
 }
-/* line 53, ../sass/components/_Venues.scss */
+/* line 55, ../sass/components/_Venues.scss */
 .Venues-listItem .small-text {
   font-size: 12px;
   font-weight: bold;
