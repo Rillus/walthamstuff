@@ -13,19 +13,20 @@
         padding: 0;
 
         &Item {
-        margin: $gutter;
-        width: 20%;
-        border: $colour-ghost solid 1px;
-        border-radius: $border-radius;
+            margin: $gutter;
+            width: 20%;
+            border: $colour-ghost solid 1px;
+            border-radius: $border-radius;
 
-        @media(max-width: 600px) {
-            margin: $gutter/2;
-            width: 100%;
-        }
-            
+            @media(max-width: 600px) {
+                margin: $gutter/2;
+                width: 100%;
+            }
+
             &Anchor {
-                display: block;
-                padding: $gutter;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 width: 100%;
                 height: 100%;
                 margin-bottom: $gutter;
@@ -34,17 +35,32 @@
                     background: $colour-ghost;
                     text-decoration: none;
                 }
+
+                @media(max-width: 600px) {
+                    display: grid;
+                    grid-template-columns: 3fr 2fr;
+                }
             }
 
-             &Description {
-                color: $colour-mineshaft;
-                h4 {
-                    color: $colour-medium-carmine;
+            &Logo {
+                @media(max-width: 600px) {
+                    grid-column: 2;
                 }
                 img {
-                    float: right;
-                    margin: $gutter;
-                    width: 60px;
+                    width: 100%;
+                }
+            }
+    
+             &Description {
+                color: $colour-mineshaft;
+                padding: $gutter;
+
+                h4 {
+                    color: $colour-medium-carmine;
+                    
+                    @media(max-width: 600px) {
+                        font-size: 1.2rem;
+                    }
                 }
                 p {
                     clear: both;
