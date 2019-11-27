@@ -235,11 +235,13 @@ function createVenueList(venues, category) {
             addressDetailsNode = document.createTextNode(toTitleCase(venue.address)),
             categoryNode = document.createElement("span"),
             categoryDetailsNode = document.createTextNode(toTitleCase(venue.category));
-            logoNode = document.createElement("img"),
+            logoNode = document.createElement("div"),
+            logoDetailsNode = document.createElement("img");
             telephoneNode = document.createElement("span"),
             telephoneDetailsNode = document.createTextNode(toTitleCase(venue.telephone));
 
         anchorNode.appendChild(descriptionNode);
+        anchorNode.appendChild(logoNode);
         anchorNode.href="venue.html?id="+venue.id;
         anchorNode.id="venue-"+venue.id;
         anchorNode.setAttribute('data-venueid', venue.id);
@@ -247,18 +249,22 @@ function createVenueList(venues, category) {
 
         categoryNode.className += "small-text";
 
-        logoNode.src="./images/venues/william-morris-gallery.jpg"
+        logoDetailsNode.src="./images/venues/william-morris-gallery.jpg";
+
+        logoNode.className += "Venues-listItemLogo";
 
         nameNode.appendChild(nameDetailsNode);
         addressNode.appendChild(addressDetailsNode);
+        logoNode.appendChild(logoDetailsNode);
         categoryNode.appendChild(categoryDetailsNode);
         telephoneNode.appendChild(telephoneDetailsNode);
+
 
         descriptionNode.appendChild(nameNode);
         descriptionNode.appendChild(categoryNode);
         descriptionNode.appendChild(addressNode);
         descriptionNode.appendChild(telephoneNode);
-        descriptionNode.appendChild(logoNode);
+
         descriptionNode.className += "Venues-listItemDescription";
 
         listNode.appendChild(anchorNode);
