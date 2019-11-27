@@ -12,6 +12,7 @@
             crossorigin="anonymous"></script>
         <script src="scripts/common.js"></script>
         <script src="scripts/add.js"></script>
+        <script src="scripts/login.js"></script>
         <script src="scripts/bootstrap.min.js"></script>
         <script src="scripts/jquery.datetimepicker.js"></script>
     </head>
@@ -22,9 +23,9 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <?php include "./includes/form.php" ?>
-              
                 </div>
             </div>
         </div>
+        <div id="loginHolder" class="Login-wrapper u-hide"></div>
     </body>
 </html>
