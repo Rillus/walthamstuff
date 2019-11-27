@@ -128,6 +128,11 @@ function buildContentString(element) {
     return contentString;
 }
 
+function hideIntro() {
+    let intro = document.getElementById("Intro");
+    intro.style.display = "none";
+}
+
 function sanityCheckWebsite(website) {
   if (!website.startsWith('http://') && !website.startsWith('https://')) {
     website = 'http://'+website;
@@ -140,6 +145,7 @@ function getVenuesByCategory(){
 
     var getNewCategory = function(e) {
         e.preventDefault();
+        hideIntro();
         createMap(e.target.innerHTML);
         createVenueList( venues, e.target.innerHTML);
     };
@@ -175,13 +181,17 @@ function createCategoryList() {
 
 function highlightVenue(e) {
     setMarkers(null);
-
     var thisVenueId;
 
     // if the class 'Venues-listItemDescription' is on the target element then we're on a child, so navigate up one to get the id
-    if ($(e.target).hasClass('Venues-listItemDescription')) {
+    if ($(e.target.parentNode).hasClass('Venues-listItemDescription')) {
+    // we're inside the the div
+        thisVenueId = e.target.parentNode.parentNode.attributes['data-venueid'].value;
+    } else if ($(e.target).hasClass('Venues-listItemDescription')){
+        // we are on the div itself
         thisVenueId = e.target.parentNode.attributes['data-venueid'].value;
-    } else {
+    }
+    else {
         // if that class isn't on here, we're already on the parent
         thisVenueId = e.target.attributes['data-venueid'].value;
     }
@@ -215,26 +225,46 @@ function createVenueList(venues, category) {
     resetList(venueListEle);
     venues.forEach(function(venue) {
     if (category === venue.category) {
-  
+
         var listNode = document.createElement("li"),
             anchorNode = document.createElement("a"),
             descriptionNode = document.createElement("div"),
-            nameNode = document.createElement("h3"),
+            nameNode = document.createElement("h4"),
             nameDetailsNode = document.createTextNode(toTitleCase(venue.name)),   
             addressNode = document.createElement("p"),
-            addressDetailsNode = document.createTextNode(toTitleCase(venue.address));
+            addressDetailsNode = document.createTextNode(toTitleCase(venue.address)),
+            categoryNode = document.createElement("span"),
+            categoryDetailsNode = document.createTextNode(toTitleCase(venue.category));
+            logoNode = document.createElement("div"),
+            logoDetailsNode = document.createElement("img");
+            telephoneNode = document.createElement("span"),
+            telephoneDetailsNode = document.createTextNode(toTitleCase(venue.telephone));
 
         anchorNode.appendChild(descriptionNode);
+        anchorNode.appendChild(logoNode);
         anchorNode.href="venue.html?id="+venue.id;
         anchorNode.id="venue-"+venue.id;
         anchorNode.setAttribute('data-venueid', venue.id);
         anchorNode.className += "Venues-listItemAnchor";
 
+        categoryNode.className += "small-text";
+
+        logoDetailsNode.src="./images/venues/william-morris-gallery.jpg";
+
+        logoNode.className += "Venues-listItemLogo";
+
         nameNode.appendChild(nameDetailsNode);
         addressNode.appendChild(addressDetailsNode);
+        logoNode.appendChild(logoDetailsNode);
+        categoryNode.appendChild(categoryDetailsNode);
+        telephoneNode.appendChild(telephoneDetailsNode);
+
 
         descriptionNode.appendChild(nameNode);
+        descriptionNode.appendChild(categoryNode);
         descriptionNode.appendChild(addressNode);
+        descriptionNode.appendChild(telephoneNode);
+
         descriptionNode.className += "Venues-listItemDescription";
 
         listNode.appendChild(anchorNode);

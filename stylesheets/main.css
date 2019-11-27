@@ -17,21 +17,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   line-height: 18px;
   font-size: 14px;
-  background-color: #303030;
-}
-
-/* line 15, ../sass/main.scss */
-.jumbotron, .container {
-  background-color: #fff;
-  color: #303030;
-}
-
-/* line 19, ../sass/main.scss */
-.footer {
-  background-color: #303030;
-  color: #fff;
-  text-align: center;
-  padding: 12px;
 }
 
 /* line 1, ../sass/components/_Button.scss */
@@ -195,7 +180,7 @@ body {
 }
 /* line 13, ../sass/components/_Header.scss */
 .Header-iconImage {
-  width: 85%;
+  width: 75%;
 }
 @media (max-width: 600px) {
   /* line 13, ../sass/components/_Header.scss */
@@ -325,7 +310,7 @@ body {
 .Map {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Map.scss */
@@ -360,53 +345,90 @@ body {
   flex-direction: column;
 }
 
-/* line 1, ../sass/components/_Venues.scss */
-.Venues {
-  overflow-y: scroll;
-}
 @media (max-width: 600px) {
   /* line 1, ../sass/components/_Venues.scss */
   .Venues {
     width: 100%;
   }
 }
-/* line 8, ../sass/components/_Venues.scss */
+/* line 7, ../sass/components/_Venues.scss */
 .Venues-list {
+  display: inline-flex;
+  flex-wrap: wrap;
   list-style: none;
-  padding: 0;
+  justify-content: center;
   margin: 12px;
+  padding: 0;
 }
-@media (max-width: 600px) {
-  /* line 8, ../sass/components/_Venues.scss */
-  .Venues-list {
-    margin: 0;
-  }
-}
-/* line 19, ../sass/components/_Venues.scss */
-.Venues-listItemAnchor {
-  display: block;
-  position: relative;
-  width: 100%;
-  background-color: #c7cbd2;
-  height: 300px;
-  margin-bottom: 12px;
-  background-image: url("../images/venues/william-morris-gallery.jpg");
-  background-size: cover;
-  background-position: center center;
+/* line 15, ../sass/components/_Venues.scss */
+.Venues-listItem {
+  margin: 12px;
+  width: 20%;
+  border: #c7cbd2 solid 1px;
   border-radius: 3px;
 }
-/* line 32, ../sass/components/_Venues.scss */
+@media (max-width: 600px) {
+  /* line 15, ../sass/components/_Venues.scss */
+  .Venues-listItem {
+    margin: 6px;
+    width: 100%;
+  }
+}
+/* line 26, ../sass/components/_Venues.scss */
+.Venues-listItemAnchor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 12px;
+}
+/* line 34, ../sass/components/_Venues.scss */
+.Venues-listItemAnchor:hover, .Venues-listItemAnchor:focus {
+  background: #c7cbd2;
+  text-decoration: none;
+}
+@media (max-width: 600px) {
+  /* line 26, ../sass/components/_Venues.scss */
+  .Venues-listItemAnchor {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
+}
+@media (max-width: 600px) {
+  /* line 45, ../sass/components/_Venues.scss */
+  .Venues-listItemLogo {
+    grid-column: 2;
+  }
+}
+/* line 49, ../sass/components/_Venues.scss */
+.Venues-listItemLogo img {
+  width: 100%;
+}
+/* line 54, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 24px;
-  color: white;
-  font-size: 20px;
-  line-height: 22px;
-  border-radius: 0 0 3px 3px;
+  color: #303030;
+  padding: 12px;
+}
+/* line 58, ../sass/components/_Venues.scss */
+.Venues-listItemDescription h4 {
+  color: #aa383b;
+}
+@media (max-width: 600px) {
+  /* line 58, ../sass/components/_Venues.scss */
+  .Venues-listItemDescription h4 {
+    font-size: 1.2rem;
+  }
+}
+/* line 65, ../sass/components/_Venues.scss */
+.Venues-listItemDescription p {
+  clear: both;
+  margin: 12px 0;
+}
+/* line 71, ../sass/components/_Venues.scss */
+.Venues-listItem .small-text {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 /* line 1, ../sass/components/_VenueDetails.scss */
@@ -514,6 +536,38 @@ body {
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 40px;
+}
+
+/* line 1, ../sass/_bootstrap_overrides.scss */
+.jumbotron, .container-fluid, .container {
+  background-color: #fff;
+  color: #303030;
+}
+
+/* line 5, ../sass/_bootstrap_overrides.scss */
+.adjacent-footer {
+  padding-bottom: 60px;
+}
+
+/* line 8, ../sass/_bootstrap_overrides.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  /* line 8, ../sass/_bootstrap_overrides.scss */
+  .footer {
+    height: 60px;
+  }
+}
+/* line 16, ../sass/_bootstrap_overrides.scss */
+.footer p {
+  background-color: #303030;
+  color: #fff;
+  margin: 0;
+  padding: 12px;
+  text-align: center;
 }
 
 /* line 1, ../sass/_btn.scss */

@@ -1,45 +1,76 @@
 .Venues {
-    overflow-y: scroll;
 
     @media(max-width: 600px) {
         width: 100%;
     }
 
     &-list {
+        display: inline-flex;
+        flex-wrap: wrap;
         list-style: none;
-        padding: 0;
+        justify-content: center;
         margin: $gutter;
-
-        @media(max-width: 600px) {
-            margin: 0;
-        }
+        padding: 0;
 
         &Item {
-            
-            &Anchor {
-                display: block;
-                position: relative;
+            margin: $gutter;
+            width: 20%;
+            border: $colour-ghost solid 1px;
+            border-radius: $border-radius;
+
+            @media(max-width: 600px) {
+                margin: $gutter/2;
                 width: 100%;
-                background-color: $colour-ghost;
-                height: 300px;
-                margin-bottom: $gutter;
-                background-image: url('../images/venues/william-morris-gallery.jpg');
-                background-size: cover;
-                background-position: center center;
-                border-radius: $border-radius;
             }
 
-            &Description {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background-color: rgba(0,0,0, 0.5);
-                padding: $gutter*2;
-                color: white;
-                font-size: 20px;
-                line-height: 22px;
-                border-radius: 0 0 $border-radius $border-radius;
+            &Anchor {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+                margin-bottom: $gutter;
+
+                &:hover, &:focus {
+                    background: $colour-ghost;
+                    text-decoration: none;
+                }
+
+                @media(max-width: 600px) {
+                    display: grid;
+                    grid-template-columns: 3fr 2fr;
+                }
+            }
+
+            &Logo {
+                @media(max-width: 600px) {
+                    grid-column: 2;
+                }
+                img {
+                    width: 100%;
+                }
+            }
+    
+             &Description {
+                color: $colour-mineshaft;
+                padding: $gutter;
+
+                h4 {
+                    color: $colour-medium-carmine;
+                    
+                    @media(max-width: 600px) {
+                        font-size: 1.2rem;
+                    }
+                }
+                p {
+                    clear: both;
+                    margin: $gutter 0;
+                }
+             }
+
+            .small-text {
+                font-size: 12px;
+                font-weight: bold;
             }
         }
     }
