@@ -1,0 +1,23 @@
+.jumbotron, .container-fluid, .container {
+  background-color: $colour-white;
+  color: $colour-mineshaft;
+}
+.adjacent-footer {
+  padding-bottom: $gutter*5;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  @media(max-width: 600px) {
+    height: $gutter*5;
+}
+  p {
+      background-color: $colour-mineshaft;
+      color: $colour-white;
+      margin: 0;
+      padding: $gutter;
+      text-align: center;
+  }
+}

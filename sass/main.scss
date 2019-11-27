@@ -10,18 +10,8 @@ body {
     font-family: $fontFamily-base;
     line-height: $fontSize-base+4;
     font-size: $fontSize-base;
-    background-color: $colour-mineshaft;
 }
-.jumbotron, .container {
-    background-color: $colour-white;
-    color: $colour-mineshaft;
-}
-.footer {
-    background-color: $colour-mineshaft;
-    color: $colour-white;
-    text-align: center;
-    padding: $gutter;
-}
+
 @import 'components/Button';
 @import 'components/Capacity';
 @import 'components/Category';
@@ -37,6 +27,7 @@ body {
 @import 'components/Map';
 @import 'components/Venues';
 @import 'components/VenueDetails';
+@import 'bootstrap_overrides';
 @import 'btn';
 @import 'utilities';
 @import 'form';
