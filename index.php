@@ -33,40 +33,43 @@
         </script>
     </head>
     <body>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <header class="Header">
             <?php include "./includes/header.html" ?>
           </header>
         </div>
-   
-      <div class="row px-4 pt-4 px-md-5 pt-md-5"  id="Intro">
-        <div class="col-md-12 px-0">
-          <h1>Find what you need, locally</h1>
-        </div>
       </div>
 
-      <div>      
-        <?php include "./includes/category.html" ?> 
-      </div>
-      
-      <div>
+      <div class="container">
+        <div class="row px-4 pt-4 px-md-5 pt-md-5"  id="Intro">
+          <div class="col-md-12 px-0">
+            <h1>Find what you need, locally</h1>
+          </div>
+        </div>
+        <div>      
+          <?php include "./includes/category.html" ?> 
+        </div>
         <div class="row no-gutters overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col d-flex flex-column position-static">
             <div id="map_canvas" class="Map"></div>
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="container-fluid adjacent-footer">
       <div class="row">
         <section class="Venues">
           <ul class="Venues-list" id="venue-list"></ul>
         </section>
-    </div>
-    <div id="loginHolder" class="Login-wrapper u-hide"></div>
-    <footer class="footer">
-      <div>Developed in conjunction with Waltham Forest Digital Month</div>
       </div>
+    </div>
+    
+    <footer class="footer">
+      <p>Developed in conjunction with Waltham Forest Digital Month</p>
     </footer>
+
+    <div id="loginHolder" class="Login-wrapper u-hide"></div>
   </body>
 </html>
