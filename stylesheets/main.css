@@ -17,21 +17,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   line-height: 18px;
   font-size: 14px;
-  background-color: #303030;
-}
-
-/* line 15, ../sass/main.scss */
-.jumbotron, .container {
-  background-color: #fff;
-  color: #303030;
-}
-
-/* line 19, ../sass/main.scss */
-.footer {
-  background-color: #303030;
-  color: #fff;
-  text-align: center;
-  padding: 12px;
 }
 
 /* line 1, ../sass/components/_Button.scss */
@@ -195,7 +180,7 @@ body {
 }
 /* line 13, ../sass/components/_Header.scss */
 .Header-iconImage {
-  width: 85%;
+  width: 75%;
 }
 @media (max-width: 600px) {
   /* line 13, ../sass/components/_Header.scss */
@@ -391,37 +376,56 @@ body {
 }
 /* line 26, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor {
-  display: block;
-  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   margin-bottom: 12px;
 }
-/* line 33, ../sass/components/_Venues.scss */
+/* line 34, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor:hover, .Venues-listItemAnchor:focus {
   background: #c7cbd2;
   text-decoration: none;
 }
-/* line 39, ../sass/components/_Venues.scss */
+@media (max-width: 600px) {
+  /* line 26, ../sass/components/_Venues.scss */
+  .Venues-listItemAnchor {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
+}
+@media (max-width: 600px) {
+  /* line 45, ../sass/components/_Venues.scss */
+  .Venues-listItemLogo {
+    grid-column: 2;
+  }
+}
+/* line 49, ../sass/components/_Venues.scss */
+.Venues-listItemLogo img {
+  width: 100%;
+}
+/* line 54, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
   color: #303030;
+  padding: 12px;
 }
-/* line 41, ../sass/components/_Venues.scss */
+/* line 58, ../sass/components/_Venues.scss */
 .Venues-listItemDescription h4 {
   color: #aa383b;
 }
-/* line 44, ../sass/components/_Venues.scss */
-.Venues-listItemDescription img {
-  float: right;
-  margin: 12px;
-  width: 60px;
+@media (max-width: 600px) {
+  /* line 58, ../sass/components/_Venues.scss */
+  .Venues-listItemDescription h4 {
+    font-size: 1.2rem;
+  }
 }
-/* line 49, ../sass/components/_Venues.scss */
+/* line 65, ../sass/components/_Venues.scss */
 .Venues-listItemDescription p {
   clear: both;
   margin: 12px 0;
 }
-/* line 55, ../sass/components/_Venues.scss */
+/* line 71, ../sass/components/_Venues.scss */
 .Venues-listItem .small-text {
   font-size: 12px;
   font-weight: bold;
@@ -532,6 +536,38 @@ body {
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 40px;
+}
+
+/* line 1, ../sass/_bootstrap_overrides.scss */
+.jumbotron, .container-fluid, .container {
+  background-color: #fff;
+  color: #303030;
+}
+
+/* line 5, ../sass/_bootstrap_overrides.scss */
+.adjacent-footer {
+  padding-bottom: 60px;
+}
+
+/* line 8, ../sass/_bootstrap_overrides.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  /* line 8, ../sass/_bootstrap_overrides.scss */
+  .footer {
+    height: 60px;
+  }
+}
+/* line 16, ../sass/_bootstrap_overrides.scss */
+.footer p {
+  background-color: #303030;
+  color: #fff;
+  margin: 0;
+  padding: 12px;
+  text-align: center;
 }
 
 /* line 1, ../sass/_btn.scss */
