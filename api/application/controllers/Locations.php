@@ -92,8 +92,10 @@ class Locations extends CI_Controller {
 
 		if ($entry->num_rows() > 0) {
 			$entry = $entry->row();
-
-			$entry->image = base_url().$entry->image;
+			
+			if ($entry->image !== '' && $entry->image !== NULL) {
+				$entry->image = base_url().$entry->image;
+			}
 			echo json_encode($entry);
 		}
 	}

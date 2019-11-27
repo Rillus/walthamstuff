@@ -94,7 +94,10 @@ function displayVenue() {
     console.log(venue);
     $('.VenueDetails-title').html(venue.name);
     $('.Header-titleText').html(venue.name);
-    $('.VenueDetails-hero').attr('style', 'background-image: url("'+venue.image+'")');
+
+    if (venue.image !== '' && venue.image !== null) {
+        $('.VenueDetails-hero').attr('style', 'background-image: url("'+venue.image+'")');
+    }
 
     var values = [
         'address',
