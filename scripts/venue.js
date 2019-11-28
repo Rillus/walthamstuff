@@ -94,7 +94,7 @@ function displayVenue() {
     console.log(venue);
     $('.VenueDetails-title').html(venue.name);
     $('.Header-titleText').html(venue.name);
-    $('.VenueDetails-hero').attr('style', 'background-image: url("'+venue.image+'")');
+    // $('.VenueDetails-hero').attr('style', 'background-image: url("'+venue.image+'")');
 
     var values = [
         'address',
