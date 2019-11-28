@@ -81,7 +81,7 @@ function sendData(e, url, callback) {
     XHR.addEventListener('load', function(event) {
         if (url == 'add' || url == 'edit') {
             id = JSON.parse(XHR.responseText).data.venueId;
-            window.location.assign('venue.html?id=' + id);
+            window.location.assign('venue.php?id=' + id);
         } else {
             callback(JSON.parse(XHR.responseText));
         }
