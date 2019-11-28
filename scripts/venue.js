@@ -62,7 +62,7 @@ function createMap(cat) {
 
     if (typeof cat === 'string' || cat === undefined) {
 
-        getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON(apiBaseUrl + 'locations/category/'+encodeURIComponent(cat), function(err, data) {
 
             if (err !== null) {
                 alert('Something went wrong: ' + err);
@@ -94,7 +94,10 @@ function displayVenue() {
     console.log(venue);
     $('.VenueDetails-title').html(venue.name);
     $('.Header-titleText').html(venue.name);
-    // $('.VenueDetails-hero').attr('style', 'background-image: url("'+venue.image+'")');
+
+    if (venue.image !== '' && venue.image !== null) {
+        $('.VenueDetails-hero').attr('style', 'background-image: url("'+venue.image+'")');
+    }
 
     var values = [
         'address',
@@ -127,7 +130,7 @@ function getLocationIdFromUrl() {
 function getLocation() {
     var id = getLocationIdFromUrl();
 
-    getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/id/' + id, function(err, data) {
+    getJSON(apiBaseUrl + 'locations/id/' + id, function(err, data) {
 
         if (err !== null) {
             alert('Something went wrong: ' + err);

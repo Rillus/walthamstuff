@@ -28,41 +28,7 @@ class Login extends CI_Controller {
         $this->db->where('email', $email);
         $retrieved_user = $this->db->get('users');
         
-        if ($retrieved_user->num_rows() > 0) {
-            $userr = $retrieved_user->row();
-            
-            $decodePassword = password_verify($password, $userr->password);
-            if (!$decodePassword) {
-                $newData = array(
-                    'logged_in' => 'incorrect',
-                    'reason' => 'Incorrect password',
-                );
-                $this->session->set_userdata($newData);
-                
-                $this->Responsemodel->error('Invalid login details');
-                return;              
-            }
-            
-            if (($userr->status == "1")||($userr->status == "2")) {
-                $newData = array(
-                    'email'  => $email,
-                    'id' => $userr->id,
-                    'status' => $userr->status,
-                    'logged_in' => true,
-                );
-
-                $this->session->set_userdata($newData);
-                
-                $this->Responsemodel->success($newData);
-                return;
-            } else {
-                $data['header'] = "An error with your login.";
-                $data['message'] = 'It seems your registration has not quite been completed. Please check for the activation email we sent you in your inbox, or get it re-sent. Do be sure to check your spam or junk folder.';
-
-                $this->Responsemodel->error('incomplete registration', '400', $data);
-                return;
-            }
-        } else {
+        if ($retrieved_user->num_rows() == 0) {
             $newData = array(
                 'logged_in' => 'incorrect',
                 'reason' => 'User not found'
@@ -72,6 +38,40 @@ class Login extends CI_Controller {
             $this->Responsemodel->error('Invalid login details');
             return;
         }
+
+        $userr = $retrieved_user->row();
+        
+        $decodePassword = password_verify($password, $userr->password);
+        if (!$decodePassword) {
+            $newData = array(
+                'logged_in' => false,
+            );
+            $this->session->set_userdata($newData);
+            
+            $this->Responsemodel->error('Invalid login details');
+            return;              
+        }
+        
+        // TODO: send verification emails.
+        // if ($userr->status == "0") {
+        //     $data['header'] = "An error with your login.";
+        //     $data['message'] = 'It seems your registration has not quite been completed. Please check for the activation email we sent you in your inbox, or get it re-sent. Do be sure to check your spam or junk folder.';
+
+        //     $this->Responsemodel->error('incomplete registration', '400', $data);
+        //     return;
+        // }
+
+        $newData = array(
+            'email'  => $email,
+            'id' => $userr->id,
+            'status' => $userr->status,
+            'logged_in' => true,
+        );
+
+        $this->session->set_userdata($newData);
+        
+        $this->Responsemodel->success($newData);
+        return;
     }
 
     public function check_login() {
@@ -79,6 +79,7 @@ class Login extends CI_Controller {
             'userId' => $this->session->userdata('id'), 
             'status' => $this->session->userdata('status'), 
             'logged_in' => $this->session->userdata('logged_in'), 
+            'all' => $this->session->all_userdata(), 
         );
 
         $this->Responsemodel->success($userData);
