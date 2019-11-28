@@ -2,6 +2,7 @@
     background: $colour-black;
     border-bottom: $colour-mineshaft 1px solid;
     padding: 0.25em;
+    display: flex;
 
     &-icon {
         border-radius: 20px;
@@ -64,5 +65,7 @@
 
     &-loginButton {
         margin-right: $gutter;
+        margin-bottom: $gutter;
+        align-self: flex-end;
     }
 }
