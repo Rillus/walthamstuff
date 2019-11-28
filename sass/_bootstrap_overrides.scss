@@ -21,3 +21,15 @@
       text-align: center;
   }
 }
+.btn-default {
+  background: $colour-white;
+  border: 1px solid $colour-ghost;
+  color: $colour-mineshaft;
+  @media(max-width: 600px) {
+    font-size: 12px;
+  }
+  &:hover, &:focus {
+    background: $colour-trout;
+    color: $colour-white;
+  }
+}
