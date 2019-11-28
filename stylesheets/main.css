@@ -168,51 +168,52 @@ body {
   background: #000;
   border-bottom: #303030 1px solid;
   padding: 0.25em;
+  display: flex;
 }
-/* line 6, ../sass/components/_Header.scss */
+/* line 7, ../sass/components/_Header.scss */
 .Header-icon {
   border-radius: 20px;
 }
-/* line 8, ../sass/components/_Header.scss */
+/* line 9, ../sass/components/_Header.scss */
 .Header-icon a {
   display: flex;
   justify-content: center;
 }
-/* line 13, ../sass/components/_Header.scss */
+/* line 14, ../sass/components/_Header.scss */
 .Header-iconImage {
   width: 75%;
 }
 @media (max-width: 600px) {
-  /* line 13, ../sass/components/_Header.scss */
+  /* line 14, ../sass/components/_Header.scss */
   .Header-iconImage {
     width: 100%;
   }
 }
-/* line 19, ../sass/components/_Header.scss */
+/* line 20, ../sass/components/_Header.scss */
 .Header-iconImage--back {
   background-image: url("../images/back.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 28, ../sass/components/_Header.scss */
+/* line 29, ../sass/components/_Header.scss */
 .Header-title {
   margin: 0;
   width: 100%;
   font-size: 26px;
 }
-/* line 34, ../sass/components/_Header.scss */
+/* line 35, ../sass/components/_Header.scss */
 .Header-title a {
   color: #dddddd;
   text-decoration: none;
 }
-/* line 39, ../sass/components/_Header.scss */
+/* line 40, ../sass/components/_Header.scss */
 .Header-nav {
   display: inline-block;
   list-style: none;
   margin: 0 0 0 40px;
   padding: 0;
 }
-/* line 46, ../sass/components/_Header.scss */
+/* line 47, ../sass/components/_Header.scss */
 .Header-navItem {
   display: inline-block;
   font-size: 14px;
@@ -221,19 +222,21 @@ body {
   width: 120px;
   text-align: center;
 }
-/* line 55, ../sass/components/_Header.scss */
+/* line 56, ../sass/components/_Header.scss */
 .Header-navItem--active {
   border-bottom: 2px solid #EE6468;
   width: 90px;
 }
-/* line 60, ../sass/components/_Header.scss */
+/* line 61, ../sass/components/_Header.scss */
 .Header-navItem a {
   color: #4B5361;
   text-decoration: none;
 }
-/* line 65, ../sass/components/_Header.scss */
+/* line 66, ../sass/components/_Header.scss */
 .Header-loginButton {
   margin-right: 12px;
+  margin-bottom: 12px;
+  align-self: flex-end;
 }
 
 /* line 1, ../sass/components/_Input.scss */
@@ -320,26 +323,17 @@ body {
 }
 /* line 10, ../sass/components/_Map.scss */
 .Map--venue {
-  position: static;
-  margin-top: 24px;
-  width: 900px;
   height: 350px;
-  display: block !important;
 }
 @media (min-width: 900px) {
   /* line 10, ../sass/components/_Map.scss */
   .Map--venue {
-    position: fixed !important;
-    top: 33px;
-    bottom: 0;
-    height: calc(100% - 53px);
-    right: 0;
-    left: auto;
-    width: calc(100% - 900px);
+    width: 100%;
+    height: 300px;
   }
 }
 
-/* line 28, ../sass/components/_Map.scss */
+/* line 19, ../sass/components/_Map.scss */
 .container-fluid {
   display: flex;
   flex-direction: column;
@@ -433,55 +427,42 @@ body {
 
 /* line 1, ../sass/components/_VenueDetails.scss */
 .VenueDetails {
-  max-width: 900px;
+  display: flex;
+  flex-direction: column;
 }
-/* line 4, ../sass/components/_VenueDetails.scss */
-.VenueDetails-hero {
-  background-image: url("../images/venues/william-morris-gallery.jpg");
-  background-size: cover;
-  background-position: center center;
-  min-height: 300px;
-  width: 100%;
-  max-width: 900px;
-  position: relative;
-}
-/* line 13, ../sass/components/_VenueDetails.scss */
+/* line 6, ../sass/components/_VenueDetails.scss */
 .VenueDetails-hero .FileUploader {
   top: 0;
   right: 0;
 }
-/* line 18, ../sass/components/_VenueDetails.scss */
+/* line 11, ../sass/components/_VenueDetails.scss */
 .VenueDetails-heroDetails {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 24px;
   margin: 0;
 }
 @media (max-width: 600px) {
-  /* line 18, ../sass/components/_VenueDetails.scss */
+  /* line 11, ../sass/components/_VenueDetails.scss */
   .VenueDetails-heroDetails {
     padding-bottom: 120px;
   }
 }
-/* line 37, ../sass/components/_VenueDetails.scss */
+/* line 26, ../sass/components/_VenueDetails.scss */
 .VenueDetails-actions {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
-/* line 44, ../sass/components/_VenueDetails.scss */
+/* line 33, ../sass/components/_VenueDetails.scss */
 .VenueDetails-description {
   color: #dddddd;
   font-size: 16px;
   line-height: 18px;
   margin: 20px 20px 30px;
 }
-/* line 51, ../sass/components/_VenueDetails.scss */
+/* line 40, ../sass/components/_VenueDetails.scss */
 .VenueDetails-images {
   max-width: 100%;
   display: flex;
@@ -489,14 +470,14 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* line 59, ../sass/components/_VenueDetails.scss */
+/* line 48, ../sass/components/_VenueDetails.scss */
 .VenueDetails-image {
   display: inline-block;
   width: 33%;
   height: 200px;
   background-size: cover;
 }
-/* line 66, ../sass/components/_VenueDetails.scss */
+/* line 55, ../sass/components/_VenueDetails.scss */
 .VenueDetails-dateprice {
   position: absolute;
   bottom: 0;
@@ -504,33 +485,33 @@ body {
   font-weight: bold;
   padding: 20px 0 0 20px;
 }
-/* line 75, ../sass/components/_VenueDetails.scss */
+/* line 64, ../sass/components/_VenueDetails.scss */
 .VenueDetails-price {
   font-size: 22px;
 }
-/* line 79, ../sass/components/_VenueDetails.scss */
+/* line 68, ../sass/components/_VenueDetails.scss */
 .VenueDetails-date {
   font-size: 18px;
   font-weight: normal;
   line-height: 18px;
 }
-/* line 85, ../sass/components/_VenueDetails.scss */
+/* line 74, ../sass/components/_VenueDetails.scss */
 .VenueDetails-greyed {
   opacity: 0.6;
 }
 @media (max-width: 600px) {
-  /* line 85, ../sass/components/_VenueDetails.scss */
+  /* line 74, ../sass/components/_VenueDetails.scss */
   .VenueDetails-greyed {
     display: block;
   }
 }
-/* line 93, ../sass/components/_VenueDetails.scss */
+/* line 82, ../sass/components/_VenueDetails.scss */
 .VenueDetails h3 {
   color: white;
   font-size: 18px;
   padding: 20px 0 0;
 }
-/* line 99, ../sass/components/_VenueDetails.scss */
+/* line 88, ../sass/components/_VenueDetails.scss */
 .VenueDetails-list {
   color: white;
   font-size: 16px;
@@ -568,6 +549,24 @@ body {
   margin: 0;
   padding: 12px;
   text-align: center;
+}
+
+/* line 24, ../sass/_bootstrap_overrides.scss */
+.btn-default {
+  background: #fff;
+  border: 1px solid #c7cbd2;
+  color: #303030;
+}
+@media (max-width: 600px) {
+  /* line 24, ../sass/_bootstrap_overrides.scss */
+  .btn-default {
+    font-size: 12px;
+  }
+}
+/* line 31, ../sass/_bootstrap_overrides.scss */
+.btn-default:hover, .btn-default:focus {
+  background: #4B5361;
+  color: #fff;
 }
 
 /* line 1, ../sass/_btn.scss */
