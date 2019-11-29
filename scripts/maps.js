@@ -248,9 +248,9 @@ function createVenueList(venues, category) {
         anchorNode.className += "Venues-listItemAnchor";
 
         categoryNode.className += "small-text";
-
+        //TODO: Put actual images and alt text in
         logoDetailsNode.src="./images/venues/william-morris-gallery.jpg";
-
+        logoDetailsNode.alt="William Morris Gallery";
         logoNode.className += "Venues-listItemLogo";
 
         nameNode.appendChild(nameDetailsNode);
