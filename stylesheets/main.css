@@ -66,8 +66,6 @@ body {
 /* line 1, ../sass/components/_Category.scss */
 .Category {
   background-color: #fff;
-  border-radius: 3px;
-  border: 1px solid #c7cbd2;
   background-position: 230px 18px;
   margin: 12px;
   font-size: 18px;
@@ -78,12 +76,12 @@ body {
     position: relative;
   }
 }
-/* line 13, ../sass/components/_Category.scss */
+/* line 11, ../sass/components/_Category.scss */
 .Category-parent {
   padding: 14px 8px 12px;
   color: #303030;
 }
-/* line 18, ../sass/components/_Category.scss */
+/* line 16, ../sass/components/_Category.scss */
 .Category-list {
   list-style: none;
   margin: 12px 0 0 0;
@@ -99,13 +97,13 @@ body {
   border-bottom-left-radius: 3px;
   width: 100%;
 }
-/* line 34, ../sass/components/_Category.scss */
+/* line 32, ../sass/components/_Category.scss */
 .Category-listItemAnchor {
   color: #4B5361;
   text-decoration: none;
 }
 
-/* line 40, ../sass/components/_Category.scss */
+/* line 38, ../sass/components/_Category.scss */
 .Search-section {
   border-radius: 3px;
   position: fixed;
@@ -121,7 +119,7 @@ body {
   width: 40%;
 }
 @media (max-width: 600px) {
-  /* line 40, ../sass/components/_Category.scss */
+  /* line 38, ../sass/components/_Category.scss */
   .Search-section {
     position: relative;
     left: 0;
@@ -520,29 +518,34 @@ body {
 }
 
 /* line 1, ../sass/_bootstrap_overrides.scss */
+a {
+  color: #303030;
+}
+
+/* line 4, ../sass/_bootstrap_overrides.scss */
 .jumbotron, .container-fluid, .container {
   background-color: #fff;
   color: #303030;
 }
 
-/* line 5, ../sass/_bootstrap_overrides.scss */
+/* line 8, ../sass/_bootstrap_overrides.scss */
 .adjacent-footer {
   padding-bottom: 60px;
 }
 
-/* line 8, ../sass/_bootstrap_overrides.scss */
+/* line 11, ../sass/_bootstrap_overrides.scss */
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 @media (max-width: 600px) {
-  /* line 8, ../sass/_bootstrap_overrides.scss */
+  /* line 11, ../sass/_bootstrap_overrides.scss */
   .footer {
     height: 60px;
   }
 }
-/* line 16, ../sass/_bootstrap_overrides.scss */
+/* line 19, ../sass/_bootstrap_overrides.scss */
 .footer p {
   background-color: #303030;
   color: #fff;
@@ -551,19 +554,19 @@ body {
   text-align: center;
 }
 
-/* line 24, ../sass/_bootstrap_overrides.scss */
+/* line 27, ../sass/_bootstrap_overrides.scss */
 .btn-default {
   background: #fff;
   border: 1px solid #c7cbd2;
   color: #303030;
 }
 @media (max-width: 600px) {
-  /* line 24, ../sass/_bootstrap_overrides.scss */
+  /* line 27, ../sass/_bootstrap_overrides.scss */
   .btn-default {
     font-size: 12px;
   }
 }
-/* line 31, ../sass/_bootstrap_overrides.scss */
+/* line 34, ../sass/_bootstrap_overrides.scss */
 .btn-default:hover, .btn-default:focus {
   background: #4B5361;
   color: #fff;
