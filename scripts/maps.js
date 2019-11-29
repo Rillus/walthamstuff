@@ -242,7 +242,7 @@ function createVenueList(venues, category) {
 
         anchorNode.appendChild(descriptionNode);
         anchorNode.appendChild(logoNode);
-        anchorNode.href="venue.html?id="+venue.id;
+        anchorNode.href="venue.php?id="+venue.id;
         anchorNode.id="venue-"+venue.id;
         anchorNode.setAttribute('data-venueid', venue.id);
         anchorNode.className += "Venues-listItemAnchor";

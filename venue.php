@@ -28,34 +28,28 @@
 
           // gtag('config', 'UA-85517052-1');
         </script>
+
+        <script>
+        function goBack() {
+        window.history.back();
+        }
+        </script>
     </head>
     <body>
-        <header class="Header">
-            <div class="Header-icon">
-                <a href="index.html" class="Header-iconImage Header-iconImage--back"></a>
+        <div class="container-fluid">
+            <div class="row">
+            <header class="Header">
+                <?php include "./includes/header.html" ?>
+            </header>
             </div>
-
-            <h2 class="Header-title"><a href="/" class="Header-titleText">WF Venue Finder</a></h2>
-
-        </header>
+      </div>
 
 
-        <section class="VenueDetails">
-            <div class="VenueDetails-hero">
-                <div id="dragdrop" class="FileUploader">
-                    <form id="upload" action="https://maps.walthamstuff.com/dev/api/index.php/upload/image">
-                        <input type="hidden" id="MAX_FILE_SIZE" value="4194304" />
-                        <input type="file"  name="userfile" id="fileselect" class="btn btn-primary">
-                        <button value="Submit" type="submit" id="submitbutton" class="btn btn-primary">submit</button>
-                        <div id="dropbox">
-                            <span id="droplabel" style="color:white; font-size:14pt">drag and drop here</span>
-                        </div>
-                    </form>
-                    <div id="droplabel"></div>
-                    <img width="150" height="150" id="preview">
-                    <div id="progress"></div>
-                </div>
-
+      <div class="container adjacent-footer">
+      <button class="btn btn-default" onclick="goBack()" type="button">< Back to Search</button>
+      <section class="VenueDetails">
+        <div class="VenueDetails-hero">
+            <div id="map_canvas" class="Map--venue"></div>
                 <div class="VenueDetails-heroDetails">
                     <h1 class="VenueDetails-title"></h1>
 
@@ -91,7 +85,7 @@
             </div> -->
 
         </section>
-        
-        <div id="map_canvas" class="Map--venue"></div>
+
+    </div>
     </body>
 </html>
