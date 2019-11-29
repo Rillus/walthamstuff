@@ -46,7 +46,9 @@
 
 
       <div class="container adjacent-footer">
-      <button class="btn btn-default small-text" onclick="goBack()" type="button" id="back-button">< Back to Search</button>
+
+      <button class="btn btn-default small-text" onclick="goBack()" type="button" id="back-button">&lt; Back to Search</button>
+
       <section class="VenueDetails">
         <div class="VenueDetails-hero">
             <div id="map_canvas" class="Map--venue"></div>
@@ -70,6 +72,21 @@
                 </div> -->
             </div>
 
+            <div class="VenueDetails-mainImage">
+                <div id="dragdrop" class="FileUploader">
+                    <form id="upload" action="https://maps.walthamstuff.com/dev/api/index.php/upload/image">
+                        <input type="hidden" id="MAX_FILE_SIZE" value="4194304" />
+                        <input type="file"  name="userfile" id="fileselect" class="btn btn-primary">
+                        <button value="Submit" type="submit" id="submitbutton" class="btn btn-primary">submit</button>
+                        <div id="dropbox">
+                            <span id="droplabel">drag and drop here</span>
+                        </div>
+                    </form>
+                    <div id="droplabel"></div>
+                    <img width="150" height="150" id="preview">
+                    <div id="progress"></div>
+                </div>
+            </div>
 
 
             <div class="VenueDetails-description u-hide">

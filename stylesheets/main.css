@@ -142,11 +142,6 @@ body {
   width: 125px;
 }
 
-/* line 1, ../sass/components/_FileUploader.scss */
-.FileUploader {
-  position: absolute;
-}
-
 /* line 1, ../sass/components/_Filters.scss */
 .Filters {
   width: 100%;
@@ -198,25 +193,25 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 29, ../sass/components/_Header.scss */
+/* line 28, ../sass/components/_Header.scss */
 .Header-title {
   margin: 0;
   width: 100%;
   font-size: 26px;
 }
-/* line 35, ../sass/components/_Header.scss */
+/* line 34, ../sass/components/_Header.scss */
 .Header-title a {
   color: #dddddd;
   text-decoration: none;
 }
-/* line 40, ../sass/components/_Header.scss */
+/* line 39, ../sass/components/_Header.scss */
 .Header-nav {
   display: inline-block;
   list-style: none;
   margin: 0 0 0 40px;
   padding: 0;
 }
-/* line 47, ../sass/components/_Header.scss */
+/* line 46, ../sass/components/_Header.scss */
 .Header-navItem {
   display: inline-block;
   font-size: 14px;
@@ -225,17 +220,17 @@ body {
   width: 120px;
   text-align: center;
 }
-/* line 56, ../sass/components/_Header.scss */
+/* line 55, ../sass/components/_Header.scss */
 .Header-navItem--active {
   border-bottom: 2px solid #EE6468;
   width: 90px;
 }
-/* line 61, ../sass/components/_Header.scss */
+/* line 60, ../sass/components/_Header.scss */
 .Header-navItem a {
   color: #4B5361;
   text-decoration: none;
 }
-/* line 66, ../sass/components/_Header.scss */
+/* line 65, ../sass/components/_Header.scss */
 .Header-loginButton {
   margin-right: 12px;
   margin-bottom: 12px;
@@ -342,13 +337,13 @@ body {
   flex-direction: column;
 }
 
-@media (max-width: 600px) {
-  /* line 1, ../sass/components/_Venues.scss */
-  .Venues {
-    width: 100%;
-  }
+/* line 1, ../sass/components/_Venues.scss */
+.Venues {
+  width: 100%;
+  max-width: 1140px;
+  margin: auto;
 }
-/* line 7, ../sass/components/_Venues.scss */
+/* line 6, ../sass/components/_Venues.scss */
 .Venues-list {
   display: inline-flex;
   flex-wrap: wrap;
@@ -356,22 +351,31 @@ body {
   justify-content: center;
   margin: 12px;
   padding: 0;
+  width: 100%;
+  max-width: 100%;
 }
-/* line 15, ../sass/components/_Venues.scss */
+/* line 16, ../sass/components/_Venues.scss */
 .Venues-listItem {
   margin: 12px;
   width: 20%;
   border: #c7cbd2 solid 1px;
   border-radius: 3px;
 }
+@media (max-width: 768px) {
+  /* line 16, ../sass/components/_Venues.scss */
+  .Venues-listItem {
+    margin: 6px;
+    width: 50%;
+  }
+}
 @media (max-width: 600px) {
-  /* line 15, ../sass/components/_Venues.scss */
+  /* line 16, ../sass/components/_Venues.scss */
   .Venues-listItem {
     margin: 6px;
     width: 100%;
   }
 }
-/* line 26, ../sass/components/_Venues.scss */
+/* line 32, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor {
   display: flex;
   flex-direction: column;
@@ -380,61 +384,61 @@ body {
   height: 100%;
   margin-bottom: 12px;
 }
-/* line 34, ../sass/components/_Venues.scss */
+/* line 40, ../sass/components/_Venues.scss */
 .Venues-listItemAnchor:hover, .Venues-listItemAnchor:focus {
   background: #c7cbd2;
   text-decoration: none;
 }
 @media (max-width: 600px) {
-  /* line 26, ../sass/components/_Venues.scss */
+  /* line 32, ../sass/components/_Venues.scss */
   .Venues-listItemAnchor {
     display: grid;
     grid-template-columns: 3fr 2fr;
   }
 }
 @media (max-width: 600px) {
-  /* line 45, ../sass/components/_Venues.scss */
+  /* line 51, ../sass/components/_Venues.scss */
   .Venues-listItemLogo {
     grid-column: 2;
   }
 }
-/* line 49, ../sass/components/_Venues.scss */
+/* line 55, ../sass/components/_Venues.scss */
 .Venues-listItemLogo img {
   width: 100%;
 }
-/* line 52, ../sass/components/_Venues.scss */
+/* line 58, ../sass/components/_Venues.scss */
 .Venues-listItemLogo button {
   margin: 12px;
   float: right;
 }
 @media (max-width: 600px) {
-  /* line 52, ../sass/components/_Venues.scss */
+  /* line 58, ../sass/components/_Venues.scss */
   .Venues-listItemLogo button {
     margin: 12px 12px 0;
   }
 }
-/* line 61, ../sass/components/_Venues.scss */
+/* line 67, ../sass/components/_Venues.scss */
 .Venues-listItemDescription {
   color: #303030;
   padding: 12px;
 }
-/* line 64, ../sass/components/_Venues.scss */
+/* line 70, ../sass/components/_Venues.scss */
 .Venues-listItemDescription h4 {
   color: #aa383b;
 }
 @media (max-width: 600px) {
-  /* line 64, ../sass/components/_Venues.scss */
+  /* line 70, ../sass/components/_Venues.scss */
   .Venues-listItemDescription h4 {
     font-size: 1.2rem;
   }
 }
-/* line 71, ../sass/components/_Venues.scss */
+/* line 77, ../sass/components/_Venues.scss */
 .Venues-listItemDescription p {
   clear: both;
   margin: 12px 0;
 }
 
-/* line 80, ../sass/components/_Venues.scss */
+/* line 86, ../sass/components/_Venues.scss */
 .small-text {
   font-size: 12px;
   font-weight: bold;
@@ -478,6 +482,19 @@ body {
   margin: 12px 0;
 }
 /* line 41, ../sass/components/_VenueDetails.scss */
+.VenueDetails-mainImage {
+  float: right;
+  color: #303030;
+  position: relative;
+  max-width: 50%;
+}
+/* line 47, ../sass/components/_VenueDetails.scss */
+.VenueDetails-mainImage #dropbox {
+  border: 2px dashed #111111;
+  color: #303030;
+  position: absolute;
+}
+/* line 54, ../sass/components/_VenueDetails.scss */
 .VenueDetails-images {
   max-width: 100%;
   display: flex;
@@ -485,46 +502,46 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* line 49, ../sass/components/_VenueDetails.scss */
+/* line 62, ../sass/components/_VenueDetails.scss */
 .VenueDetails-image {
   display: inline-block;
   width: 33%;
   height: 200px;
   background-size: cover;
 }
-/* line 56, ../sass/components/_VenueDetails.scss */
+/* line 69, ../sass/components/_VenueDetails.scss */
 .VenueDetails-dateprice {
   position: absolute;
   bottom: 0;
   font-weight: bold;
   padding: 20px 0 0 20px;
 }
-/* line 64, ../sass/components/_VenueDetails.scss */
+/* line 77, ../sass/components/_VenueDetails.scss */
 .VenueDetails-price {
   font-size: 22px;
 }
-/* line 68, ../sass/components/_VenueDetails.scss */
+/* line 81, ../sass/components/_VenueDetails.scss */
 .VenueDetails-date {
   font-size: 18px;
   font-weight: normal;
   line-height: 18px;
 }
-/* line 74, ../sass/components/_VenueDetails.scss */
+/* line 87, ../sass/components/_VenueDetails.scss */
 .VenueDetails-greyed {
   opacity: 0.6;
 }
 @media (max-width: 600px) {
-  /* line 74, ../sass/components/_VenueDetails.scss */
+  /* line 87, ../sass/components/_VenueDetails.scss */
   .VenueDetails-greyed {
     display: block;
   }
 }
-/* line 82, ../sass/components/_VenueDetails.scss */
+/* line 95, ../sass/components/_VenueDetails.scss */
 .VenueDetails h3 {
   font-size: 18px;
   padding: 20px 0 0;
 }
-/* line 87, ../sass/components/_VenueDetails.scss */
+/* line 100, ../sass/components/_VenueDetails.scss */
 .VenueDetails-list {
   color: white;
   font-size: 16px;

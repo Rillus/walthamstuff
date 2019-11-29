@@ -1,8 +1,7 @@
 .Venues {
-
-    @media(max-width: 600px) {
-        width: 100%;
-    }
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
 
     &-list {
         display: inline-flex;
@@ -11,12 +10,19 @@
         justify-content: center;
         margin: $gutter;
         padding: 0;
+        width: 100%;
+        max-width: 100%;
 
         &Item {
             margin: $gutter;
             width: 20%;
             border: $colour-ghost solid 1px;
             border-radius: $border-radius;
+
+            @media(max-width: 768px) {
+                margin: $gutter/2;
+                width: 50%;
+            }
 
             @media(max-width: 600px) {
                 margin: $gutter/2;
