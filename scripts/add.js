@@ -45,7 +45,7 @@ var init = function() {
     };
 
 window.onload = function () {
-    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
+    getJSON(apiBaseUrl + 'locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {

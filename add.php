@@ -17,7 +17,13 @@
         <script src="scripts/jquery.datetimepicker.js"></script>
     </head>
     <body>
-        <?php include "./includes/admin_header.php" ?>
+        <div class="container-fluid">
+            <div class="row">
+                <header class="Header">
+                    <?php include "./includes/header.html" ?>
+                </header>
+            </div>
+        </div>
 
         <div class="container">
             <div class="row">

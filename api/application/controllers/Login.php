@@ -78,8 +78,7 @@ class Login extends CI_Controller {
         $userData = array(
             'userId' => $this->session->userdata('id'), 
             'status' => $this->session->userdata('status'), 
-            'logged_in' => $this->session->userdata('logged_in'), 
-            'all' => $this->session->all_userdata(), 
+            'logged_in' => $this->session->userdata('logged_in'),
         );
 
         $this->Responsemodel->success($userData);
