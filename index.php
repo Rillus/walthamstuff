@@ -42,7 +42,7 @@
       </div>
 
       <div class="container">
-        <div class="row px-4 pt-4 px-md-5 pt-md-5"  id="Intro">
+        <div class="Intro row px-4 pt-4 px-md-5 pt-md-5"  id="Intro">
           <div class="col-md-12 px-0">
             <h1>Find what you need, locally</h1>
           </div>

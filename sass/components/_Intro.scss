@@ -1,8 +1,12 @@
 .Intro {
   background-color: transparent;
-  color: $colour-white;
-  padding: $gutter*2;
+  color: $colour-black;
+  padding: 0;
+  padding-left: 0 !important;
   margin: $gutter;
-  text-align: center;
+  text-align: left;
   line-height: 1.2;
+  .h1 {
+    padding-left: 0;
+  }
 }
