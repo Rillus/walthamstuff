@@ -168,55 +168,58 @@ body {
 
 /* line 1, ../sass/components/_Header.scss */
 .Header {
+  margin: auto;
+  width: 100%;
   background: #000;
   border-bottom: #303030 1px solid;
   padding: 0.25em;
   display: flex;
 }
-/* line 7, ../sass/components/_Header.scss */
+/* line 9, ../sass/components/_Header.scss */
 .Header-icon {
+  margin: auto;
   border-radius: 20px;
 }
-/* line 9, ../sass/components/_Header.scss */
+/* line 12, ../sass/components/_Header.scss */
 .Header-icon a {
   display: flex;
   justify-content: center;
 }
-/* line 14, ../sass/components/_Header.scss */
+/* line 17, ../sass/components/_Header.scss */
 .Header-iconImage {
   width: 75%;
 }
 @media (max-width: 600px) {
-  /* line 14, ../sass/components/_Header.scss */
+  /* line 17, ../sass/components/_Header.scss */
   .Header-iconImage {
     width: 100%;
   }
 }
-/* line 20, ../sass/components/_Header.scss */
+/* line 23, ../sass/components/_Header.scss */
 .Header-iconImage--back {
   background-image: url("../images/back.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 29, ../sass/components/_Header.scss */
+/* line 32, ../sass/components/_Header.scss */
 .Header-title {
   margin: 0;
   width: 100%;
   font-size: 26px;
 }
-/* line 35, ../sass/components/_Header.scss */
+/* line 38, ../sass/components/_Header.scss */
 .Header-title a {
   color: #dddddd;
   text-decoration: none;
 }
-/* line 40, ../sass/components/_Header.scss */
+/* line 43, ../sass/components/_Header.scss */
 .Header-nav {
   display: inline-block;
   list-style: none;
   margin: 0 0 0 40px;
   padding: 0;
 }
-/* line 47, ../sass/components/_Header.scss */
+/* line 50, ../sass/components/_Header.scss */
 .Header-navItem {
   display: inline-block;
   font-size: 14px;
@@ -225,17 +228,17 @@ body {
   width: 120px;
   text-align: center;
 }
-/* line 56, ../sass/components/_Header.scss */
+/* line 59, ../sass/components/_Header.scss */
 .Header-navItem--active {
   border-bottom: 2px solid #EE6468;
   width: 90px;
 }
-/* line 61, ../sass/components/_Header.scss */
+/* line 64, ../sass/components/_Header.scss */
 .Header-navItem a {
   color: #4B5361;
   text-decoration: none;
 }
-/* line 66, ../sass/components/_Header.scss */
+/* line 69, ../sass/components/_Header.scss */
 .Header-loginButton {
   margin-right: 12px;
   margin-bottom: 12px;

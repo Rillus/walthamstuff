@@ -1,10 +1,13 @@
 .Header {
+    margin: auto;
+    width: 100%;
     background: $colour-black;
     border-bottom: $colour-mineshaft 1px solid;
     padding: 0.25em;
     display: flex;
 
     &-icon {
+        margin: auto;
         border-radius: 20px;
         a {
             display: flex;
