@@ -93,6 +93,10 @@
                 <div class="VenueDetails-description u-hide">
                     <h3>Description</h3>
                     <p class="VenueDetails-descriptionContent"></p>
+                           </div>
+                <div class="VenueDetails-offers u-hide">
+                    <h3>Offers</h3>
+                    <p class="VenueDetails-offersContent"></p>
                 </div>
                 <!-- 
                 <div class="VenueDetails-images">

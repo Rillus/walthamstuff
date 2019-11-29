@@ -108,6 +108,7 @@ function displayVenue() {
         'telephone',
         'twitter',
         'website',
+        'offers',
         'image'
     ];
 
