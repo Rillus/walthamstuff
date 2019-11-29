@@ -162,6 +162,7 @@ function createCategoryList() {
     var uniqueCategories = categories.sort();
 
     uniqueCategories.forEach(function(cat) {
+
         if (cat !== ''){
             var node = document.createElement("li"),
                 anchorNode = document.createElement("a"),
@@ -228,6 +229,7 @@ function createVenueList(venues, category) {
 
         var listNode = document.createElement("li"),
             anchorNode = document.createElement("a"),
+            readMoreNode = document.createElement("button"),
             descriptionNode = document.createElement("div"),
             nameNode = document.createElement("h4"),
             nameDetailsNode = document.createTextNode(toTitleCase(venue.name)),   
@@ -236,7 +238,8 @@ function createVenueList(venues, category) {
             categoryNode = document.createElement("span"),
             categoryDetailsNode = document.createTextNode(toTitleCase(venue.category));
             logoNode = document.createElement("div"),
-            logoDetailsNode = document.createElement("img");
+            logoDetailsNode = document.createElement("img"),
+            readMoreDetailsNode = document.createTextNode(toTitleCase("View details >>")), 
             telephoneNode = document.createElement("span"),
             telephoneDetailsNode = document.createTextNode(toTitleCase(venue.telephone));
 
@@ -244,6 +247,11 @@ function createVenueList(venues, category) {
         anchorNode.appendChild(logoNode);
         anchorNode.href="venue.php?id="+venue.id;
         anchorNode.id="venue-"+venue.id;
+
+        readMoreNode.href="venue.php?id="+venue.id;
+        readMoreNode.href="venue.php?id="+venue.id;
+        readMoreNode.className += "Venues-listReadMore small-text btn btn-default";
+        readMoreNode.appendChild(readMoreDetailsNode);
         anchorNode.setAttribute('data-venueid', venue.id);
         anchorNode.className += "Venues-listItemAnchor";
 
@@ -261,9 +269,10 @@ function createVenueList(venues, category) {
 
 
         descriptionNode.appendChild(nameNode);
-        descriptionNode.appendChild(categoryNode);
+        // descriptionNode.appendChild(categoryNode);
         descriptionNode.appendChild(addressNode);
         descriptionNode.appendChild(telephoneNode);
+        logoNode.appendChild(readMoreNode);
 
         descriptionNode.className += "Venues-listItemDescription";
 
