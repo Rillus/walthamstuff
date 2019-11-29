@@ -101,19 +101,19 @@ function displayVenue() {
 
     var values = [
         'address',
-        // 'contact_name',
+        'contact_name',
         'description',
-        // 'openingTimes',
-        // 'email',
-        // 'telephone',
-        // 'twitter',
-        // 'website',
-        // 'image'
+        'opening_times',
+        'email',
+        'telephone',
+        'twitter',
+        'website',
+        'image'
     ];
 
     values.forEach(function(value) {
         console.log('.VenueDetails-'+value, venue[value]);
-        if (venue[value] !== undefined && venue[value] !== "") {
+        if (venue[value] !== undefined && venue[value] !== "" && venue[value] !== null) {
             $('.VenueDetails-'+value+'Content').html(venue[value]);
             $('.VenueDetails-'+value).show();
         }
