@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Walthamstuff Map</title>
         <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
@@ -52,7 +52,6 @@
             <div id="map_canvas" class="Map--venue"></div>
                 <div class="VenueDetails-heroDetails">
                     <h1 class="VenueDetails-title"></h1>
-
                     <div class="VenueDetails-address u-hide">
                         <p class="VenueDetails-addressContent"></p>
                     </div>
