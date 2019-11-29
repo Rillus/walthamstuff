@@ -49,12 +49,18 @@
                 img {
                     width: 100%;
                 }
+                button {
+                    margin: $gutter;
+                    float: right;
+                    @media(max-width: 600px) {
+                        margin: $gutter $gutter 0;
+                    }
+                }
             }
     
              &Description {
                 color: $colour-mineshaft;
                 padding: $gutter;
-
                 h4 {
                     color: $colour-medium-carmine;
                     
@@ -67,11 +73,11 @@
                     margin: $gutter 0;
                 }
              }
-
-            .small-text {
-                font-size: 12px;
-                font-weight: bold;
-            }
         }
     }
+}
+
+.small-text {
+    font-size: 12px;
+    font-weight: bold;
 }
