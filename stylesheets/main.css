@@ -248,11 +248,16 @@ body {
 /* line 1, ../sass/components/_Intro.scss */
 .Intro {
   background-color: transparent;
-  color: #fff;
-  padding: 24px;
+  color: #000;
+  padding: 0;
+  padding-left: 0 !important;
   margin: 12px;
-  text-align: center;
+  text-align: left;
   line-height: 1.2;
+}
+/* line 9, ../sass/components/_Intro.scss */
+.Intro .h1 {
+  padding-left: 0;
 }
 
 /* line 1, ../sass/components/_Label.scss */
