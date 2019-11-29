@@ -477,27 +477,27 @@ body {
   right: 0;
 }
 /* line 33, ../sass/components/_VenueDetails.scss */
-.VenueDetails-description {
+.VenueDetails-description, .VenueDetails-offers {
   padding: 24px;
   background: #fff;
   font-size: 16px;
   line-height: 18px;
-  margin: 12px 0;
+  margin: 12px 0 0;
 }
-/* line 41, ../sass/components/_VenueDetails.scss */
+/* line 42, ../sass/components/_VenueDetails.scss */
 .VenueDetails-mainImage {
   float: right;
   color: #303030;
   position: relative;
   max-width: 50%;
 }
-/* line 47, ../sass/components/_VenueDetails.scss */
+/* line 48, ../sass/components/_VenueDetails.scss */
 .VenueDetails-mainImage #dropbox {
   border: 2px dashed #111111;
   color: #303030;
   position: absolute;
 }
-/* line 54, ../sass/components/_VenueDetails.scss */
+/* line 55, ../sass/components/_VenueDetails.scss */
 .VenueDetails-images {
   max-width: 100%;
   display: flex;
@@ -505,46 +505,46 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* line 62, ../sass/components/_VenueDetails.scss */
+/* line 63, ../sass/components/_VenueDetails.scss */
 .VenueDetails-image {
   display: inline-block;
   width: 33%;
   height: 200px;
   background-size: cover;
 }
-/* line 69, ../sass/components/_VenueDetails.scss */
+/* line 70, ../sass/components/_VenueDetails.scss */
 .VenueDetails-dateprice {
   position: absolute;
   bottom: 0;
   font-weight: bold;
   padding: 20px 0 0 20px;
 }
-/* line 77, ../sass/components/_VenueDetails.scss */
+/* line 78, ../sass/components/_VenueDetails.scss */
 .VenueDetails-price {
   font-size: 22px;
 }
-/* line 81, ../sass/components/_VenueDetails.scss */
+/* line 82, ../sass/components/_VenueDetails.scss */
 .VenueDetails-date {
   font-size: 18px;
   font-weight: normal;
   line-height: 18px;
 }
-/* line 87, ../sass/components/_VenueDetails.scss */
+/* line 88, ../sass/components/_VenueDetails.scss */
 .VenueDetails-greyed {
   opacity: 0.6;
 }
 @media (max-width: 600px) {
-  /* line 87, ../sass/components/_VenueDetails.scss */
+  /* line 88, ../sass/components/_VenueDetails.scss */
   .VenueDetails-greyed {
     display: block;
   }
 }
-/* line 95, ../sass/components/_VenueDetails.scss */
+/* line 96, ../sass/components/_VenueDetails.scss */
 .VenueDetails h3 {
   font-size: 18px;
   padding: 20px 0 0;
 }
-/* line 100, ../sass/components/_VenueDetails.scss */
+/* line 101, ../sass/components/_VenueDetails.scss */
 .VenueDetails-list {
   color: white;
   font-size: 16px;

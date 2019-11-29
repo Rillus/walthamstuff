@@ -30,12 +30,13 @@
         right: 0;
     }
 
-    &-description {
+    &-description,
+    &-offers {
         padding: $gutter*2;
         background: $colour-white;
         font-size: 16px;
         line-height: 18px;
-        margin: $gutter 0;     
+        margin: $gutter 0 0;     
     }
 
     &-mainImage {
