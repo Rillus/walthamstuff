@@ -1,6 +1,10 @@
 .VenueDetails {
+    border-radius: $border-radius;
     display: flex;
     flex-direction: column;
+    background: $colour-mineshaft;
+    padding: $gutter;
+
     
     &-hero {
         .FileUploader {
@@ -8,15 +12,11 @@
             right: 0;
         }
 
+        background: $colour-white;
+
         &Details {
-            background-color: rgba(0,0,0,0.5);
-            color: white;
             padding: $gutter*2;
             margin: 0;
-
-            @media(max-width: 600px) {
-                padding-bottom: 120px;
-            }
         }
     }
     
@@ -31,10 +31,11 @@
     }
 
     &-description {
-        color: $colour-alto;
+        padding: $gutter*2;
+        background: $colour-white;
         font-size: 16px;
         line-height: 18px;
-        margin: 20px 20px 30px;        
+        margin: $gutter 0;     
     }
 
     &-images {
@@ -55,7 +56,6 @@
     &-dateprice {
         position: absolute;
         bottom: 0;
-        color: white;
         font-weight: bold;
         padding: 20px 0 0 20px;
 
@@ -80,7 +80,6 @@
     }
 
     h3 {
-        color: white;
         font-size: 18px;
         padding: 20px 0 0;
     }
