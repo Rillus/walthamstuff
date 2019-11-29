@@ -38,6 +38,19 @@
         margin: $gutter 0;     
     }
 
+    &-mainImage {
+        float: right;
+        color: $colour-mineshaft;
+        position: relative;
+        max-width: 50%;
+
+        #dropbox {
+            border: 2px dashed $colour-cod-grey;
+            color: $colour-mineshaft;
+            position: absolute;
+        }
+    }
+
     &-images {
         max-width: 100%;
         display: flex;

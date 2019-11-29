@@ -31,6 +31,10 @@ var getJSON = function(url, callback) {
 };
 
 function toTitleCase(str) {
+    if (str == null) {
+        return '';
+    }
+
     return str.replace(
         /\w\S*/g,
         function(txt) {

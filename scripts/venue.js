@@ -146,6 +146,16 @@ function getLocation() {
 
 // Creates map and adds pins/infoWindows
 function initialize() {
+    
+    if (userData.loggedIn) {
+        console.log('user is logged in');
+        $('.j-isLoggedIn').show();
+        $('.j-isNotLoggedIn').hide();
+    } else {
+        $('.j-isLoggedIn').hide();
+        $('.j-isNotLoggedIn').show();
+    }
+
     getLocation();
 }
 
@@ -157,5 +167,8 @@ function sanityCheckWebsite(website) {
 }
 
 $(document).ready(function() {
+    // Ensure we know if the user is logged in - run this whenever we need to fetch and check user state from the server
+    checkLogin();
+    
     initialize();
 });

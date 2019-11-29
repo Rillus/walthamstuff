@@ -3,7 +3,8 @@ var map = null,
     geocoder,
     markers = [],
     isDesktop,
-    venues;
+    venues,
+    categoryMarkers;
 
 function setUpMap() {
     if (map === null) {
@@ -36,9 +37,10 @@ function createMap(cat) {
     GeoMarker.setCircleOptions({fillColor: '#808080'});
 
     setMarkers(null);
+    markers = [];
 
     if (typeof cat === 'string' || cat === undefined) {
-        getJSON('http://maps.walthamstuff.com/dev/api/index.php/locations/category/'+encodeURIComponent(cat), function(err, data) {
+        getJSON(apiBaseUrl + 'locations/category/'+encodeURIComponent(cat), function(err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
@@ -88,7 +90,7 @@ function createMap(cat) {
 function initialize() {
     console.log('init');
 
-    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations', function(err, data) {
+    getJSON(apiBaseUrl + 'locations', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
@@ -123,13 +125,13 @@ function buildContentString(element) {
         contentString += '<p>Telephone: '+element.telephone+'</p>';
     }
 
-    contentString += '<a href="edit.html?id='+element.id+'">Edit</a>';
+    contentString += '<a href="venue.php?id='+element.id+'" class="Venues-listReadMore">View Details &gt;&gt;</a>';
 
     return contentString;
 }
 
 function hideIntro() {
-    let intro = document.getElementById("Intro");
+    var intro = document.getElementById("Intro");
     intro.style.display = "none";
 }
 
@@ -152,7 +154,7 @@ function getVenuesByCategory(){
 
     for (var i = 0; i < classname.length; i++) {
         classname[i].addEventListener('click', getNewCategory, false);
-    }  
+    }
 }
 
 function createCategoryList() {
@@ -176,7 +178,7 @@ function createCategoryList() {
 
             filterListEle.appendChild(node);
         }
-    });  
+    });
     getVenuesByCategory();
 }
 
@@ -206,6 +208,8 @@ function highlightVenue(e) {
         map: map
     });
 
+    categoryMarkers = markers;
+
     markers = [];
     markers.push(marker);
 
@@ -214,75 +218,79 @@ function highlightVenue(e) {
 
 function rollOffVenue() {
     setMarkers(null);
+    markers = categoryMarkers;
+    setMarkers(map);
 }
 
-function resetList(list) {     
+function resetList(list) {
     $(list).empty();
 }
 
 function createVenueList(venues, category) {
+    console.log(venues, category);
     var venueListEle = document.getElementById('venue-list');
 
     resetList(venueListEle);
     venues.forEach(function(venue) {
-    if (category === venue.category) {
 
-        var listNode = document.createElement("li"),
-            anchorNode = document.createElement("a"),
-            readMoreNode = document.createElement("button"),
-            descriptionNode = document.createElement("div"),
-            nameNode = document.createElement("h4"),
-            nameDetailsNode = document.createTextNode(toTitleCase(venue.name)),   
-            addressNode = document.createElement("p"),
-            addressDetailsNode = document.createTextNode(toTitleCase(venue.address)),
-            categoryNode = document.createElement("span"),
-            categoryDetailsNode = document.createTextNode(toTitleCase(venue.category));
-            logoNode = document.createElement("div"),
-            logoDetailsNode = document.createElement("img"),
-            readMoreDetailsNode = document.createTextNode(toTitleCase("View details >>")), 
-            telephoneNode = document.createElement("span"),
-            telephoneDetailsNode = document.createTextNode(toTitleCase(venue.telephone));
+        if (category.toLowerCase() === venue.category.toLowerCase()) {
 
-        anchorNode.appendChild(descriptionNode);
-        anchorNode.appendChild(logoNode);
-        anchorNode.href="venue.php?id="+venue.id;
-        anchorNode.id="venue-"+venue.id;
+            var listNode = document.createElement("li"),
+                anchorNode = document.createElement("a"),
+                readMoreNode = document.createElement("button"),
+                descriptionNode = document.createElement("div"),
+                nameNode = document.createElement("h4"),
+                nameDetailsNode = document.createTextNode(toTitleCase(venue.name)),
+                addressNode = document.createElement("p"),
+                addressDetailsNode = document.createTextNode(toTitleCase(venue.address)),
+                categoryNode = document.createElement("span"),
+                categoryDetailsNode = document.createTextNode(toTitleCase(venue.category));
+                logoNode = document.createElement("div"),
+                // logoDetailsNode = document.createElement("img"),
+                readMoreDetailsNode = document.createTextNode(toTitleCase("View details >>")),
+                telephoneNode = document.createElement("span"),
+                telephoneDetailsNode = document.createTextNode(toTitleCase(venue.telephone));
 
-        readMoreNode.href="venue.php?id="+venue.id;
-        readMoreNode.href="venue.php?id="+venue.id;
-        readMoreNode.className += "Venues-listReadMore small-text btn btn-default";
-        readMoreNode.appendChild(readMoreDetailsNode);
-        anchorNode.setAttribute('data-venueid', venue.id);
-        anchorNode.className += "Venues-listItemAnchor";
+            anchorNode.appendChild(descriptionNode);
+            anchorNode.appendChild(logoNode);
+            anchorNode.href="venue.php?id="+venue.id;
+            anchorNode.id="venue-"+venue.id;
 
-        categoryNode.className += "small-text";
-        //TODO: Put actual images and alt text in
-        logoDetailsNode.src="./images/venues/william-morris-gallery.jpg";
-        logoDetailsNode.alt="William Morris Gallery";
-        logoNode.className += "Venues-listItemLogo";
+            readMoreNode.href="venue.php?id="+venue.id;
+            readMoreNode.href="venue.php?id="+venue.id;
+            readMoreNode.className += "Venues-listReadMore small-text btn btn-default";
+            readMoreNode.appendChild(readMoreDetailsNode);
+            anchorNode.setAttribute('data-venueid', venue.id);
+            anchorNode.className += "Venues-listItemAnchor";
 
-        nameNode.appendChild(nameDetailsNode);
-        addressNode.appendChild(addressDetailsNode);
-        logoNode.appendChild(logoDetailsNode);
-        categoryNode.appendChild(categoryDetailsNode);
-        telephoneNode.appendChild(telephoneDetailsNode);
+            categoryNode.className += "small-text";
+            //TODO: Put actual images and alt text in
+            // logoDetailsNode.src="./images/venues/william-morris-gallery.jpg";
+            // logoDetailsNode.alt="William Morris Gallery";
+            logoNode.className += "Venues-listItemLogo";
+
+            nameNode.appendChild(nameDetailsNode);
+            addressNode.appendChild(addressDetailsNode);
+            // logoNode.appendChild(logoDetailsNode);
+            categoryNode.appendChild(categoryDetailsNode);
+            telephoneNode.appendChild(telephoneDetailsNode);
 
 
-        descriptionNode.appendChild(nameNode);
-        // descriptionNode.appendChild(categoryNode);
-        descriptionNode.appendChild(addressNode);
-        descriptionNode.appendChild(telephoneNode);
-        logoNode.appendChild(readMoreNode);
+            descriptionNode.appendChild(nameNode);
+            // descriptionNode.appendChild(categoryNode);
+            descriptionNode.appendChild(addressNode);
+            descriptionNode.appendChild(telephoneNode);
+            logoNode.appendChild(readMoreNode);
 
-        descriptionNode.className += "Venues-listItemDescription";
+            descriptionNode.className += "Venues-listItemDescription";
 
-        listNode.appendChild(anchorNode);
-        listNode.className += "Venues-listItem";
+            listNode.appendChild(anchorNode);
+            listNode.className += "Venues-listItem";
 
-        venueListEle.appendChild(listNode);
-        var thisEle = document.getElementById("venue-"+venue.id);
-        thisEle.addEventListener('mouseover', highlightVenue, false);
-        thisEle.addEventListener('mouseout', rollOffVenue, false);
+            venueListEle.appendChild(listNode);
+            var thisEle = document.getElementById("venue-"+venue.id);
+            thisEle.addEventListener('mouseover', highlightVenue, false);
+            thisEle.addEventListener('mouseout', rollOffVenue, false);
         }
     });
 }
@@ -304,7 +312,7 @@ function geocodeIteration(data) {
 
                     var xhttp = new XMLHttpRequest();
 
-                    xhttp.open("POST", "https://maps.walthamstuff.com/dev/api/index.php/locations/post_latlon", true);
+                    xhttp.open("POST", apiBaseUrl + 'locations/post_latlon', true);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send('id='+id+'&lat='+lat+'&lon='+lon);
                 // }
@@ -325,7 +333,7 @@ function geocodeIteration(data) {
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
 
-    getJSON('https://maps.walthamstuff.com/dev/api/index.php/locations/no_latlon', function(err, data) {
+    getJSON(apiBaseUrl + 'locations/no_latlon', function(err, data) {
         if (err !== null) {
             alert('Something went wrong: ' + err);
         } else {
