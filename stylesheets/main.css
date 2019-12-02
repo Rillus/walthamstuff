@@ -107,8 +107,14 @@ body {
   color: #4B5361;
   text-decoration: none;
 }
+/* line 37, ../sass/components/_Category.scss */
+.Category-offers {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
 
-/* line 38, ../sass/components/_Category.scss */
+/* line 44, ../sass/components/_Category.scss */
 .Search-section {
   border-radius: 3px;
   position: fixed;
@@ -124,7 +130,7 @@ body {
   width: 40%;
 }
 @media (max-width: 600px) {
-  /* line 38, ../sass/components/_Category.scss */
+  /* line 44, ../sass/components/_Category.scss */
   .Search-section {
     position: relative;
     left: 0;
@@ -140,6 +146,20 @@ body {
   border-radius: 3px;
   border: 1px solid #c7cbd2;
   width: 125px;
+}
+
+/* line 1, ../sass/components/_Error.scss */
+.Error {
+  background: #EE6468;
+  color: #fff;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 2px solid #aa383b;
+  border-radius: 3px;
+}
+/* line 9, ../sass/components/_Error.scss */
+.Error-reason {
+  margin: 0;
 }
 
 /* line 1, ../sass/components/_Filters.scss */
@@ -297,21 +317,22 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 12px;
-  color: #aa383b;
+  width: 36px;
+  height: 36px;
+  opacity: 0.7;
+  border-radius: 0 3px 0 3px;
 }
-/* line 28, ../sass/components/_Login.scss */
-.Login-close:hover {
-  text-decoration: none;
-  color: #c83b3f;
+/* line 31, ../sass/components/_Login.scss */
+.Login-header {
+  margin: 12px 24px 12px 0;
 }
-/* line 34, ../sass/components/_Login.scss */
-.Login .Input {
+/* line 35, ../sass/components/_Login.scss */
+.Login-submit {
+  margin-bottom: 12px;
   width: 100%;
 }
-/* line 38, ../sass/components/_Login.scss */
-.Login .btn {
-  margin-bottom: 12px;
+/* line 40, ../sass/components/_Login.scss */
+.Login .Input {
   width: 100%;
 }
 

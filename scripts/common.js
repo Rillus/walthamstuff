@@ -101,8 +101,12 @@ function sendData(e, url, callback) {
     XHR.send(urlEncodedData);
 }
 
-function insertTemplate(filename, target) {
-    $(target).load(filename).show();
+function insertTemplate(filename, target, callback) {
+    if (callback === undefined) {
+        callback = false;
+    }
+    
+    $(target).load(filename, callback).show();
 }
 
 function checkLogin() {
@@ -116,4 +120,12 @@ function checkLogin() {
         };
 
     getJSON(url, callbackFunction);
+}
+
+function displayErrorMessage(errorMessage, target) {
+    var callbackFunction = function() {
+        $('.Error-reason').html(errorMessage);
+    };
+    
+    insertTemplate('./includes/error-message.html', target, callbackFunction);
 }

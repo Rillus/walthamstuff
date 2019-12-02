@@ -1,6 +1,10 @@
 var loginFormCallback = function(responseData) {
+    $('#loginError').empty();
     if (responseData.status == 'success') {
         window.location.assign('./add.php');
+    } else if (responseData.status == 'error') {
+        // Display error feedback
+        displayErrorMessage(responseData.reason, '#loginError');
     }
 };
 

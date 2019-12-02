@@ -1,0 +1,12 @@
+.Error {
+    background: $colour-burnt-sienna;
+    color: $colour-white;
+    padding: $gutter;
+    margin-bottom: $gutter;
+    border: 2px solid $colour-medium-carmine;
+    border-radius: $border-radius;
+
+    &-reason {
+        margin: 0;
+    }
+}
