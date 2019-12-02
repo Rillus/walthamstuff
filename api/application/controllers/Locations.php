@@ -99,4 +99,19 @@ class Locations extends CI_Controller {
 			echo json_encode($entry);
 		}
 	}
+
+	public function has_offers() {
+		$location = $this->db->where('lat !=', '')
+							 ->where('lon !=', '')
+							 ->where('status', 0)
+							 ->where('offers !=', '')
+							 ->where('offers !=', null)
+							 ->where('offers !=', 'None')
+							 ->order_by('id', 'asc')
+							 ->get('locations');
+
+		if ($location->num_rows() > 0) {
+			echo json_encode($location->result());
+		}
+	}
 }

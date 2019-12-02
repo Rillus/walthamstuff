@@ -397,8 +397,46 @@ $(document).ready(function() {
         },
     });
 
-});
 
+    $('.Category-offers').click(function() {
+        getJSON(apiBaseUrl + 'locations/has_offers', function(err, data) {
+            if (err !== null) {
+                alert('Something went wrong: ' + err);
+            } else {
+                var infoWindows = [];
+                if (data !== null) {
+                    data.forEach(function(element) {
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(element.lat, element.lon),
+                            map: map
+                        });
+
+                        markers.push(marker);
+
+                        var contentString = buildContentString(element);
+
+                        var infoWindow = new google.maps.InfoWindow({
+                            content: contentString
+                        });
+                        infoWindows.push(infoWindow);
+
+                        marker.addListener('click', function() {
+                          for (i = 0; i < infoWindows.length; i++) {
+                              infoWindows[i].close();
+                          }
+                          infoWindow.open(map, marker);
+                        });
+
+                        setMarkers(map);
+                    });
+                }
+                
+                GeoMarker.setMap(map);
+            }
+        });
+    });
+
+});
 
 if(!navigator.geolocation) {
     alert('Your browser does not support geolocation');
