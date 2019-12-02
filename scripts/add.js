@@ -38,9 +38,14 @@ var init = function() {
         }
     },
     addFormCallback = function(responseData) {
+        $('#addError').empty();
+        
         if (responseData.status == 'success') {
             var id = responseData.data.venueId;
-            window.location.assign('venue.html?id=' + id);
+            window.location.assign('venue.php?id=' + id);
+        } else if (responseData.status == 'error') {
+            // Display error feedback
+            displayErrorMessage(responseData.reason, '#addError');
         }
     };
 

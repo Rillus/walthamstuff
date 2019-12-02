@@ -22,21 +22,22 @@
         position: absolute;
         top: 0;
         right: 0;
-        padding: $gutter;
-        color: $colour-medium-carmine;
-
-        &:hover {
-            text-decoration: none;
-            color: $colour-flush-mahogany;
-        }
+        width: 36px;
+        height: 36px;
+        opacity: 0.7;
+        border-radius: 0 $border-radius 0 $border-radius;
     }
 
-    .Input {
+    &-header {
+        margin: $gutter $gutter*2 $gutter 0;
+    }
+    
+    &-submit {
+        margin-bottom: $gutter;
         width: 100%;
     }
 
-    .btn {
-        margin-bottom: $gutter;
+    .Input {
         width: 100%;
     }
 }

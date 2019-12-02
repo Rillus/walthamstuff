@@ -7,6 +7,7 @@
 <form class="form-container j-isLoggedIn" method="post" id="<?php echo $formType ?>Form">
     <fieldset>
         <h2><?php echo ($formType == 'add') ? "Add Location" : "Edit Location" ?></h2>
+        <div id="addError"></div>
         <div class="form-group">
             <label for="name">Name of place/business</label>
           <input type="text" id="name" name="name" class="form-control">

@@ -33,6 +33,12 @@
         color: $colour-trout;
         text-decoration: none;
     }
+
+    &-offers {
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
 }
 .Search {
     &-section {
