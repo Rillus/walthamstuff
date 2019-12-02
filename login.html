@@ -1,6 +1,7 @@
 <div class="Login">
-    <button id="closeLogin" class="Login-close">X</button>
-    <h2>Log in <span>or <a href="./register.php">Sign up</a></span></h2>
+    <button id="closeLogin" class="Login-close btn btn-secondary">&#10005;</button>
+    <h2 class="Login-header">Log in <span>or <a href="./register.php">Sign up</a></span></h2>
+    <div id="loginError"></div>
     <form method="post">
         <div class="Label">
             <label for="email">Email</label><br>
@@ -11,7 +12,7 @@
             <input class="Input" type="password" name="password" id="password" class="field" />
         </div>
         
-        <input type="submit" value="Sign in" class="btn btn-primary" onclick="sendData(event, 'login/login_action', loginFormCallback)" />
+        <input type="submit" value="Sign in" class="Login-submit btn btn-primary" onclick="sendData(event, 'login/login_action', loginFormCallback)" />
         <!-- <p class="forgotten"><a href="<?php echo site_url('login/forgotten'); ?>">Forgotten your password?</a><p> -->
     </form>
 </div>
